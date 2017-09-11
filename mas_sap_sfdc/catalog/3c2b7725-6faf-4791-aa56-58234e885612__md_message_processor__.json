@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_ENTRADAMERCANCIA"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__SAP_Inbound_Merch__c"
+        }
+    },
+    "id": "3c2b7725-6faf-4791-aa56-58234e885612",
+    "version": "5.2.0.0"
+}

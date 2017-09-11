@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_SALIDASALESFORCE"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__SAP_Outbound_Merch__c"
+        }
+    },
+    "id": "61935933-aa40-40d5-b532-9da40c9b0204",
+    "version": "5.2.0.0"
+}

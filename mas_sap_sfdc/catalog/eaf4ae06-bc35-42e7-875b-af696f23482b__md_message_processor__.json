@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "Orders"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_SOLICITUDPEDIDO"
+        }
+    },
+    "id": "eaf4ae06-bc35-42e7-875b-af696f23482b",
+    "version": "5.2.0.0"
+}

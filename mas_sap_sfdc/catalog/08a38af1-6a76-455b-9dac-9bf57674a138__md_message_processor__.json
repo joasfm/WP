@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_SOLICITUDPEDIDO"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__SAP_Order_Request__c"
+        }
+    },
+    "id": "08a38af1-6a76-455b-9dac-9bf57674a138",
+    "version": "5.2.0.0"
+}

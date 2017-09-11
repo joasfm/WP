@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_CONSULSTOCKINVENT"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_CONSULSTOCKINVENT"
+        }
+    },
+    "id": "4fb6cc15-85e6-4d8b-a041-3a9fadac66d4",
+    "version": "5.2.0.0"
+}

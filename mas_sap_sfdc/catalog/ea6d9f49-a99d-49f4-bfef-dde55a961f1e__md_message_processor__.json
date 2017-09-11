@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "Orders"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_RESERVAMATERIAL"
+        }
+    },
+    "id": "ea6d9f49-a99d-49f4-bfef-dde55a961f1e",
+    "version": "5.2.0.0"
+}

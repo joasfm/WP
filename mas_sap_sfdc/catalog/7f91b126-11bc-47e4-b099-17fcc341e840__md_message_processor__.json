@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_PEDIDOSALESFORCE"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_PEDIDOSALESFORCE"
+        }
+    },
+    "id": "7f91b126-11bc-47e4-b099-17fcc341e840",
+    "version": "5.2.0.0"
+}

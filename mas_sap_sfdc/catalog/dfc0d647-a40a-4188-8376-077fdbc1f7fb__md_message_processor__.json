@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_ENTRADAMERCANCIA"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_ENTRADAMERCANCIA"
+        }
+    },
+    "id": "dfc0d647-a40a-4188-8376-077fdbc1f7fb",
+    "version": "5.2.0.0"
+}

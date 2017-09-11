@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "ZPAIMF_SOLICITUDPEDIDO": {
+            "id": "/properties/ZPAIMF_SOLICITUDPEDIDO",
+            "properties": {
+                "export": {
+                    "id": "/properties/ZPAIMF_SOLICITUDPEDIDO/properties/export",
+                    "properties": {
+                        "ET_RESOLICITUDPED": {
+                            "id": "/properties/ZPAIMF_SOLICITUDPEDIDO/properties/export/properties/ET_RESOLICITUDPED",
+                            "properties": {
+                                "row": {
+                                    "id": "/properties/ZPAIMF_SOLICITUDPEDIDO/properties/export/properties/ET_RESOLICITUDPED/properties/row",
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "array"
+}
+

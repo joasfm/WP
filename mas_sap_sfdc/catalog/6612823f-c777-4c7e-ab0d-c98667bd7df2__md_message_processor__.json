@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_SOLICITUDPEDIDO"
+        }
+    },
+    "id": "6612823f-c777-4c7e-ab0d-c98667bd7df2",
+    "version": "5.2.0.0"
+}

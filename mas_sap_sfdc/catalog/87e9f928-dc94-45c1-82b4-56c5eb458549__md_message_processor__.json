@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "com.sforce.soap.partner.UpsertResult"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "87e9f928-dc94-45c1-82b4-56c5eb458549",
+    "version": "5.2.0.0"
+}

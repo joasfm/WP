@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+            "account": {
+                "id": "account",
+                "type": "string"
+            },
+            "applicant": {
+                "id": "applicant",
+                "type": "string"
+            },
+            "center": {
+                "id": "center",
+                "type": "string"
+            },
+            "costCenter": {
+                "id": "costCenter",
+                "type": "integer"
+            },
+            "description": {
+                "id": "description",
+                "type": "string"
+            },
+            "material": {
+                "id": "material",
+                "type": "string"
+            },
+            "position": {
+                "id": "position",
+                "type": "string"
+            },
+            "price": {
+                "id": "price",
+                "type": "integer"
+            },
+            "priceService": {
+                "id": "priceService",
+                "type": "string"
+            },
+            "quantity": {
+                "id": "quantity",
+                "type": "integer"
+            },
+            "quantityService": {
+                "id": "quantityService",
+                "type": "string"
+            },
+            "servicenumber": {
+                "id": "servicenumber",
+                "type": "string"
+            },
+            "typePosition": {
+                "id": "typePosition",
+                "type": "string"
+            },
+            "workOrder": {
+                "id": "workOrder",
+                "type": "string"
+            }
+        "type": "object"
+    },
+    "type": "array"
+}

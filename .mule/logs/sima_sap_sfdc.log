@@ -1,0 +1,266 @@
+2017-09-11 16:14:40,900 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mas_sap_sfdc'                          +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2017-09-11 16:14:41,562 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2017-09-11 16:14:41,837 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2017-09-11 16:14:42,126 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2017-09-11 16:14:42,129 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2017-09-11 16:14:42,596 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@260ff5b7: startup date [Mon Sep 11 16:14:42 CDT 2017]; root of context hierarchy
+2017-09-11 16:14:47,238 [main] INFO  org.springframework.context.support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [common.properties]
+2017-09-11 16:14:47,240 [main] INFO  org.springframework.context.support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [mule.dev.properties]
+2017-09-11 16:14:47,250 [main] INFO  org.springframework.context.support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [common.properties]
+2017-09-11 16:14:47,251 [main] INFO  org.springframework.context.support.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [mule.dev.properties]
+2017-09-11 16:14:47,290 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-09-11 16:14:50,572 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2017-09-11 16:14:51,916 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\.\.mule\mas_sap_sfdc\queue-tx-log\tx1.log and C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\.\.mule\mas_sap_sfdc\queue-tx-log\tx2.log
+2017-09-11 16:14:51,935 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\.\.mule\mas_sap_sfdc\queue-xa-tx-log\tx1.log and C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\.\.mule\mas_sap_sfdc\queue-xa-tx-log\tx2.log
+2017-09-11 16:14:51,943 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising connector: SAP
+2017-09-11 16:14:52,006 [main] INFO  com.mulesoft.mule.transport.sap.SapConnector - Found MuleSoft Enterprise Java Connector for SAP usage license entitlement.
+2017-09-11 16:14:52,009 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising connector: SFTP
+2017-09-11 16:14:52,209 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2017-09-11 16:14:52,216 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: api-main
+2017-09-11 16:14:52,217 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=404, exceptions=[org.mule.module.apikit.exception.NotFoundException]}
+2017-09-11 16:14:52,219 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=405, exceptions=[org.mule.module.apikit.exception.MethodNotAllowedException]}
+2017-09-11 16:14:52,219 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=415, exceptions=[org.mule.module.apikit.exception.UnsupportedMediaTypeException]}
+2017-09-11 16:14:52,219 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=406, exceptions=[org.mule.module.apikit.exception.NotAcceptableException]}
+2017-09-11 16:14:52,219 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=400, exceptions=[org.mule.module.apikit.exception.BadRequestException]}
+2017-09-11 16:14:52,292 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: api-main.stage1
+2017-09-11 16:14:52,313 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: api-console
+2017-09-11 16:14:52,314 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@499c4d61
+2017-09-11 16:14:52,328 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: api-console.stage1
+2017-09-11 16:14:52,332 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/orderRequest:application/json:api-config
+2017-09-11 16:14:52,332 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@c677d7e
+2017-09-11 16:14:52,339 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/orderRequest:application/json:api-config.stage1
+2017-09-11 16:14:52,350 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/inboundMerchandise:application/json:api-config
+2017-09-11 16:14:52,352 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5dba3fdc
+2017-09-11 16:14:52,389 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/inboundMerchandise:application/json:api-config.stage1
+2017-09-11 16:14:52,390 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/serviceEntry:application/json:api-config
+2017-09-11 16:14:52,392 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@d190639
+2017-09-11 16:14:52,399 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/serviceEntry:application/json:api-config.stage1
+2017-09-11 16:14:52,402 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/purchaseOrder:api-config
+2017-09-11 16:14:52,404 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@399c408c
+2017-09-11 16:14:52,435 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/purchaseOrder:api-config.stage1
+2017-09-11 16:14:52,452 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/getStock:api-config
+2017-09-11 16:14:52,453 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@2c0a3826
+2017-09-11 16:14:52,461 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/getStock:api-config.stage1
+2017-09-11 16:14:52,462 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/outboundMerch:api-config
+2017-09-11 16:14:52,463 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@433b1597
+2017-09-11 16:14:52,473 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/outboundMerch:api-config.stage1
+2017-09-11 16:14:52,475 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/getAsset:api-config
+2017-09-11 16:14:52,476 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@17332039
+2017-09-11 16:14:52,484 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/getAsset:api-config.stage1
+2017-09-11 16:14:52,485 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/reserveMaterial:application/json:api-config
+2017-09-11 16:14:52,485 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@66682e8f
+2017-09-11 16:14:52,490 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/reserveMaterial:application/json:api-config.stage1
+2017-09-11 16:14:52,491 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-assetsFlow
+2017-09-11 16:14:52,491 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6fefc5ea
+2017-09-11 16:14:52,510 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-assetsFlow.stage1
+2017-09-11 16:14:52,512 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-edenredFlow
+2017-09-11 16:14:52,518 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@23933031
+2017-09-11 16:14:52,532 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-edenredFlow.stage1
+2017-09-11 16:14:52,534 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-inbound-merchandise
+2017-09-11 16:14:52,536 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6ec98ccc
+2017-09-11 16:14:52,545 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-inbound-merchandise.stage1
+2017-09-11 16:14:52,548 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send-InboundToSAP
+2017-09-11 16:14:52,550 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@3412a3fd
+2017-09-11 16:14:52,570 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send-InboundToSAP.stage1
+2017-09-11 16:14:52,571 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send-InboundToSFDC
+2017-09-11 16:14:52,571 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7dd7ec56
+2017-09-11 16:14:52,581 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send-InboundToSFDC.stage1
+2017-09-11 16:14:52,581 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-material-reserverFlow
+2017-09-11 16:14:52,582 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@3c98981e
+2017-09-11 16:14:52,606 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-material-reserverFlow.stage1
+2017-09-11 16:14:52,608 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send-materialReserveToSAP
+2017-09-11 16:14:52,609 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@43ee1cf7
+2017-09-11 16:14:52,615 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send-materialReserveToSAP.stage1
+2017-09-11 16:14:52,615 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send-materialReserveToSFDC
+2017-09-11 16:14:52,616 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@29ea5e0
+2017-09-11 16:14:52,626 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send-materialReserveToSFDC.stage1
+2017-09-11 16:14:52,627 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: sima-order-request
+2017-09-11 16:14:52,627 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@229749f0
+2017-09-11 16:14:52,633 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: sima-order-request.stage1
+2017-09-11 16:14:52,634 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: job_retrive_flow
+2017-09-11 16:14:52,634 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@1013871e
+2017-09-11 16:14:52,645 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: job_retrive_flow.stage1
+2017-09-11 16:14:52,646 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send-requestToSAP
+2017-09-11 16:14:52,647 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5831989d
+2017-09-11 16:14:52,659 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send-requestToSAP.stage1
+2017-09-11 16:14:52,659 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send-requestToSFDC
+2017-09-11 16:14:52,659 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@2f3cd727
+2017-09-11 16:14:52,665 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send-requestToSFDC.stage1
+2017-09-11 16:14:52,665 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-outbound-merchandiseFlow
+2017-09-11 16:14:52,665 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@17189618
+2017-09-11 16:14:52,671 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-outbound-merchandiseFlow.stage1
+2017-09-11 16:14:52,673 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: sima-purchase-orderFlow
+2017-09-11 16:14:52,673 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@43e7f104
+2017-09-11 16:14:52,679 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: sima-purchase-orderFlow.stage1
+2017-09-11 16:14:52,679 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: sima-service-entryFlow
+2017-09-11 16:14:52,680 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@3b8b4846
+2017-09-11 16:14:52,685 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: sima-service-entryFlow.stage1
+2017-09-11 16:14:52,685 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: job_retrive_entries
+2017-09-11 16:14:52,685 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@42cd0fc6
+2017-09-11 16:14:52,697 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: job_retrive_entries.stage1
+2017-09-11 16:14:52,699 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send_entryToSAP
+2017-09-11 16:14:52,700 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@3636f2a7
+2017-09-11 16:14:52,706 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send_entryToSAP.stage1
+2017-09-11 16:14:52,706 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: send_entryToSFDC
+2017-09-11 16:14:52,707 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@1397b141
+2017-09-11 16:14:52,712 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: send_entryToSFDC.stage1
+2017-09-11 16:14:52,715 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-stockFlow
+2017-09-11 16:14:52,716 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@9763e61
+2017-09-11 16:14:52,721 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-stockFlow.stage1
+2017-09-11 16:14:52,726 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-stock-StartSync
+2017-09-11 16:14:52,726 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@33373f70
+2017-09-11 16:14:52,732 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-stock-StartSync.stage1
+2017-09-11 16:14:52,733 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mas-stock-EndSync
+2017-09-11 16:14:52,733 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@24955144
+2017-09-11 16:14:52,748 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mas-stock-EndSync.stage1
+2017-09-11 16:14:53,919 [main] INFO  org.mule.module.apikit.Configuration - Building resource URI cache...
+2017-09-11 16:14:54,246 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\api.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\config.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\errorhandling.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-assets.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-edenred.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-inbound-merchandise.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-material-reserver.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-order-request.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-outbound-merchandise.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-purchase-order.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-service-entry.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-stock.xml'}]"
+2017-09-11 16:14:54,246 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\api.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\config.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\errorhandling.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-assets.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-edenred.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-inbound-merchandise.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-material-reserver.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-order-request.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-outbound-merchandise.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-purchase-order.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-service-entry.xml'}, ConfigResource{resourceName='C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\.mule\apps\mas_sap_sfdc\mas-stock.xml'}]"
+2017-09-11 16:14:57,274 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mas_sap_sfdc'                              +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2017-09-11 16:14:57,279 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2017-09-11 16:14:57,279 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2017-09-11 16:14:57,347 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://0.0.0.0:8081
+2017-09-11 16:14:57,351 [main] INFO  com.mulesoft.mule.transport.sap.SapConnector - Connected: SapConnector
+{
+  name=SAP
+  lifecycle=initialise
+  this=736788b
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[sap]
+  serviceOverrides=<none>
+}
+
+2017-09-11 16:14:57,352 [main] INFO  com.mulesoft.mule.transport.sap.SapConnector - Starting: SapConnector
+{
+  name=SAP
+  lifecycle=initialise
+  this=736788b
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[sap]
+  serviceOverrides=<none>
+}
+
+2017-09-11 16:14:57,352 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting connector: SAP
+2017-09-11 16:14:57,353 [main] INFO  org.mule.transport.sftp.SftpConnector - Connected: SftpConnector
+{
+  name=SFTP
+  lifecycle=initialise
+  this=74bfdd66
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[sftp]
+  serviceOverrides=<none>
+}
+
+2017-09-11 16:14:57,354 [main] INFO  org.mule.transport.sftp.SftpConnector - Starting: SftpConnector
+{
+  name=SFTP
+  lifecycle=initialise
+  this=74bfdd66
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[sftp]
+  serviceOverrides=<none>
+}
+
+2017-09-11 16:14:57,354 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting connector: SFTP
+2017-09-11 16:14:57,367 [main] INFO  org.mule.modules.salesforce.generated.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (1) used in this application 
+Salesforce 8.3.1 (DevKit     +
++ 3.9.0 Build UNNAMED.2793.f49b6c7)+
+                                          +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2017-09-11 16:14:57,385 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2017-09-11 16:14:57,422 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: api-main
+2017-09-11 16:14:57,444 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: api-main.stage1
+2017-09-11 16:14:57,487 [main] INFO  org.mule.module.apikit.Configuration - 
+********************************************************************************
+* APIKit Console URL: http://127.0.0.1:8081/console                            *
+********************************************************************************
+2017-09-11 16:14:57,487 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: api-console
+2017-09-11 16:14:57,487 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: api-console.stage1
+2017-09-11 16:14:57,491 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/orderRequest:application/json:api-config
+2017-09-11 16:14:57,491 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/orderRequest:application/json:api-config.stage1
+2017-09-11 16:14:57,493 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/inboundMerchandise:application/json:api-config
+2017-09-11 16:14:57,493 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/inboundMerchandise:application/json:api-config.stage1
+2017-09-11 16:14:57,505 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/serviceEntry:application/json:api-config
+2017-09-11 16:14:57,506 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/serviceEntry:application/json:api-config.stage1
+2017-09-11 16:14:57,511 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/purchaseOrder:api-config
+2017-09-11 16:14:57,511 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/purchaseOrder:api-config.stage1
+2017-09-11 16:14:57,514 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/getStock:api-config
+2017-09-11 16:14:57,514 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/getStock:api-config.stage1
+2017-09-11 16:14:57,520 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/outboundMerch:api-config
+2017-09-11 16:14:57,520 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/outboundMerch:api-config.stage1
+2017-09-11 16:14:57,525 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/getAsset:api-config
+2017-09-11 16:14:57,525 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/getAsset:api-config.stage1
+2017-09-11 16:14:57,528 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/reserveMaterial:application/json:api-config
+2017-09-11 16:14:57,528 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/reserveMaterial:application/json:api-config.stage1
+2017-09-11 16:14:57,541 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-assetsFlow
+2017-09-11 16:14:57,541 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-assetsFlow.stage1
+2017-09-11 16:14:57,547 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-edenredFlow
+2017-09-11 16:14:57,547 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-edenredFlow.stage1
+2017-09-11 16:14:57,556 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-inbound-merchandise
+2017-09-11 16:14:57,556 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-inbound-merchandise.stage1
+2017-09-11 16:14:57,564 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send-InboundToSAP
+2017-09-11 16:14:57,565 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send-InboundToSAP.stage1
+2017-09-11 16:14:57,667 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send-InboundToSFDC
+2017-09-11 16:14:57,668 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send-InboundToSFDC.stage1
+2017-09-11 16:14:57,670 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-material-reserverFlow
+2017-09-11 16:14:57,670 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-material-reserverFlow.stage1
+2017-09-11 16:14:57,673 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send-materialReserveToSAP
+2017-09-11 16:14:57,673 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send-materialReserveToSAP.stage1
+2017-09-11 16:14:57,676 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send-materialReserveToSFDC
+2017-09-11 16:14:57,676 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send-materialReserveToSFDC.stage1
+2017-09-11 16:14:57,678 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: sima-order-request
+2017-09-11 16:14:57,678 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: sima-order-request.stage1
+2017-09-11 16:14:57,682 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: job_retrive_flow
+2017-09-11 16:14:57,683 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: job_retrive_flow.stage1
+2017-09-11 16:14:57,685 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send-requestToSAP
+2017-09-11 16:14:57,685 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send-requestToSAP.stage1
+2017-09-11 16:14:57,688 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send-requestToSFDC
+2017-09-11 16:14:57,688 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send-requestToSFDC.stage1
+2017-09-11 16:14:57,696 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-outbound-merchandiseFlow
+2017-09-11 16:14:57,696 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-outbound-merchandiseFlow.stage1
+2017-09-11 16:14:57,702 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: sima-purchase-orderFlow
+2017-09-11 16:14:57,702 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: sima-purchase-orderFlow.stage1
+2017-09-11 16:14:57,706 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: sima-service-entryFlow
+2017-09-11 16:14:57,706 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: sima-service-entryFlow.stage1
+2017-09-11 16:14:57,709 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: job_retrive_entries
+2017-09-11 16:14:57,709 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: job_retrive_entries.stage1
+2017-09-11 16:14:57,713 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send_entryToSAP
+2017-09-11 16:14:57,713 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send_entryToSAP.stage1
+2017-09-11 16:14:57,716 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: send_entryToSFDC
+2017-09-11 16:14:57,716 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: send_entryToSFDC.stage1
+2017-09-11 16:14:57,719 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-stockFlow
+2017-09-11 16:14:57,719 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-stockFlow.stage1
+2017-09-11 16:14:57,722 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-stock-StartSync
+2017-09-11 16:14:57,722 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-stock-StartSync.stage1
+2017-09-11 16:14:57,725 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mas-stock-EndSync
+2017-09-11 16:14:57,725 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mas-stock-EndSync.stage1
+2017-09-11 16:14:57,824 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2017-09-11 16:14:57,874 [main] INFO  org.mule.module.management.agent.AbstractJmxAgent - Registered Connector Service with name Mule.mas_sap_sfdc:type=Connector,name="SAP.1"
+2017-09-11 16:14:57,875 [main] INFO  org.mule.module.management.agent.AbstractJmxAgent - Registered Connector Service with name Mule.mas_sap_sfdc:type=Connector,name="SFTP.1"
+2017-09-11 16:14:57,881 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mas_sap_sfdc                                          *
+* OS encoding: \, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   DevKit Extension Information                                     *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   Wrapper Manager                                                  *
+**********************************************************************

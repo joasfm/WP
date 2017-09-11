@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_HOJAENTRADASERVICIOS"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_ENTRADAMERCANCIA"
+        }
+    },
+    "id": "a8710632-953d-4408-a8c9-43d2de861590",
+    "version": "5.2.0.0"
+}

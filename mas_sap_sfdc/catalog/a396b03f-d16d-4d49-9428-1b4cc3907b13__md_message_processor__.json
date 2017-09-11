@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZAAPMF_HOJAENTRADASERVICIOS"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__SAP_Service_Entry__c"
+        }
+    },
+    "id": "a396b03f-d16d-4d49-9428-1b4cc3907b13",
+    "version": "5.2.0.0"
+}

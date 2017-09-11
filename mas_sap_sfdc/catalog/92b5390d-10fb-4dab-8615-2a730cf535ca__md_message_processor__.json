@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "EDENRED"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "92b5390d-10fb-4dab-8615-2a730cf535ca",
+    "version": "5.2.0.0"
+}

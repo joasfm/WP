@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_CONSULSTOCKINVENT"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__Part__c"
+        }
+    },
+    "id": "b34a169d-ae35-4956-b712-7000e6db79fb",
+    "version": "5.2.0.0"
+}
