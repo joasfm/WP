@@ -19,7 +19,6 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
     </flow>
     <flow name="post:/orderRequest:application/json:api-config">
         <flow-ref name="sima-order-request" doc:name="sima-order-request" />
-
     </flow>
     <flow name="post:/inboundMerchandise:application/json:api-config">
         <flow-ref name="mas-inbound-merchandise" doc:name="mas-inbound-merchandise" />
@@ -31,19 +30,19 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <flow-ref name="sima-purchase-orderFlow" doc:name="sima-purchase-orderFlow" />
     </flow>
     <flow name="post:/getStock:api-config">
-        <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow"/>
-
+        <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow" />
     </flow>
     <flow name="post:/outboundMerch:api-config">
-        <flow-ref name="mas-outbound-merchandiseFlow" doc:name="mas-outbound-merchandiseFlow"/>
-
+        <flow-ref name="mas-outbound-merchandiseFlow" doc:name="mas-outbound-merchandiseFlow" />
     </flow>
     <flow name="post:/getAsset:api-config">
-        <flow-ref name="mas-assetsFlow" doc:name="mas-assetsFlow"/>
-
+        <flow-ref name="mas-assetsFlow" doc:name="mas-assetsFlow" />
     </flow>
     <flow name="post:/reserveMaterial:application/json:api-config">
-        <flow-ref name="mas-material-reserverFlow" doc:name="mas-material-reserverFlow"/>
+        <flow-ref name="mas-material-reserverFlow" doc:name="mas-material-reserverFlow" />
+    </flow>
+    <flow name="post:/getfuelEdenred:api-config">
+        <flow-ref name="mas-edenredFlow" doc:name="mas-edenredFlow"/>
 
     </flow>
     <apikit:mapping-exception-strategy name="api-apiKitGlobalExceptionMapping">

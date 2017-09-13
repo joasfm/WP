@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
 http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
-    <flow name="mas-stockFlow">
+    <flow name="mas-stockFlow" processingStrategy="synchronous">
         <enricher target="#[flowVars.idSync]" doc:name="Message Enricher">
             <flow-ref name="mas-stock-StartSync" doc:name="mas-stock-StartSync"/>
         </enricher>
@@ -66,6 +66,23 @@ payload.ZPAIMF_CONSULSTOCKINVENT.export.ET_STOCK_SF.*row map ((row , indexOfRow)
         <set-payload value="#[flowVars.idSync]" doc:name="Set Payload"/>
         <flow-ref name="mas-stock-EndSync" doc:name="mas-stock-EndSync"/>
         <set-payload value="#[{}]" doc:name="Set Payload"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-payload value="#[flowVars.idSync]" doc:name="Set Payload"/>
+            <dw:transform-message doc:name="Transform Message">
+                <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Id: payload,
+	aib__status__c: "ERROR",
+	aib__synced_at__c: now
+}]]></dw:set-payload>
+            </dw:transform-message>
+            <sfdc:update config-ref="Salesforce_Authentication" type="aib__Part_Sync__c" doc:name="Salesforce">
+                <sfdc:objects ref="#[payload]"/>
+            </sfdc:update>
+            <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        </catch-exception-strategy>
 
     </flow>
     <flow name="mas-stock-StartSync">

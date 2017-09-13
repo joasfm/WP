@@ -15,7 +15,7 @@
     <metaDataModelPropertiesManager>
       <properties>
         <org.mule.tooling.metadata.properties.CSVSampleSettingsMetadataProperties>
-          <sampleFilePath>C:\Users\jflormun\Documents\Documentacion\YYYY-mm-dd-UEN.csv</sampleFilePath>
+          <sampleFilePath>C:\Users\jflormun\Documents\2017-09-08-001-030-62170-030.csv</sampleFilePath>
           <delimiter>,</delimiter>
           <rowsToIgnore>0</rowsToIgnore>
           <quotedString>false</quotedString>
@@ -23,7 +23,7 @@
           <quoteChar>&quot;</quoteChar>
         </org.mule.tooling.metadata.properties.CSVSampleSettingsMetadataProperties>
         <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty>
-          <exampleContent>C:\Users\jflormun\Documents\Documentacion\YYYY-mm-dd-UEN.csv</exampleContent>
+          <exampleContent>C:\Users\jflormun\Documents\2017-09-08-001-030-62170-030.csv</exampleContent>
         </org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty>
       </properties>
     </metaDataModelPropertiesManager>
@@ -38,7 +38,7 @@
       </metaDataModelPropertiesManager>
       <fields>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>IdTransaction</name>
+          <name>IdTransaccion</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -49,24 +49,7 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>IdTransaction</label>
-              </org.mule.common.metadata.property.LabelMetaDataProperty>
-            </properties>
-          </metaDataFieldPropertyManager>
-        </org.mule.common.metadata.DefaultMetaDataField>
-        <org.mule.common.metadata.DefaultMetaDataField>
-          <name>Usuarios</name>
-          <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-            <dataType>STRING</dataType>
-            <metaDataModelPropertiesManager>
-              <properties/>
-            </metaDataModelPropertiesManager>
-          </model>
-          <accessType>READ</accessType>
-          <metaDataFieldPropertyManager>
-            <properties>
-              <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>Usuarios</label>
+                <label>IdTransaccion</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
@@ -446,7 +429,7 @@
           </metaDataFieldPropertyManager>
         </org.mule.common.metadata.DefaultMetaDataField>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>RendimientoStandard</name>
+          <name>RendimientoStandar</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -457,7 +440,7 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>RendimientoStandard</label>
+                <label>RendimientoStandar</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
@@ -509,23 +492,6 @@
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
                 <label>SaldoAnterior</label>
-              </org.mule.common.metadata.property.LabelMetaDataProperty>
-            </properties>
-          </metaDataFieldPropertyManager>
-        </org.mule.common.metadata.DefaultMetaDataField>
-        <org.mule.common.metadata.DefaultMetaDataField>
-          <name>FechaReembolso</name>
-          <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-            <dataType>STRING</dataType>
-            <metaDataModelPropertiesManager>
-              <properties/>
-            </metaDataModelPropertiesManager>
-          </model>
-          <accessType>READ</accessType>
-          <metaDataFieldPropertyManager>
-            <properties>
-              <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>FechaReembolso</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>

@@ -1,0 +1,5 @@
+#Tue Sep 12 15:27:00 CDT 2017
+encoding=UTF-8
+domain=default
+redeployment.enabled=true
+config.resources=mas-purchase-order.xml,errorhandling.xml,mas-inbound-merchandise.xml,mas-service-entry.xml,mas-order-request.xml,mas-edenred.xml,mas-jobs.xml,mas-outbound-merchandise.xml,mas-stock.xml,config.xml,api.xml,mas-assets.xml,mas-material-reserver.xml

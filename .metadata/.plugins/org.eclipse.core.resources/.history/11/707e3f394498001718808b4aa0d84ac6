@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:mulerequester="http://www.mulesoft.org/schema/mule/mulerequester" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:ftp="http://www.mulesoft.org/schema/mule/ee/ftp" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/ftp http://www.mulesoft.org/schema/mule/ee/ftp/current/mule-ftp-ee.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd
+http://www.mulesoft.org/schema/mule/mulerequester http://www.mulesoft.org/schema/mule/mulerequester/current/mule-mulerequester.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+    <file:connector name="File" autoDelete="false" streaming="true" validateConnections="true" doc:name="File"/>
+    <sub-flow name="mas-edenredSub_Flow"/>
+    <flow name="mas-edenredFlow"  >
+        <set-payload value="#[payload.fileName]" doc:name="Set Payload"/>
+        <file:outbound-endpoint path="C:\Users\jflormun\Documents\Anypoint Studio\WorkPlaces\workplace\WP\mas_sap_sfdc\sftp01.edenred.com.mx\" outputPattern="#[payload]" connector-ref="File" responseTimeout="10000" doc:name="File"/>
+        <file:file-to-string-transformer doc:name="File to String"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="92b5390d-10fb-4dab-8615-2a730cf535ca">
+            <dw:input-payload doc:sample="sample_data\string.dwl" mimeType="application/csv"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload map ((payload01 , indexOfPayload01) -> {
+	Name: payload01.IdTransaction,
+	aib__Station_Code__c: payload01.CodigoPemex,
+	aib__Fuel_Station__c: payload01.Estacion,
+	aib__Card__c: payload01.Tarjeta,
+	aib__License_Plate__c: payload01.Placa,
+	aib__Model__c: payload01.Marca,
+	aib__Fuel_Type__c: payload01.TipoCombustible,
+	aib__Units__c: payload01.Volumen ,
+	aib__Unit_Price__c: payload01.PrecioUnidad,
+	aib__Subtotal__c: payload01.Importe,
+	aib__Tax__c: payload01.IVA,
+	aib__Grand_Total__c: payload01.ImporteTotal,
+	aib__Transaction_Date_Time__c: payload01.Fecha,
+	aib__Driver_Code__c: payload01.CodigoChofer,
+	aib__Odometer__c: payload01.Odometro as :number,
+	aib__Prev_Odometer__c: payload01.KilometrajeAnterior as :number,
+	aib__Distance__c: payload01.Recorrido as :number,
+	aib__Performance__c: payload01.Rendimiento as :number,
+	aib__Std_Performance__c: payload01.RendimientoStandard as :number,
+	aib__Tank_Capacity__c: payload01.CapacidadTanque as :number,
+	aib__Type__c: payload01.TipodeTransaccion,
+	aib__Previous_Balance__c: payload01.SaldoAnterior,
+	aib__Driver_Name__c: payload01.NombreChofer,
+	aib__User__c: payload01.Usuarios,
+	aib__Zone__c: payload01.Region,
+	aib__Posted_Date__c: payload01.FechaReembolso
+})]]></dw:set-payload>
+        </dw:transform-message>
+        <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__Fuel_Trx__c" doc:name="Salesforce">
+            <sfdc:objects ref="#[payload]"/>
+        </sfdc:upsert>
+        
+        	<choice-exception-strategy doc:name="Choice Exception Strategy">
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.net.ConnectException)]" doc:name="Connect Exception Strategy">
+			<logger level="ERROR" message="Connect Exception: #[exception.message]."
+				doc:name="Logger" />
+		</catch-exception-strategy>
+		<catch-exception-strategy
+			when="#[exception.causedBy(java.io.IOException)]" doc:name="IO Exception Strategy">
+			<logger level="ERROR" message="IO Exception: #[exception.message]."
+				doc:name="Logger" />
+		</catch-exception-strategy>
+	</choice-exception-strategy>
+    </flow>
+
+</mule>

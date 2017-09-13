@@ -17,5 +17,8 @@
 	<classpathentry kind="con" path="MULE_LIB/ObjectStore/org.mule.tooling.ui.contribution.objectstore.3.6.0"/>
 	<classpathentry kind="con" path="MUNIT_RUNTIME"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/munit"/>
+	<classpathentry kind="lib" path="C:/Users/jflormun/Downloads/mule-module-requester-1.5-studio-plugin/features/org.mule.tooling.ui.extension.requester.3.5.0_1.5.0.201610211142.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jflormun/Downloads/mule-module-requester-1.5-studio-plugin/plugins/org.mule.tooling.ui.contribution.mulerequester.3.5.0_1.5.0.201610211142.jar"/>
+	<classpathentry kind="con" path="MULE_LIB/Mule Requester/org.mule.tooling.ui.contribution.mulerequester.3.5.0"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

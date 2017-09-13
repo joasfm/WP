@@ -40,7 +40,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 ---
 
 {
-	message: false
+	message: "Sin informacion en SAP"
 } when payload.ZPAIMF_SALIDASALESFORCE.export.ET_SALIDA_SF.row  == null 
 otherwise
 payload.ZPAIMF_SALIDASALESFORCE.export.ET_SALIDA_SF.*row map ((row , indexOfRow) -> {
