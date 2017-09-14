@@ -3979,3 +3979,573 @@ java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.L
 	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:104)
 	at org.mule.tooling.core.builder.MuleBuilder$1.run(MuleBuilder.java:175)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:12.329
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:12.330
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:12.331
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:12.332
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:13.030
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:13.031
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:14.189
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:14.190
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:14.191
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:14.192
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:15.171
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:15.172
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:16.584
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:16.585
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:16.586
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:16.587
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:17.562
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:17.563
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:18.757
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:18.758
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:18.774
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:18.775
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:19.721
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:19.721
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:20.592
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:20.593
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:20.596
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:20.597
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:21.583
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.mule.tooling.core 2 0 2017-09-14 11:29:21.583
+!MESSAGE There were problems disposing the Mule Classloader
+!STACK 0
+java.lang.IllegalAccessError: tried to access class org.apache.commons.logging.LogFactory$6 from class org.apache.commons.logging.LogFactory
+	at org.apache.commons.logging.LogFactory.getSystemProperty(LogFactory.java:1442)
+	at org.apache.commons.logging.LogFactory.initDiagnostics(LogFactory.java:1459)
+	at org.apache.commons.logging.LogFactory.<clinit>(LogFactory.java:1696)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mule.tooling.core.classloader.MuleClassLoader.leakPreventionForMule(MuleClassLoader.java:131)
+	at org.mule.tooling.core.classloader.MuleClassLoader.shutdown(MuleClassLoader.java:120)
+	at org.mule.tooling.core.classloader.MuleClassLoaderUtils.dispose(MuleClassLoaderUtils.java:127)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validate(MELValidator.java:55)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator.validateDocument(MELValidator.java:65)
+	at org.mule.tooling.ui.modules.core.autocomplete.mel.MELValidator$1.run(MELValidator.java:31)
+	at java.lang.Thread.run(Unknown Source)
