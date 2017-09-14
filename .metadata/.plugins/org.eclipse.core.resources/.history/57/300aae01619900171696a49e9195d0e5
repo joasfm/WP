@@ -9,7 +9,6 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/schedulers http://www.mulesoft.org/schema/mule/schedulers/current/mule-schedulers.xsd">
     <flow name="mas-jobs-getPurchaseOrder" initialState="started">
         <poll doc:name="Poll">
-            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
             <logger message="['Inicia Ordenes de Compra']" level="INFO" doc:name="Logger"/>
         </poll>
         <flow-ref name="mas-jobs-getPurchaseOrder" doc:name="mas-jobs-getPurchaseOrder"/>
@@ -17,7 +16,7 @@ http://www.mulesoft.org/schema/mule/schedulers http://www.mulesoft.org/schema/mu
     </flow>
     <flow name="mas-jobs-getStock" initialState="started">
         <poll doc:name="Poll">
-            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <fixed-frequency-scheduler frequency="1" timeUnit="HOURS"/>
             <logger message="['Inicia Inventario']" level="INFO" doc:name="Logger"/>
         </poll>
         <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow"/>
@@ -25,7 +24,6 @@ http://www.mulesoft.org/schema/mule/schedulers http://www.mulesoft.org/schema/mu
     </flow>
     <flow name="mas-jobs-getAssets" initialState="started">
         <poll doc:name="Poll">
-            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
             <logger message="#['Inicia Activos']" level="INFO" doc:name="Logger"/>
         </poll>
         <flow-ref name="mas-jobs-getAssets" doc:name="mas-jobs-getAssets"/>
