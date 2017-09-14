@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd">
+    <flow name="mas-assetsFlow">
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZPAIMF_CONSULTARACTIVOS: {
+		tables: {
+			T_OUTPUT: {
+				row: null
+			}
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:xml-to-function doc:name="XML to SAP Function (BAPI)"/>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZPAIMF_CONSULTARACTIVOS" outputXml="true" responseTimeout="10000" doc:name="ZPAIMF_CONSULTARACTIVOS"/>
+
+        <sap:object-to-xml doc:name="SAP Object to XML"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="0d6c295d-abf6-48ab-966a-94b7a8a18f5d">
+            <dw:input-payload mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
+	Name: row.EQUNR,
+	//aib__Odometer__c: row.MEDIDA as :number,
+	aib__Status__c: row.STAT_SIS,
+	//aib__UEN__c: row.BUKRS,
+	aib__Purchase_Date__c: row.INBDT as :date,
+	aib__Engine_Serial_No__c: row.CHASSIS_NUM,
+	aib__Fuel_Capacity__c: row.CAPACIDAD as :number,
+	aib__Fuel_Type__c: row.FUEL_PRI,
+	aib__License_Plate__c: row.LICENSE_NUM,
+	aib__Make__c: row.HERST,
+	aib__Model__c: row.TYPBZ,
+	aib__Model_Year__c: row.BAUJJ,
+	aib__Ownership__c: row.EQKTX2,
+	aib__Serial_Number__c: row.SERGE,
+	aib__Class__c: row.EQART,
+	//aib__Vehicle_Number__c: row.EQKTX1 as :number,
+	aib__GPS__c: row.GPS,
+	//aib__Agency_Code__c: row.SWERK,
+	aib__Cost_Center__c: row.KOSTL,
+	aib__Cargo_Capacity__c: row.LOAD_WGT as :number,
+	aib__No_de_Cortinas__c: row.NO_COMPART as :number
+	//aib__Assignment__c: row.EQKTX3
+})]]></dw:set-payload>
+        </dw:transform-message>
+        <foreach batchSize="200" doc:name="For Each">
+            <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__Asset__c" doc:name="Salesforce">
+                <sfdc:objects ref="#[payload]"/>
+            </sfdc:upsert>
+
+            <logger level="INFO" doc:name="Logger" message="#[flowVars.counter]"/>
+        </foreach>
+        <set-payload value="#[{}]" doc:name="Set Payload"/>
+
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>

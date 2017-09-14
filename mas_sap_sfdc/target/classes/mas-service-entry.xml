@@ -14,6 +14,7 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
     <flow name="sima-service-entryFlow">
         <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
         <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <flow-ref name="send_entryToSAP" doc:name="send_entryToSAP"/>
         <flow-ref name="send_entryToSFDC" doc:name="send_entryToSFDC"/>
 

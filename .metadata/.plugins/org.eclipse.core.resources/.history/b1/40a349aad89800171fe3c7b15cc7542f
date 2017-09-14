@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd">
+    <flow name="sima-order-request">
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <flow-ref name="send-requestToSAP" doc:name="send-requestToSAP"/>
+        <flow-ref name="send-requestToSFDC" doc:name="send-requestToSFDC"/>
+
+
+
+
+
+    </flow>
+    <flow name="job_retrive_flow">
+        <flow-ref name="send-requestToSAP" doc:name="send-requestToSAP"/>
+        <flow-ref name="send-requestToSFDC" doc:name="send-requestToSFDC"/>
+    </flow>
+    <flow name="send-requestToSAP">
+        <dw:transform-message doc:name="Transform Message" metadata:id="eaf4ae06-bc35-42e7-875b-af696f23482b">
+            <dw:input-payload mimeType="application/java"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZPAIMF_SOLICITUDPEDIDO: {
+		import: {
+			IT_SOLICITUDPEDIDO: {
+				(payload map
+				row: {
+					PREQ_ITEM: $.position as :string default "",
+					ITEM_CAT: $.typePosition as :string default "",
+					MATERIAL: $.material as :string default "",
+					PLANT: $.center as :string default "",
+					QUANTITY: $.quantity as :number default 0,
+					C_AMT_BAPI: $.price as :number default 0,
+					G_L_ACCT: $.account as :string default "",
+					COST_CTR: $.costCenter as :number default 0,
+					PREQ_NAME: $.applicant as :string default "",
+					TRACKINGNO: $.workOrder as :string default "",
+					SHORT_TEXT: "Servicio" ++ $.description as :string,
+					SERVICE:  $.serviceNumber as :string default "",
+					QUANTITY_S: $.quantityService as :number default 0,
+					GR_PRICE: $.priceService as :number default 0
+				}
+			 )
+			}
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZAAPMF_SOLICITUDPEDIDO" outputXml="true" responseTimeout="10000" doc:name="ZAAPMF_SOLICITUDPEDIDO "/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="31f55559-7d9d-4668-ac07-fb640ac302cd">
+            <dw:input-payload mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+(payload.ZAAPMF_SOLICITUDPEDIDO.export.ET_RESOLICITUDPED.*row map {
+	Name: $.TRACKINGNO when $.PREQ_NO == "" otherwise $.PREQ_NO,
+	aib__Message__c: $.MESSAGE,
+	aib__Response__c: $.ANSW_BAPI,
+	aib__WO_Name__c: $.TRACKINGNO
+})]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="send-requestToSFDC">
+        <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Order_Request__c" doc:name="Salesforce">
+            <sfdc:objects ref="#[payload]"/>
+        </sfdc:upsert>
+        <dw:transform-message doc:name="Transform Message" metadata:id="39b7beb0-334d-4303-a2fc-ae836c03092c">
+            <dw:input-payload doc:sample="sample_data\list_UpsertResult.dwl"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload map
+{
+	created: $.created,
+	errors: [{
+		fields: $.errors.fields,
+		message: $.errors.message,
+		statusCode: $.errors.statusCode
+	}],
+	id: $.id,
+	success: $.success
+} ]]></dw:set-payload>
+        </dw:transform-message>
+        <object-to-string-transformer doc:name="Object to String"/>
+
+    </flow>
+
+
+</mule>

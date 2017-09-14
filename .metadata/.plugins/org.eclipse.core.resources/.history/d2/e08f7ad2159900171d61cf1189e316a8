@@ -1,0 +1,50 @@
+package sima.utils;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.supercsv.io.CsvListReader;
+import org.supercsv.prefs.CsvPreference;
+
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+
+public  class ReaderCSV extends AbstractMessageTransformer{
+
+	
+	@Override
+	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
+		// TODO Auto-generated method stub
+		//Read the CSV as List of Maps where each Map represents row data
+	      List<Map<String, String>> rows = new ArrayList<Map<String, String>>();
+	      Map<String, String> row = null;
+		
+		 try {
+			String str = message.getPayloadAsString();
+			
+	        String fileName = ReaderCSV.class.getResource(str).getFile();
+
+	        // read csv
+	        CsvFileReader.readCsv(fileName);
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return rows;
+	}
+
+
+	
+}

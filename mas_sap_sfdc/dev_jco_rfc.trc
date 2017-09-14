@@ -876,3 +876,32 @@ COUNTER     2
     return code: RFC_FAILURE (1)
     error group: 102
     key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20170913 113857 Central Daylight Time Rel 3.0.12 (2014-11-21) [720.713]
+Error:  >Wed Sep 13 11:38:57,945<    >RfcGetException rc (7) message: Unable to interpret     212,00000000000000 as a number.
+<RfcGetException
+
+
+**** Error file opened at 20170913 181720 Central Daylight Time Rel 3.0.12 (2014-11-21) [720.713]
+Error:  >Wed Sep 13 18:17:20,287<    RfcException:
+    message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=HECC034S@10.90.3.44:00:400?I50qka0X+oMrRhDJrFtkgQ== ASHOST=10.90.3.44 SYSNR=00 PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.90.3.44:3300' not reached
+TIME        Wed Sep 13 18:17:20 2017
+RELEASE     720
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3283
+DETAIL      NiPConnect2: 10.90.3.44:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION

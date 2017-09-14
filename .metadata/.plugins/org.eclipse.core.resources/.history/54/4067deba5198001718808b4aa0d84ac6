@@ -1,0 +1,878 @@
+package sima.utils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Vector;
+
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpATTRS;
+import com.jcraft.jsch.SftpException;
+import com.jcraft.jsch.ChannelSftp.LsEntry;
+
+
+
+
+public class Sftpex extends AbstractMessageTransformer{
+
+	private String host;
+	private String username;
+
+	private String password;
+
+	private int port = 22;
+
+	private ChannelSftp sftp = null;
+
+	private Session sshSession = null;
+
+
+
+	
+
+
+
+
+	public  Sftpex(String host, String username, String password, int port) {
+
+		this.host = host;
+
+		this.username = username;
+
+		this.password = password;
+
+		this.port = port;
+
+	}
+
+
+
+	public  Sftpex(String host, String username, String password) {
+
+		this.host = host;
+
+		this.username = username;
+
+		this.password = password;
+
+	}
+
+
+
+	/**
+
+	 * connect server via sftp
+
+	 */
+
+	public void connect() {
+
+		try {
+
+
+
+			JSch jsch = new JSch();
+
+			jsch.getSession(username, host, port);
+
+			sshSession = jsch.getSession(username, host, port);
+
+			System.out.println("Session created.");
+
+			sshSession.setPassword(password);
+
+			Properties sshConfig = new Properties();
+
+			sshConfig.put("StrictHostKeyChecking", "no");
+
+			sshSession.setConfig(sshConfig);
+
+			sshSession.connect();
+
+			System.out.println("Session connected.");
+
+			System.out.println("Opening Channel.");
+
+			Channel channel = sshSession.openChannel("sftp");
+
+			channel.connect();
+
+			sftp = (ChannelSftp) channel;
+
+			System.out.println("Connected to " + host + ".");
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+
+	}
+
+
+
+	/**
+
+	 * El cierre de los recursos
+
+	 */
+
+	public void disconnect() {
+
+		if (this.sftp != null) {
+
+			if (this.sftp.isConnected()) {
+
+				this.sftp.disconnect();
+
+				System.out.println("sftp is closed already");
+
+			}
+
+		}
+
+
+
+		if (this.sshSession != null) {
+
+			if (this.sshSession.isConnected()) {
+
+				this.sshSession.disconnect();
+
+				System.out.println("sshSession is closed already");
+
+			}
+
+
+
+		}
+
+
+
+	}
+
+
+
+	/**
+
+	 * Descargar archivo
+
+	 * 
+
+	 * @param remotPath
+
+	 *            Directorio remoto de descarga (el símbolo camino final)
+
+	 * @param localPath
+
+	 *            Directorio local (el símbolo guardar la ruta final)
+
+	 * @param fileFormat
+
+	 *            Formato de archivo (para la descarga de carácter específico al principio, para no hacer el examen)
+
+	 * @param del
+
+	 *            Después de la descarga de borrar el archivo de SFTP
+
+	 * @return
+
+	 */
+
+	public boolean batchDownLoadFile(String remotPath, String localPath,
+
+			String fileFormat, boolean del) {
+
+		try {
+
+			connect();
+
+			Vector v = listFiles(remotPath);
+
+			if (v.size() > 0) {
+
+
+
+				Iterator it = v.iterator();
+
+				while (it.hasNext()) {
+
+					LsEntry entry = (LsEntry) it.next();
+
+					String filename = entry.getFilename();
+
+					SftpATTRS attrs = entry.getAttrs();
+
+					if (!attrs.isDir()) {
+
+						if (fileFormat != null && !"".equals(fileFormat.trim())) {
+
+							if (filename.startsWith(fileFormat)) {
+
+								if (this.downloadFile(remotPath, filename,
+
+										localPath, filename)
+
+										&& del) {
+
+									deleteSFTP(remotPath, filename);
+
+								}
+
+							}
+
+						} else {
+
+							if (this.downloadFile(remotPath, filename,
+
+									localPath, filename)
+
+									&& del) {
+
+								deleteSFTP(remotPath, filename);
+
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+		} catch (SftpException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			this.disconnect();
+
+		}
+
+		return false;
+
+	}
+
+
+
+	/**
+
+	 * Descargar archivos individuales
+
+	 * 
+
+	 * @param remotPath
+
+	 *            Directorio remoto de descarga (el símbolo camino final)
+
+	 * @param remoteFileName
+
+	 *            Descargar archivo
+
+	 * @param localPath
+
+	 *            Directorio local (el símbolo guardar la ruta final)
+
+	 * @param localFileName
+
+	 *            Guardar nombre de archivo
+
+	 * @return
+
+	 */
+
+	public boolean downloadFile(String remotePath, String remoteFileName,
+
+			String localPath, String localFileName) {
+
+		try {
+
+			sftp.cd(remotePath);
+
+			File file = new File(localPath + localFileName);
+
+			mkdirs(localPath + localFileName);
+
+			sftp.get(remoteFileName, new FileOutputStream(file));
+
+			return true;
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (SftpException e) {
+
+			e.printStackTrace();
+
+		}
+
+
+
+		return false;
+
+	}
+
+
+
+	/**
+
+	 * Enviar el archivo
+
+	 * 
+
+	 * @param remotePath
+
+	 *            Directorio remoto
+
+	 * @param remoteFileName
+
+	 *            Guardar nombre de archivo
+
+	 * @param localPath
+
+	 *            Directorio local (el símbolo cargar la ruta final)
+
+	 * @param localFileName
+
+	 *            Nombre de archivo
+
+	 * @return
+
+	 */
+
+	public boolean uploadFile(String remotePath, String remoteFileName,
+
+			String localPath, String localFileName) {
+
+		FileInputStream in = null;
+
+		try {
+
+			createDir(remotePath);
+
+			File file = new File(localPath + localFileName);
+
+			in = new FileInputStream(file);
+
+			sftp.put(in, remoteFileName);
+
+			return true;
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (SftpException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			if (in != null) {
+
+				try {
+
+					in.close();
+
+				} catch (IOException e) {
+
+					e.printStackTrace();
+
+				}
+
+			}
+
+		}
+
+		return false;
+
+	}
+
+
+
+	/**
+
+	 * Enviar el archivo
+
+	 * 
+
+	 * @param remotePath
+
+	 *            Directorio remoto
+
+	 * @param localPath
+
+	 *            Directorio local (el símbolo cargar la ruta final)
+
+	 * @param del
+
+	 *            Tras el envío de borrar archivos locales
+
+	 * @return
+
+	 */
+
+	public boolean bacthUploadFile(String remotePath, String localPath,
+
+			boolean del) {
+
+		try {
+
+			connect();
+
+			File file = new File(localPath);
+
+			File[] files = file.listFiles();
+
+			for (int i = 0; i <files.length; i++) {
+
+				if (files[i].isFile()
+
+						&& files[i].getName().indexOf("bak") == -1) {
+
+					if (this.uploadFile(remotePath, files[i].getName(),
+
+							localPath, files[i].getName())
+
+							&& del) {
+
+						deleteFile(localPath + files[i].getName());
+
+
+
+					}
+
+				}
+
+			}
+
+			return true;
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			this.disconnect();
+
+		}
+
+		return false;
+
+
+
+	}
+
+
+
+	/**
+
+	 * Borrar archivos locales
+
+	 * 
+
+	 * @param filePath
+
+	 * @return
+
+	 */
+
+	public boolean deleteFile(String filePath) {
+
+		File file = new File(filePath);
+
+		if (!file.exists()) {
+
+			return false;
+
+		}
+
+
+
+		if (!file.isFile()) {
+
+			return false;
+
+		}
+
+
+
+		return file.delete();
+
+	}
+
+
+
+	/**
+
+	 * Crear carpeta
+
+	 * 
+
+	 * @param createpath
+
+	 * @return
+
+	 */
+
+	public boolean createDir(String createpath) {
+
+		try {
+
+			if (isDirExist(createpath)) {
+
+				this.sftp.cd(createpath);
+
+				return true;
+
+			}
+
+			String pathArry[] = createpath.split("/");
+
+			StringBuffer filePath = new StringBuffer("/");
+
+			for (String path : pathArry) {
+
+				if (path.equals("")) {
+
+					continue;
+
+				}
+
+				filePath.append(path + "/");
+
+				if (isDirExist(filePath.toString())) {
+
+					sftp.cd(filePath.toString());
+
+				} else {
+
+					// Crear la carpeta
+
+					sftp.mkdir(filePath.toString());
+
+					// Y está listo para entrar en el directorio actual
+
+					sftp.cd(filePath.toString());
+
+				}
+
+
+
+			}
+
+			this.sftp.cd(createpath);
+
+			return true;
+
+		} catch (SftpException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return false;
+
+	}
+
+
+
+	/**
+
+	 * Determinar si existe un directorio
+
+	 * 
+
+	 * @param directory
+
+	 * @return
+
+	 */
+
+	public boolean isDirExist(String directory) {
+
+		boolean isDirExistFlag = false;
+
+		try {
+
+			SftpATTRS sftpATTRS = sftp.lstat(directory);
+
+			isDirExistFlag = true;
+
+			return sftpATTRS.isDir();
+
+		} catch (Exception e) {
+
+			if (e.getMessage().toLowerCase().equals("no such file")) {
+
+				isDirExistFlag = false;
+
+			}
+
+		}
+
+		return isDirExistFlag;
+
+	}
+
+
+
+	/**
+
+	 * Borrar el archivo de stfp
+
+	 * 
+
+	 * @param directory
+
+	 *            Para borrar la carpeta
+
+	 * @param deleteFile
+
+	 *            Archivo eliminar
+
+	 * @param sftp
+
+	 */
+
+	public void deleteSFTP(String directory, String deleteFile) {
+
+		try {
+
+			sftp.cd(directory);
+
+			sftp.rm(deleteFile);
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+
+	}
+
+
+
+	/**
+
+	 * Si no existe el directorio de la creación de directorio
+
+	 * 
+
+	 * @param path
+
+	 */
+
+	public void mkdirs(String path) {
+
+		File f = new File(path);
+
+
+
+		String fs = f.getParent();
+
+
+
+		f = new File(fs);
+
+
+
+		if (!f.exists()) {
+
+			f.mkdirs();
+
+		}
+
+	}
+
+
+
+	/**
+
+	 * La lista de archivos en el directorio
+
+	 * 
+
+	 * @param directory
+
+	 *            La carpeta a la lista
+
+	 * @param sftp
+
+	 * @return
+
+	 * @throws SftpException
+
+	 */
+
+	public Vector listFiles(String directory) throws SftpException {
+
+		return sftp.ls(directory);
+
+	}
+
+
+
+	public String getHost() {
+
+		return host;
+
+	}
+
+
+
+	public void setHost(String host) {
+
+		this.host = host;
+
+	}
+
+
+
+	public String getUsername() {
+
+		return username;
+
+	}
+
+
+
+	public void setUsername(String username) {
+
+		this.username = username;
+
+	}
+
+
+
+	public String getPassword() {
+
+		return password;
+
+	}
+
+
+
+	public void setPassword(String password) {
+
+		this.password = password;
+
+	}
+
+
+
+	public int getPort() {
+
+		return port;
+
+	}
+
+
+
+	public void setPort(int port) {
+
+		this.port = port;
+
+	}
+
+
+
+	public ChannelSftp getSftp() {
+
+		return sftp;
+
+	}
+
+
+
+	public void setSftp(ChannelSftp sftp) {
+
+		this.sftp = sftp;
+
+	}
+
+
+
+	public static void main(String[] args) {
+
+		Sftpex ftp = new Sftpex("127.0.0.1", "admin", "admin");
+
+		String localPath = "D:\\sftp\\";
+
+		String remotePath = "/home/itvsoap/file_interface/bill/lzj/test/";
+
+
+
+		ftp.connect();
+
+
+
+		ftp.uploadFile(remotePath, "test.txt", localPath, "test.txt");
+
+//		ftp.bacthUploadFile(remotePath,localPath,true);
+
+//	    ftp.downloadFile(remotePath, "test.txt", localPath, "test.txt");
+
+//		ftp.batchDownLoadFile(remotePath, localPath, null, true);
+
+
+
+		ftp.disconnect();
+
+		System.exit(0);
+
+	}
+
+
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
+		// TODO Auto-generated method stub
+		
+		
+		String host, user, pass, remotePath, localPath;
+		host = message.getProperty("sftp.host").toString();
+		user = message.getProperty("sftp.user").toString();
+		pass = message.getProperty("sftp.password").toString();
+		remotePath = message.getProperty("sftp.path").toString();
+		localPath = message.getProperty("sftp.locpath").toString();
+		Sftpex ftp = new Sftpex(host, user, pass);
+
+		ftp.connect();
+
+//	    ftp.downloadFile(remotePath, "test.txt", localPath, "test.txt");
+
+		ftp.batchDownLoadFile(remotePath, localPath, null, true);
+
+
+
+		ftp.disconnect();
+		System.exit(0);
+		
+		
+		return null;
+	}
+
+
+
+
+
+
+
+}

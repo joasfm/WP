@@ -1,0 +1,211 @@
+#%RAML 0.8
+title: SIMA_ABI
+version: v1
+baseUri: http://api.samplehost.com
+
+/orderRequest:
+  post:
+    body:
+      application/json:
+        schema: |
+           {
+             "type": "array",
+             "order": {
+              "type": "object",
+              "position": {"type": "string"},
+              "typePosition": {"type": "string"},
+              "material": {"type": "string"},
+              "center": {"type": "string"},
+              "quantity": {"type": "integer"},
+              "price": {"type": "number"},
+              "account": {"type": "string"},
+              "costCenter": {"type": "string"},
+              "applicant": {"type": "string"},
+              "workOrder": {"type": "string"},
+              "description": {"type": "string"},
+              "servicenumber": {"type": "string"},
+              "quantityService": {"type": "integer"},
+              "priceService": {"type": "number"}
+             }
+           }
+    responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "orderResponse.json"
+                          }
+                        }
+/serviceEntry:
+  post:
+    body:
+      application/json:
+        schema: |
+           {
+             "type": "array",
+             "serviceEntry": {
+              "service": {"type": "string"},
+              "qualityTime": {"type": "number"},
+              "qualityService": {"type": "number"},
+              "order": {"type": "string"},
+              "possition": {"type": "integer"},
+              "invoice": {"type": "string"},
+              "serviceNumber": {"type": "integer"},
+              "quantity": {"type": "integer"},
+              "price": {"type": "number"}
+             }
+           }
+    responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }
+/inboundMerchandise:
+  post:
+    body:
+      application/json:
+        schema: |
+           {
+             "type": "array",
+             "inboundMerchandise": {
+              "numberOrderRequest": {"type": "integer"},
+              "header": {"type": "string"},
+              "activity": {"type": "integer"},
+              "classMove": {"type": "string"},
+              "quantity": {"type": "integer"},
+              "possitionRefOrderReq": {"type": "integer"}
+             }
+           }
+    responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }
+/purchaseOrder:
+  post:
+   queryParameters:
+      language:
+        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+        type: string
+   responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }
+/reserveMaterial:
+  post:
+    body:
+      application/json:
+        schema: |
+           {
+             "type": "array",
+             "order": {
+              "type": "object",
+              "costCenter": {"type": "string"},
+              "material": {"type": "string"},
+              "quantity": {"type": "integer"},
+              "center": {"type": "string"},
+              "warehouse": {"type": "string"},
+              "workOrder": {"type": "string"}
+             }
+           }
+    responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "orderResponse.json"
+                          }
+                        }
+/getStock:
+  post:
+   queryParameters:
+      language:
+        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+        type: string
+   responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }
+/getAsset:
+  post:
+   queryParameters:
+      language:
+        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+        type: string
+   responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }
+/outboundMerch:
+  post:
+   queryParameters:
+      language:
+        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+        type: string
+   responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }
+/getfuelEdenred:
+  post:
+   queryParameters:
+      language:
+        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+        type: string
+   responses:
+      200:
+        body:
+          application/json:
+           schema: |
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "video.json"
+                          }
+                        }

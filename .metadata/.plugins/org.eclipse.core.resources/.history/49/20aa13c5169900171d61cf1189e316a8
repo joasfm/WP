@@ -1,0 +1,83 @@
+package sima.utils;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.supercsv.io.CsvListReader;
+import org.supercsv.prefs.CsvPreference;
+
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+
+public  class ReaderCSV extends AbstractMessageTransformer{
+
+	
+	@Override
+	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
+		// TODO Auto-generated method stub
+		//Read the CSV as List of Maps where each Map represents row data
+	      List<Map<String, String>> rows = new ArrayList<Map<String, String>>();
+	      Map<String, String> row = null;
+		
+	      String csvFileToRead = message.getPayloadAsString();  
+	      BufferedReader br = null;  
+	      String line = "";  
+	      String splitBy = ",";  
+	      List<Fuel> fuelList = new ArrayList<Fuel>();  
+	      
+	      try {  
+	      
+	       br = new BufferedReader(new FileReader(csvFileToRead));  
+	       while ((line = br.readLine()) != null) {  
+	      
+	        // split on comma(',')  
+	        String[] fuels = line.split(splitBy);  
+	      
+	        // create car object to store values  
+	        Fuel fuelObject = new Fuel();  
+	      
+	        // add values from csv to car object  
+	        fuelObject.getIdTransaccion(fuels[0]);  
+	        fuelObject.setMake(fuels[1]);  
+	        fuelObject.setModel(fuels[2]);  
+	        fuelObject.setDescription(fuels[3]);  
+	        fuelObject.setPrice(fuels[4]);  
+	      
+	        // adding car objects to a list  
+	        fuelList.add(fuelObject);  
+	      
+	       }  
+	       // print values stored in carList  
+	      // printCarList(carList);  
+	      
+	      } catch (FileNotFoundException e) {  
+	       e.printStackTrace();  
+	      } catch (IOException e) {  
+	       e.printStackTrace();  
+	      } finally {  
+	       if (br != null) {  
+	        try {  
+	         br.close();  
+	        } catch (IOException e) {  
+	         e.printStackTrace();  
+	        }  
+	       }  
+	      }  
+		
+		
+		
+		return rows;
+	}
+
+
+	
+}

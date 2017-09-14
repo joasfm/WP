@@ -15,6 +15,7 @@ http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfd
     <flow name="sima-order-request">
         <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
         <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <flow-ref name="send-requestToSAP" doc:name="send-requestToSAP"/>
         <flow-ref name="send-requestToSFDC" doc:name="send-requestToSFDC"/>
 
@@ -49,7 +50,7 @@ http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfd
 					COST_CTR: $.costCenter as :number default 0,
 					PREQ_NAME: $.applicant as :string default "",
 					TRACKINGNO: $.workOrder as :string default "",
-					SHORT_TEXT: "_" when $.description == "" otherwise $.description,
+					SHORT_TEXT: "SOLICITUD DE SERVICIO" when $.typePosition == "9" otherwise $.description,
 					SERVICE:  $.serviceNumber as :string default "",
 					QUANTITY_S: $.quantityService as :number default 0,
 					GR_PRICE: $.priceService as :number default 0

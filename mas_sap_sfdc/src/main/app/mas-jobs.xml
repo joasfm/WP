@@ -6,10 +6,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
-    <flow name="mas-jobs-getPurchaseOrder">
-        <logger level="INFO" doc:name="Logger"/>
+    <flow name="mas-jobs-getPurchaseOrder" initialState="started">
+        <poll doc:name="Poll">
+            <logger message="['Inicia Ordenes de Compra']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-jobs-getPurchaseOrder" doc:name="mas-jobs-getPurchaseOrder"/>
+        <logger level="INFO" doc:name="Logger" message="#['Finaliza Ordenes de Compra']"/>
     </flow>
-    <flow name="mas-jobs-getStock" initialState="stopped">
+    <flow name="mas-jobs-getStock" initialState="started">
         <poll doc:name="Poll">
             <fixed-frequency-scheduler frequency="1" timeUnit="HOURS"/>
             <logger message="['Inicia Inventario']" level="INFO" doc:name="Logger"/>
@@ -17,10 +21,25 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow"/>
         <logger message="#['Finaliza Inventario']" level="INFO" doc:name="Logger"/>
     </flow>
-    <flow name="mas-jobs-getAssets">
-        <logger level="INFO" doc:name="Logger"/>
+    <flow name="mas-jobs-getAssets" initialState="started">
+        <poll doc:name="Poll">
+            <logger message="#['Inicia Activos']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-jobs-getAssets" doc:name="mas-jobs-getAssets"/>
+        <logger message="#['Finaliza Activos']" level="INFO" doc:name="Logger"/>
     </flow>
-    <flow name="mas-jobs-getOutboundMerch">
-        <logger level="INFO" doc:name="Logger"/>
+    <flow name="mas-jobs-getOutboundMerch" initialState="started">
+        <poll doc:name="Poll">
+            <logger message="#['Inicia Salida de Mercancia']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-jobs-getOutboundMerch" doc:name="mas-jobs-getOutboundMerch"/>
+        <logger message="#['Finaliza Salida de Mercancia']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getFuelEDENRED">
+        <poll doc:name="Poll">
+            <logger message="#['Inicia Fuel EDENRED']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-jobs-getFuelEDENRED" doc:name="mas-jobs-getFuelEDENRED"/>
+        <logger message="#['Finaliza Fuel EDENRED']" level="INFO" doc:name="Logger"/>
     </flow>
 </mule>

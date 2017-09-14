@@ -1,0 +1,113 @@
+package sima.utils;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.supercsv.io.CsvListReader;
+import org.supercsv.prefs.CsvPreference;
+
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+
+public  class ReaderCSV extends AbstractMessageTransformer{
+
+	
+	@Override
+	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
+		// TODO Auto-generated method stub
+		//Read the CSV as List of Maps where each Map represents row data
+	      List<Map<String, String>> rows = new ArrayList<Map<String, String>>();
+	      Map<String, String> row = null;
+		
+	      String csvFileToRead = message.getPayloadAsString();  
+	      BufferedReader br = null;  
+	      String line = "";  
+	      String splitBy = ",";  
+	      List<Fuel> fuelList = new ArrayList<Fuel>();  
+	      
+	      try {  
+	      
+	       br = new BufferedReader(new FileReader(csvFileToRead));  
+	       while ((line = br.readLine()) != null) {  
+	      
+	        // split on comma(',')  
+	        String[] fuels = line.split(splitBy);  
+	      
+	        // create car object to store values  
+	        Fuel fuelObject = new Fuel();  
+	      
+	        // add values from csv to car object  
+	       
+	        fuelObject.setIdTransaccion(fuels[0]);
+	        fuelObject.setCodigoPemex(fuels[1]);
+	        fuelObject.setEstacion(fuels[2]);
+	        fuelObject.setComprobante(fuels[3]);
+	        fuelObject.setTarjeta(fuels[4]);
+	        fuelObject.setPlaca(fuels[5]);
+	        fuelObject.setMarca(fuels[6]);
+	        fuelObject.setTipoCombustible(fuels[7]);
+	        fuelObject.setVolumen(fuels[8]);
+	        fuelObject.setPrecioUnidad(fuels[9]);
+	        fuelObject.setImporteTotal(fuels[10]);
+	        fuelObject.setImporte(fuels[11]);
+	        fuelObject.setIVA(fuels[12]);
+	        fuelObject.setFecha(fuels[13]);
+	        fuelObject.setCodigoChofer(fuels[14]);
+	        fuelObject.setNombreChofer(fuels[15]);
+	        fuelObject.setCentroCostos(fuels[16]);
+	        fuelObject.setRegion(fuels[17]);
+	        fuelObject.setGrupodeRegion(fuels[18]);
+	        fuelObject.setOdometro(fuels[19]);
+	        fuelObject.setKilometrajeAnterior(fuels[20]);
+	        fuelObject.setRecorrido(fuels[21]);
+	        fuelObject.setRendimiento(fuels[22]);
+	        fuelObject.setRendimientoStandar(fuels[23]);
+	        fuelObject.setCapacidadTanque(fuels[24]);
+	        fuelObject.setTipodeTransaccion(fuels[25]);
+	        fuelObject.setSaldoAnterior(fuels[26]);
+	        fuelObject.setNumeroEconomico(fuels[27]);
+  
+	      
+	        // adding car objects to a list  
+	        fuelList.add(fuelObject);  
+	      
+	       }  
+	       // print values stored in carList  
+	      // printCarList(carList);  
+	      
+	      } catch (FileNotFoundException e) {  
+	       e.printStackTrace();  
+	      } catch (IOException e) {  
+	       e.printStackTrace();  
+	      }
+	      catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+	      finally {  
+	       if (br != null) {  
+	        try {  
+	         br.close();  
+	        } catch (IOException e) {  
+	         e.printStackTrace();  
+	        }  
+	       }  
+	      }  
+		
+		
+		
+		return rows;
+	}
+
+
+	
+}
