@@ -27,7 +27,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <flow-ref name="sima-service-entryFlow" doc:name="sima-service-entryFlow" />
     </flow>
     <flow name="post:/purchaseOrder:api-config">
-        <flow-ref name="sima-purchase-orderFlow" doc:name="sima-purchase-orderFlow" />
+        <flow-ref name="mas-purchase-orderFlow" doc:name="mas-purchase-orderFlow" />
     </flow>
     <flow name="post:/getStock:api-config">
         <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow" />

@@ -85,6 +85,6 @@ payload map
             </otherwise>
         </choice>
 
-        <logger level="INFO" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
     </flow>
 </mule>

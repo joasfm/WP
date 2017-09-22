@@ -17,7 +17,7 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
         <flow-ref name="send-materialReserveToSAP" doc:name="send-materialReserveToSAP"/>
         <flow-ref name="send-materialReserveToSFDC" doc:name="send-materialReserveToSFDC"/>
 
-        <logger level="INFO" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
     </flow>
     <flow name="send-materialReserveToSAP">
         <dw:transform-message doc:name="Transform Message" metadata:id="ea6d9f49-a99d-49f4-bfef-dde55a961f1e">

@@ -18,4 +18,7 @@ http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/q
     <sap:connector name="SAP" jcoAsHost="${sap.host}" jcoUser="${sap.user}" jcoPasswd="${sap.password}" jcoSysnr="${sap.systemnumber}" jcoClient="${sap.client}" jcoLang="${sap.language}" validateConnections="true" doc:name="SAP"/>
     <sftp:connector name="SFTP" validateConnections="true" doc:name="SFTP"  autoDelete="false"/>
     <quartz:connector name="Quartz" validateConnections="true" doc:name="Quartz"/>
+    <spring:beans>
+        <spring:bean id="PollSynchronizer" name="PollSynchronizer" class="sima.utils.PollSynchronizer" scope="singleton"/>
+    </spring:beans>
 </mule>

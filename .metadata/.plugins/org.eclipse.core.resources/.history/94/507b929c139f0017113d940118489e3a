@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:schedulers="http://www.mulesoft.org/schema/mule/schedulers" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/schedulers http://www.mulesoft.org/schema/mule/schedulers/current/mule-schedulers.xsd">
+    <flow name="mas-jobs-getPurchaseOrder" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="['Inicia Ordenes de Compra']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-purchase-orderFlow" doc:name="mas-purchase-orderFlow"/>
+        <logger level="INFO" doc:name="Logger" message="#['Finaliza Ordenes de Compra']"/>
+    </flow>
+    <flow name="mas-jobs-getStock" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="['Inicia Inventario']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow"/>
+        <logger message="#['Finaliza Inventario']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getAssets" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Activos']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-assetsFlow" doc:name="mas-assetsFlow"/>
+        <logger message="#['Finaliza Activos']" level="DEBUG" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getOutboundMerch" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Salida de Mercancia']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-outbound-merchandiseFlow" doc:name="mas-outbound-merchandiseFlow"/>
+        <logger message="#['Finaliza Salida de Mercancia']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getFuelEDENRED">
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Fuel EDENRED']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <flow-ref name="mas-edenredFlow" doc:name="mas-edenredFlow"/>
+        <logger message="#['Finaliza Fuel EDENRED']" level="DEBUG" doc:name="Logger"/>
+    </flow>
+</mule>

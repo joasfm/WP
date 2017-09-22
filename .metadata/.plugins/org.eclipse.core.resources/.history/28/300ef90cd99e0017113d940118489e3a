@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd">
+    <flow name="sima-service-entryFlow">
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <flow-ref name="send_entryToSAP" doc:name="send_entryToSAP"/>
+        <flow-ref name="send_entryToSFDC" doc:name="send_entryToSFDC"/>
+
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+
+
+    
+    </flow>
+    <flow name="job_retrive_entries">
+        <flow-ref name="send_entryToSAP" doc:name="send_entryToSAP"/>
+        <flow-ref name="send_entryToSFDC" doc:name="send_entryToSFDC"/>
+    </flow>
+    <flow name="send_entryToSAP">
+        <dw:transform-message doc:name="Transform Message" metadata:id="a696c8c0-6abe-4f54-9282-910d4403b3e9">
+            <dw:input-payload mimeType="application/java"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZPIMF_HOJAENTRADASERVICIOS: {
+		tables: {
+			T_INPUT: {
+				(payload map 
+				row: {
+					SHORT_TEXT: $.service,
+					SCORE_TIME: $.qualityTime,
+					SCORE_QUAL: $.qualityService,
+					PO_NUMBER: $.order,
+					PO_ITEM: $.position,
+					REF_DOC_NO_LONG: $.invoice,
+					SERVICE: $.serviceNumber,
+					QUANTITY: $.quantity,
+					GR_PRICE: $.price
+				}
+				
+				)
+			}
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZAAPMF_HOJAENTRADASERVICIOS" outputXml="true" responseTimeout="10000" doc:name="ZAAPMF_HOJAENTRADASERVICIOS"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="a396b03f-d16d-4d49-9428-1b4cc3907b13">
+            <dw:input-payload mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+(payload.ZAAPMF_HOJAENTRADASERVICIOS.tables.T_OUTPUT.*row map {
+	Name: $.TRACKINGNO when  $.SHEET_NO == "" otherwise $.SHEET_NO,
+	aib__Message__c: $.MESSAGE,
+	aib__Order_Request__c: $.PREQ_NO,
+	aib__PO_Name__c: $.PO_NUMBER,
+	aib__Position__c: $.PO_ITEM,
+	aib__Response__c: $.RPTA,
+	aib__WO_Name__c: $.TRACKINGNO
+})
+]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="send_entryToSFDC">
+        <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Service_Entry__c" doc:name="Salesforce">
+            <sfdc:objects ref="#[payload]"/>
+        </sfdc:upsert>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload map
+{
+	created: $.created,
+	errors: [{
+		fields: $.errors.fields,
+		message: $.errors.message,
+		statusCode: $.errors.statusCode
+	}],
+	id: $.id,
+	success: $.success
+} ]]></dw:set-payload>
+        </dw:transform-message>
+        <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+
+</mule>

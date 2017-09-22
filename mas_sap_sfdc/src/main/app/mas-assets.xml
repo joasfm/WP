@@ -34,7 +34,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 %output application/java
 ---
 payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
-	Name: row.EQUNR as :number,
+	Name: (row.EQUNR as :number) as :string,
 	//aib__Odometer__c: row.MEDIDA as :number,
 	aib__Status__c: row.STAT_SIS,
 	//aib__UEN__c: row.BUKRS,
@@ -58,6 +58,7 @@ payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> 
 	//aib__Assignment__c: row.EQKTX3
 })]]></dw:set-payload>
         </dw:transform-message>
+        <logger message="#['Cantidad: ' + payload.size()]" level="INFO" doc:name="Logger"/>
         <foreach batchSize="200" doc:name="For Each">
             <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__Asset__c" doc:name="Salesforce">
                 <sfdc:objects ref="#[payload]"/>

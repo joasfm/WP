@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
-http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd">
-    <flow name="mas-assetsFlow">
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="mas-assetsFlow" processingStrategy="synchronous">
         <dw:transform-message doc:name="Transform Message">
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
@@ -33,7 +34,7 @@ http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfd
 %output application/java
 ---
 payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
-	Name: row.EQUNR as :number,
+	Name: (row.EQUNR as :number) as :string,
 	//aib__Odometer__c: row.MEDIDA as :number,
 	aib__Status__c: row.STAT_SIS,
 	//aib__UEN__c: row.BUKRS,
@@ -57,6 +58,7 @@ payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> 
 	//aib__Assignment__c: row.EQKTX3
 })]]></dw:set-payload>
         </dw:transform-message>
+        <logger message="#['Cantidad: ' + payload.size()]" level="INFO" doc:name="Logger"/>
         <foreach batchSize="200" doc:name="For Each">
             <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__Asset__c" doc:name="Salesforce">
                 <sfdc:objects ref="#[payload]"/>

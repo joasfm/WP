@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;PollSynchronizer.java&apos; to &apos;mas_sap_sfdc/src/main/java/sima.utils&apos;&#x0D;&#x0A;- Original project: &apos;template-sfdc2sfdc-opportunity-bidirectional-sync-1.2.4&apos;&#x0D;&#x0A;- Destination element: &apos;mas_sap_sfdc/src/main/java/sima.utils&apos;&#x0D;&#x0A;- Original element: &apos;org.mule.templates.util.PollSynchronizer.java&apos;" description="Copy compilation unit" destination="=mas_sap_sfdc/src\/main\/java&lt;sima.utils" element1="/src\/main\/java&lt;org.mule.templates.util{PollSynchronizer.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1506037411594" units="1" version="1.0"/>
+</session>

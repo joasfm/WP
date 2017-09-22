@@ -13,12 +13,10 @@
 	<classpathentry exported="true" kind="lib" path="lib/jco/sapjco3.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
 	<classpathentry kind="con" path="MULE_LIB/SAP/org.mule.tooling.ui.contribution.sap.3.5.0"/>
-	<classpathentry kind="lib" path="C:/Users/jflormun/Documents/Anypoint Studio/WorkPlaces/workplace/sima_sap_sfdc/lib/java-json.jar"/>
 	<classpathentry kind="con" path="MULE_LIB/ObjectStore/org.mule.tooling.ui.contribution.objectstore.3.6.0"/>
 	<classpathentry kind="con" path="MUNIT_RUNTIME"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/munit"/>
 	<classpathentry kind="con" path="MULE_LIB/Mule Requester/org.mule.tooling.ui.contribution.mulerequester.3.5.0"/>
-	<classpathentry kind="lib" path="C:/Users/jflormun/Downloads/jsch-0.1.54.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jflormun/Downloads/super-csv-distribution-2.4.0-bin/super-csv-2.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/super-csv-2.4.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

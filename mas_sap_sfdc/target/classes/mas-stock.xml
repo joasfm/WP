@@ -57,6 +57,7 @@ payload.ZPAIMF_CONSULSTOCKINVENT.export.ET_STOCK_SF.*row map ((row , indexOfRow)
 	aib__upc__c: row.MATNR
 })]]></dw:set-payload>
         </dw:transform-message>
+        <logger message="#['Cantidad: ' + payload.size()]" level="INFO" doc:name="Logger"/>
         <foreach batchSize="200" doc:name="For Each">
             <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="aib__External_ID__c" type="aib__Part__c" doc:name="Salesforce">
                 <sfdc:objects ref="#[payload]"/>
@@ -109,6 +110,6 @@ payload.ZPAIMF_CONSULSTOCKINVENT.export.ET_STOCK_SF.*row map ((row , indexOfRow)
 }]]></dw:set-payload>
         </dw:transform-message>
         <sfdc:update-single config-ref="Salesforce_Authentication" type="aib__Part_Sync__c" doc:name="Salesforce"/>
-        <logger level="INFO" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
     </flow>
 </mule>

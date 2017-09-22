@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/
 http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
 http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
-    <flow name="sima-purchase-orderFlow">
+    <flow name="mas-purchase-orderFlow" processingStrategy="synchronous">
         <dw:transform-message doc:name="Transform Message">
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
@@ -36,6 +36,10 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/java
 ---
+{
+	message: "Sin informacion en SAP"
+} when payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.row  == null 
+otherwise
 payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.*row map ((row , indexOfRow) -> {
 	Name: row.EBELN,
 	aib__Date__c: row.AEDAT as :date,

@@ -11,9 +11,10 @@ http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
 http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd">
-    <flow name="sima-service-entryFlow">
+    <flow name="sima-service-entryFlow" processingStrategy="synchronous">
         <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
         <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <flow-ref name="send_entryToSAP" doc:name="send_entryToSAP"/>
         <flow-ref name="send_entryToSFDC" doc:name="send_entryToSFDC"/>
 

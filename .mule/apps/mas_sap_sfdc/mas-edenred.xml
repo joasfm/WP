@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/q
 http://www.mulesoft.org/schema/mule/mulerequester http://www.mulesoft.org/schema/mule/mulerequester/current/mule-mulerequester.xsd
 http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
     <file:connector name="File" autoDelete="false" streaming="true" validateConnections="true" doc:name="File"/>
-    <flow name="mas-edenredFlow"  >
+    <flow name="mas-edenredFlow" processingStrategy="synchronous">
         <custom-transformer class="sima.utils.SFTPinJava" doc:name="Java"/>
         <logger message="#[payload.size()]" level="INFO" doc:name="Logger"/>
         <foreach doc:name="For Each">
