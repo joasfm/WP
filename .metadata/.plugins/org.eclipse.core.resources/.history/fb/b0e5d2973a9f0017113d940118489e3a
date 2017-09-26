@@ -1,9 +1,0 @@
-#** GENERATED CONTENT ** Mule Custom Properties file.
-#Wed Sep 13 02:52:35 CDT 2017
-mule.env=dev
-sftp.host=sftp01.edenred.com.mx
-sftp.user=modelo
-sftp.password= M0d3l0*
-sftp.path= /modelo/Interfaz
-sftp.locpath = /src/main/resources/EDENRED
-sftp.port= 22
