@@ -70,4 +70,30 @@ payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> 
 
         <logger level="INFO" doc:name="Logger"/>
     </flow>
+    <flow name="mas-assets-StartSync">
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	aib__started_at__c: now
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sfdc:create-single config-ref="Salesforce_Authentication" type="aib__Asset_Sync__c" doc:name="Salesforce"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-assets-EndSync">
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Id: payload,
+	aib__Status__c: "OK",
+	aib__synced_at__c: now
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sfdc:update-single config-ref="Salesforce_Authentication" type="aib__Asset_Sync__c" doc:name="Salesforce"/>
+        <set-payload doc:name="Set Payload"/>
+    </flow>
 </mule>
