@@ -10,14 +10,24 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>C:/Users/jflormun/Documents/Anypoint Studio/AnypointStudio/plugins/org.mule.tooling.server.3.8.4.ee_6.2.5.201705021936/mule/lib/mule/per-app</location>
+		</link>
+		<link>
+			<name>.link3</name>
+			<type>2</type>
+			<location>C:/Users/jflormun/Documents/Anypoint Studio/AnypointStudio/plugins/org.mule.tooling.server.3.8.4.ee_6.2.5.201705021936/mule/plugins/data-mapper-plugin/classes</location>
+		</link>
+		<link>
 			<name>.link4</name>
 			<type>2</type>
-			<location>/Users/joasflores/Documents/Anypoint/AnypointStudio.app/Contents/Eclipse/plugins/org.mule.tooling.server.3.8.4.ee_6.2.0.201707311924/mule/lib/mule/per-app</location>
+			<location>C:/Users/jflormun/Documents/Anypoint Studio/AnypointStudio/plugins/org.mule.tooling.server.3.8.5.ee_6.3.0.201707181700/mule/lib/mule/per-app</location>
 		</link>
 		<link>
 			<name>.link5</name>
 			<type>2</type>
-			<location>/Users/joasflores/Documents/Anypoint/AnypointStudio.app/Contents/Eclipse/plugins/org.mule.tooling.server.3.8.4.ee_6.2.0.201707311924/mule/plugins/data-mapper-plugin/classes</location>
+			<location>C:/Users/jflormun/Documents/Anypoint Studio/AnypointStudio/plugins/org.mule.tooling.server.3.8.5.ee_6.3.0.201707181700/mule/plugins/data-mapper-plugin/classes</location>
 		</link>
 	</linkedResources>
 </projectDescription>

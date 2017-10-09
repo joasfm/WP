@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="mas-purchase-orderFlow" processingStrategy="synchronous">
+        <set-payload value="#[message.inboundProperties.'https.query.params'.date]" mimeType="text/plain" doc:name="Set Payload"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="ee72e2a3-a7d5-49fd-8d7c-16c227bc9820">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZAAPMF_PEDIDOSALESFORCE: {
+		import: {
+			IS_PEDIDO_SF: {
+				STATT: "X",
+				AEDAT: "" when payload == null otherwise payload as :string 
+
+			}
+		},
+		export: {
+			ET_PEDIDO_SF: null
+		}
+	}
+	
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZAAPMF_PEDIDOSALESFORCE" outputXml="true" responseTimeout="10000" doc:name="ZAAPMF_PEDIDOSALESFORCE"/>
+        <sap:object-to-xml doc:name="SAP Object to XML"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="6127a11e-5b1e-45fb-962f-a5fab16a3a9a">
+            <dw:input-payload doc:sample="sample_data\ZPAIMF_PEDIDOSALESFORCE.xml" mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	validation: "Sin informacion en SAP"
+} when payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.row  == null 
+otherwise
+payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.*row map ((row , indexOfRow) -> {
+	Name: row.EBELN,
+	aib__Date__c: row.AEDAT as :date,
+	aib__Description__c: row.TEXT1,
+	aib__Material__c: row.MATNR,
+	aib__Order_Request__c: row.BANFN,
+	aib__Position__c: row.EBELP,
+	aib__Price__c: row.NETPR,
+	aib__Quantity__c: row.MENGE as :number,
+	aib__UME__c: row.MEINS,
+	aib__WO_Name__c: row.BEDNR
+})]]></dw:set-payload>
+        </dw:transform-message>
+        <choice doc:name="Choice">
+            <when expression="#[payload.validation == null]">
+                <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Purchase_Order__c" doc:name="Salesforce">
+                    <sfdc:objects ref="#[payload]"/>
+                </sfdc:upsert>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload map
+{
+	created: $.created,
+	errors: [{
+		fields: $.errors.fields,
+		message: $.errors.message,
+		statusCode: $.errors.statusCode
+	}],
+	id: $.id,
+	success: $.success
+}]]></dw:set-payload>
+                </dw:transform-message>
+                <object-to-string-transformer doc:name="Object to String"/>
+            </when>
+            <otherwise>
+                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+
+
+
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+    </flow>
+
+
+</mule>

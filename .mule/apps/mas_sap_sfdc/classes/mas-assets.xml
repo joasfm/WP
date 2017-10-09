@@ -10,9 +10,10 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
 http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <flow name="mas-assetsFlow" processingStrategy="synchronous">
-        <enricher target="#[flowVars.idSyncAsset]" doc:name="Message Enricher">
+        <enricher target="#[flowVars.idSyncAsse]" doc:name="Message Enricher">
             <flow-ref name="mas-assets-StartSync" doc:name="mas-assets-StartSync"/>
         </enricher>
+
         <dw:transform-message doc:name="Transform Message">
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
@@ -30,19 +31,22 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         <sap:xml-to-function doc:name="XML to SAP Function (BAPI)"/>
         <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZPAIMF_CONSULTARACTIVOS" outputXml="true" responseTimeout="10000" doc:name="ZPAIMF_CONSULTARACTIVOS"/>
 
+
         <sap:object-to-xml doc:name="SAP Object to XML"/>
-        <dw:transform-message doc:name="Transform Message" metadata:id="0d6c295d-abf6-48ab-966a-94b7a8a18f5d">
-            <dw:input-payload mimeType="application/xml"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="7e16499a-eabd-4562-8baa-a1329802b3bb">
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/java
 ---
 payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
 	Name: (row.EQUNR as :number) as :string,
-	aib__Odometer__c: row.MEDIDA as :number,
+	// aib__Odometer__c: row.MEDIDA as :number,
 	aib__Status__c: row.STAT_SIS,
-	aib__UEN__c: row.BUKRS,
+	aib__Status_usuario__c: row.STAT_USU default "",
+	aib__Vehicle__c: row.EQKTX1,
 	aib__Purchase_Date__c: row.INBDT as :date,
+	aib__Purchase_Price__c: row.ANSWT,
 	aib__Engine_Serial_No__c: row.CHASSIS_NUM,
+	aib__External_ID__c: null,
 	aib__Fuel_Capacity__c: row.CAPACIDAD as :number,
 	aib__Fuel_Type__c: row.FUEL_PRI,
 	aib__License_Plate__c: row.LICENSE_NUM,
@@ -52,27 +56,54 @@ payload.ZPAIMF_CONSULTARACTIVOS.tables.T_OUTPUT.*row map ((row , indexOfRow) -> 
 	aib__Ownership__c: row.EQKTX2,
 	aib__Serial_Number__c: row.SERGE,
 	aib__Class__c: row.EQART,
-	aib__Vehicle_Number__c: row.EQKTX1 as :number,
+	// aib__Vehicle_Number__c: row.EQKTX1 as :number,
 	aib__GPS__c: row.GPS,
-	aib__Agency_Code__c: row.SWERK,
+	aib__Agency_External_ID__c: row.SWERK,
+	aib__SAP_Odometer__c: row.MEDIDA as :number,
 	aib__Cost_Center__c: row.KOSTL,
 	aib__Cargo_Capacity__c: row.LOAD_WGT as :number,
 	aib__No_de_Cortinas__c: row.NO_COMPART as :number,
-	aib__Assignment__c: row.EQKTX3
+	aib__Assignment__c: row.EQKTX3,
+	denominacion: row.EQKTX1
 })]]></dw:set-payload>
         </dw:transform-message>
+
+        <foreach doc:name="For Each">
+            <expression-component doc:name="Expression"><![CDATA[java.lang.String Denominacion = "";
+java.lang.String ecoNum = "";
+Denominacion = payload.denominacion;
+
+if(Denominacion.startsWith("U."))
+{
+   java.util.ArrayList [] Cadena = Denominacion.split("\\s");
+ //  System.out.println (Cadena[1]);
+	ecoNum = payload.aib__Model_Year__c + "-" + Cadena[1];
+//	System.out.println (ecoNum);
+  	payload.put("aib__External_ID__c", ecoNum);
+   payload.remove("denominacion");
+	 
+}
+else
+{
+	 payload.remove("denominacion");
+  	payload.put("aib__External_ID__c", payload.aib__Model_Year__c + "-" + Denominacion);
+}
+
+]]></expression-component>
+        </foreach>
         <logger message="#['Cantidad: ' + payload.size()]" level="INFO" doc:name="Logger"/>
         <foreach batchSize="200" doc:name="For Each">
             <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__Asset__c" doc:name="Salesforce">
                 <sfdc:objects ref="#[payload]"/>
             </sfdc:upsert>
 
+
             <logger level="INFO" doc:name="Logger" message="#[flowVars.counter]"/>
         </foreach>
         <flow-ref name="mas-assets-EndSync" doc:name="mas-assets-EndSync"/>
         <set-payload value="#[{}]" doc:name="Set Payload"/>
 
-        <logger level="INFO" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
         <catch-exception-strategy doc:name="Catch Exception Strategy">
             <dw:transform-message doc:name="Transform Message">
                 <dw:set-payload><![CDATA[%dw 1.0

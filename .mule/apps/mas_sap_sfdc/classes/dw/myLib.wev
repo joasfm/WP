@@ -1,0 +1,16 @@
+%dw 1.0
+//Reusable constant
+%var exchangeRateFromUSDToBritishPounds = 1.35
+%function getEconomicNumber ( input )
+//Can use the getIntroString() function which is defined further down
+"$(getIntroString()) :  $(input * exchangeRateFromUSDToBritishPounds)"
+%function getIntroString()
+"The price converted to British Pounds is"
+---
+//Provide external names for variables and functions defined in the header
+{
+  exchangeRate : exchangeRateFromUSDToBritishPounds,
+  convertPrice : convertPriceFromUSDToBritishPounds,
+  //Use an anonymous lambda to define the function
+  formatString : (aString, formatter) -> formatter(aString)
+}

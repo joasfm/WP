@@ -30,6 +30,7 @@ public class Fuel {
 	private String TipodeTransaccion;
 	private String SaldoAnterior;
 	private String NumeroEconomico;
+	private String SaldoActual;
 	
 	public String getIdTransaccion() {
 		return IdTransaccion;
@@ -113,7 +114,7 @@ public class Fuel {
 		return Fecha;
 	}
 	public void setFecha(String fecha) {
-		Fecha = fecha;
+		Fecha = fecha + "00:00:00";
 	}
 	public String getCodigoChofer() {
 		return CodigoChofer;
@@ -198,6 +199,12 @@ public class Fuel {
 	}
 	public void setNumeroEconomico(String numeroEconomico) {
 		NumeroEconomico = numeroEconomico;
+	}
+	public String getSaldoActual() {
+		return SaldoActual;
+	}
+	public void setSaldoActual(String saldoActual) {
+		SaldoActual = saldoActual;
 	}
 
 

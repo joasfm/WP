@@ -5,7 +5,9 @@
             "typeId": "Fuel"
         }
     },
-    "outputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {}
+    },
     "id": "cdad1c36-c802-4895-af23-1f1b1a66244e",
     "version": "5.2.0.0"
 }

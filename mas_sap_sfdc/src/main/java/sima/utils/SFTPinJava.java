@@ -2,12 +2,17 @@ package sima.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Vector;
 
@@ -21,8 +26,10 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
 
+import sima.utils.Fuel;
+
 /**
- * @author kodehelp
+ * 
  *
  */
 public class SFTPinJava extends AbstractMessageTransformer {
@@ -34,6 +41,7 @@ public class SFTPinJava extends AbstractMessageTransformer {
      static Channel channel = null;
      static String PATHSEPARATOR = "/";
      ArrayList listFiles = new ArrayList(); 
+     List<Fuel> FList = null;
 
 	@Override
 	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
@@ -89,6 +97,8 @@ public class SFTPinJava extends AbstractMessageTransformer {
             
            
             listFiles = recursiveFolderDownload(SFTPWORKINGDIR, SFTPLOCALDIR); // Recursive folder content download from SFTP server
+            
+            FList = readFiles(listFiles);
 
       
             
@@ -97,7 +107,7 @@ public class SFTPinJava extends AbstractMessageTransformer {
             ex.printStackTrace();
         }
 
-		return listFiles;
+		return FList;
 	}
 	
 	 @SuppressWarnings("unchecked")
@@ -119,7 +129,11 @@ public class SFTPinJava extends AbstractMessageTransformer {
 	                    channelSftp.get(sourcePath + PATHSEPARATOR + item.getFilename(),
 	                            destinationPath + PATHSEPARATOR + item.getFilename()); 
 	                    // Download file from source (source filename, destination filename).
-	                    FilesNames.add(destinationPath + PATHSEPARATOR + item.getFilename());
+	                    if (item.getFilename().endsWith(".csv"))
+	                    {
+	                    	FilesNames.add(item.getFilename());
+	                    }
+	                    
 	                    
 	                }
 	            } else if (!(".".equals(item.getFilename()) || "..".equals(item.getFilename()))) {
@@ -131,5 +145,116 @@ public class SFTPinJava extends AbstractMessageTransformer {
 	        
 	        return FilesNames;
 	    }
+	 
+	 public List<Fuel> readFiles(ArrayList files)
+	 {
+		  List<Map<String, String>> rows = new ArrayList<Map<String, String>>();
+	      Map<String, String> row = null;
+	     // List<Fuel> listFuel = new ArrayList<Fuel>();
+	       
+	      BufferedReader br = null;  
+	      String line = "";  
+	      String splitBy = ",";  
+	      List<Fuel> fuelList = new ArrayList<Fuel>();  
+	      
+	      for (int i = 0; i<files.size(); i++)
+	      {
+	    	 
+	    	  // create car object to store values  
+		        Fuel fuelObject = new Fuel();  
+	      
+	      try {  
+	 
+		    	  String filepath = "\\EDENRED\\" +(String) files.get(i);
+		    	  
+		    	  InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);;
+		    	  InputStreamReader read = new InputStreamReader(is);
+		    	  
+		    	  System.out.println();
+		    	
+		    	  br = new BufferedReader(read);  
+		    	  int contador = 0;
+		    	  while ((line = br.readLine()) != null) {  
+		    	   
+		    		  if (contador != 0)
+		    		  {
+		      
+				        // split on comma(',')  
+				        String[] fuels = line.split(splitBy);  
+				      
+				      
+				      
+				        // add values from csv to car object  
+				       
+				        fuelObject.setIdTransaccion(fuels[0]);
+				        fuelObject.setCodigoPemex(fuels[1]);
+				        fuelObject.setEstacion(fuels[2]);
+				        fuelObject.setComprobante(fuels[3]);
+				        fuelObject.setTarjeta(fuels[4]);
+				        fuelObject.setPlaca(fuels[5]);
+				        fuelObject.setMarca(fuels[6]);
+				        fuelObject.setTipoCombustible(fuels[7]);
+				        fuelObject.setVolumen(fuels[8]);
+				        fuelObject.setPrecioUnidad(fuels[9]);
+				        fuelObject.setImporteTotal(fuels[10]);
+				        fuelObject.setImporte(fuels[11]);
+				        fuelObject.setIVA(fuels[12]);
+				        fuelObject.setFecha(fuels[13]);
+				        fuelObject.setCodigoChofer(fuels[14]);
+				        fuelObject.setNombreChofer(fuels[15]);
+				        fuelObject.setCentroCostos(fuels[16]);
+				        fuelObject.setRegion(fuels[17]);
+				        fuelObject.setGrupodeRegion(fuels[18]);
+				        fuelObject.setOdometro(fuels[19]);
+				        fuelObject.setKilometrajeAnterior(fuels[20]);
+				        fuelObject.setRecorrido(fuels[21]);
+				        fuelObject.setRendimiento(fuels[22]);
+				        fuelObject.setRendimientoStandar(fuels[23]);
+				        fuelObject.setCapacidadTanque(fuels[24]);
+				        fuelObject.setTipodeTransaccion(fuels[25]);
+				        fuelObject.setSaldoAnterior(fuels[26]);
+				        fuelObject.setNumeroEconomico(fuels[27]);
+			  
+				      
+				        // adding car objects to a list  
+				        fuelList.add(fuelObject);  
+		    		  }
+		    		  else
+		    		  {
+		    			  System.out.println(line);
+	
+		    		  }
+		    		  contador ++;
+		       }  
+  
+	      
+	      } catch (FileNotFoundException e) {  
+	       e.printStackTrace();  
+	      } catch (IOException e) {  
+	       e.printStackTrace();  
+	      }
+	      catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+	      finally {  
+	       if (br != null) {  
+	        try {  
+	         br.close();  
+	        } catch (IOException e) {  
+	         e.printStackTrace();  
+	        }  
+	       }  
+	      }  
+	      
+	      
+	    }
+	      
+	  
+		
+		return fuelList;
+		
+		
+	 }
 
 }

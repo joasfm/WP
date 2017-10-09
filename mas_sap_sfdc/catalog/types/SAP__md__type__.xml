@@ -3,8 +3,8 @@
   <types class="tree-map">
     <entry>
       <org.mule.common.metadata.DefaultMetaDataKey>
-        <id>ZPAIMF_CONSULTARACTIVOS</id>
-        <displayName>ZPAIMF_CONSULTARACTIVOS</displayName>
+        <id>ZPAIMF_RESERVAMATERIAL</id>
+        <displayName>ZPAIMF_RESERVAMATERIAL</displayName>
         <category>DEFAULT</category>
         <metaDataKeyPropertiesManager>
           <properties>
@@ -18,36 +18,25 @@
           <properties>
             <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty>
               <exampleContent>&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
-&lt;ZPAIMF_CONSULTARACTIVOS&gt;
+&lt;ZPAIMF_RESERVAMATERIAL&gt;
 &lt;tables&gt;
+&lt;T_INPUT type=&quot;table&quot;&gt;
+&lt;row&gt;
+&lt;COSTCENTER type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;10&quot; description=&quot;Centro de coste&quot;/&gt;
+&lt;MATERIAL type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;18&quot; description=&quot;Número de material&quot;/&gt;
+&lt;ENTRY_QNT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;BCD&quot; length=&quot;7&quot; description=&quot;Cantidad en unidad de medida de entrada&quot;/&gt;
+&lt;PLANT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;4&quot; description=&quot;Centro&quot;/&gt;
+&lt;STGE_LOC type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;4&quot; description=&quot;Almacén&quot;/&gt;
+&lt;GR_RCPT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;12&quot; description=&quot;Destinatario de mercancías&quot;/&gt;&lt;/row&gt;&lt;/T_INPUT&gt;
 &lt;T_OUTPUT type=&quot;table&quot;&gt;
 &lt;row&gt;
-&lt;BUKRS type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;4&quot; description=&quot;Sociedad&quot;/&gt;
-&lt;BUTXT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;25&quot; description=&quot;Denominación de la sociedad o empresa&quot;/&gt;
-&lt;SWERK type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;4&quot; description=&quot;Centro de emplazamiento&quot;/&gt;
-&lt;EQUNR type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;18&quot; description=&quot;Número de equipo&quot;/&gt;
-&lt;EQKTX1 type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;40&quot; description=&quot;Denominación de objeto técnico&quot;/&gt;
-&lt;EQKTX2 type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;40&quot; description=&quot;Denominación de objeto técnico&quot;/&gt;
-&lt;EQKTX3 type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;40&quot; description=&quot;Denominación de objeto técnico&quot;/&gt;
-&lt;LICENSE_NUM type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;15&quot; description=&quot;Matrícula vehículo&quot;/&gt;
-&lt;SERGE type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;30&quot; description=&quot;Número de serie según el fabricante&quot;/&gt;
-&lt;EQART type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;10&quot; description=&quot;Tipo de objeto técnico&quot;/&gt;
-&lt;HERST type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;30&quot; description=&quot;Fabricante del activo fijo&quot;/&gt;
-&lt;TYPBZ type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;20&quot; description=&quot;Denominación de tipo del fabricante&quot;/&gt;
-&lt;BAUJJ type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;4&quot; description=&quot;Año de construcción&quot;/&gt;
-&lt;FUEL_PRI type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;12&quot; description=&quot;Clase de combustible de combustible primario&quot;/&gt;
-&lt;STAT_SIS type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;40&quot; description=&quot;Línea status del sistema&quot;/&gt;
-&lt;STAT_USU type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;40&quot; description=&quot;Línea status del sistema&quot;/&gt;
-&lt;NO_COMPART type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;NUM&quot; length=&quot;2&quot; description=&quot;Cantidad de compartimentos&quot;/&gt;
-&lt;LOAD_WGT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;BCD&quot; length=&quot;7&quot; description=&quot;Carga máxima (peso)&quot;/&gt;
-&lt;KOSTL type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;10&quot; description=&quot;Centro de coste&quot;/&gt;
-&lt;MEDIDA type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;10&quot; description=&quot;Centro de coste&quot;/&gt;
-&lt;CHASSIS_NUM type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;30&quot; description=&quot;Número de chasis&quot;/&gt;
-&lt;CAPACIDAD type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;22&quot; description=&quot;Capacidad de tanque - Resumen de Clases (Pestaña general)&quot;/&gt;
-&lt;INBDT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;DATE&quot; length=&quot;8&quot; description=&quot;Fecha de puesta en servicio de objeto técnico&quot;/&gt;
-&lt;GPS type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;30&quot; description=&quot;GPS&quot;/&gt;&lt;/row&gt;&lt;/T_OUTPUT&gt;
+&lt;RSNUM type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;NUM&quot; length=&quot;10&quot; description=&quot;Número de la reserva/las necesidades secundarias&quot;/&gt;
+&lt;RSPOS type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;NUM&quot; length=&quot;4&quot; description=&quot;Número de posición de reserva/necesidades secundarias&quot;/&gt;
+&lt;GR_RCPT type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;12&quot; description=&quot;Destinatario de mercancías&quot;/&gt;
+&lt;RPTA type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;5&quot; description=&quot;Respuesta de procesamiento en SalesForce&quot;/&gt;
+&lt;MESSAGE type=&quot;field&quot; optional=&quot;false&quot; dataType=&quot;CHAR&quot; length=&quot;100&quot; description=&quot;Descripción del mensaje&quot;/&gt;&lt;/row&gt;&lt;/T_OUTPUT&gt;
 &lt;/tables&gt;
-&lt;/ZPAIMF_CONSULTARACTIVOS&gt;</exampleContent>
+&lt;/ZPAIMF_RESERVAMATERIAL&gt;</exampleContent>
             </org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty>
           </properties>
         </metaDataModelPropertiesManager>
@@ -62,7 +51,7 @@
                 </metaDataModelPropertiesManager>
                 <fields>
                   <org.mule.common.metadata.DefaultMetaDataField>
-                    <name>T_OUTPUT</name>
+                    <name>T_INPUT</name>
                     <model class="org.mule.common.metadata.DefaultXmlMetaDataModel">
                       <dataType>XML</dataType>
                       <metaDataModelPropertiesManager>
@@ -88,7 +77,7 @@
                               </metaDataModelPropertiesManager>
                               <fields>
                                 <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>BUKRS</name>
+                                  <name>COSTCENTER</name>
                                   <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
                                     <dataType>STRING</dataType>
                                     <metaDataModelPropertiesManager>
@@ -101,498 +90,12 @@
                                       <org.mule.common.metadata.property.QNameMetaDataProperty>
                                         <name>
                                           <namespaceURI></namespaceURI>
-                                          <localPart>BUKRS</localPart>
+                                          <localPart>COSTCENTER</localPart>
                                           <prefix></prefix>
                                         </name>
                                       </org.mule.common.metadata.property.QNameMetaDataProperty>
                                       <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>BUKRS [required, char, 4]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Sociedad</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>BUTXT</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>BUTXT</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>BUTXT [required, char, 25]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Denominación de la sociedad o empresa</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>SWERK</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>SWERK</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>SWERK [required, char, 4]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Centro de emplazamiento</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>EQUNR</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>EQUNR</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>EQUNR [required, char, 18]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Número de equipo</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>EQKTX1</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>EQKTX1</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>EQKTX1 [required, char, 40]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Denominación de objeto técnico</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>EQKTX2</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>EQKTX2</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>EQKTX2 [required, char, 40]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Denominación de objeto técnico</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>EQKTX3</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>EQKTX3</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>EQKTX3 [required, char, 40]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Denominación de objeto técnico</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>LICENSE_NUM</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>LICENSE_NUM</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>LICENSE_NUM [required, char, 15]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Matrícula vehículo</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>SERGE</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>SERGE</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>SERGE [required, char, 30]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Número de serie según el fabricante</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>EQART</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>EQART</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>EQART [required, char, 10]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Tipo de objeto técnico</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>HERST</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>HERST</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>HERST [required, char, 30]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Fabricante del activo fijo</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>TYPBZ</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>TYPBZ</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>TYPBZ [required, char, 20]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Denominación de tipo del fabricante</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>BAUJJ</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>BAUJJ</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>BAUJJ [required, char, 4]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Año de construcción</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>FUEL_PRI</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>FUEL_PRI</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>FUEL_PRI [required, char, 12]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Clase de combustible de combustible primario</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>STAT_SIS</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>STAT_SIS</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>STAT_SIS [required, char, 40]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Línea status del sistema</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>STAT_USU</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>STAT_USU</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>STAT_USU [required, char, 40]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Línea status del sistema</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>NO_COMPART</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>NO_COMPART</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>NO_COMPART [required, num, 2]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Cantidad de compartimentos</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>LOAD_WGT</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>LOAD_WGT</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>LOAD_WGT [required, bcd, 7]</label>
-                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
-                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Carga máxima (peso)</description>
-                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                    </properties>
-                                  </metaDataFieldPropertyManager>
-                                </org.mule.common.metadata.DefaultMetaDataField>
-                                <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>KOSTL</name>
-                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
-                                    <dataType>STRING</dataType>
-                                    <metaDataModelPropertiesManager>
-                                      <properties/>
-                                    </metaDataModelPropertiesManager>
-                                  </model>
-                                  <accessType>READ_WRITE</accessType>
-                                  <metaDataFieldPropertyManager>
-                                    <properties>
-                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
-                                        <name>
-                                          <namespaceURI></namespaceURI>
-                                          <localPart>KOSTL</localPart>
-                                          <prefix></prefix>
-                                        </name>
-                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
-                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>KOSTL [required, char, 10]</label>
+                                        <label>COSTCENTER [required, char, 10]</label>
                                       </org.mule.common.metadata.property.LabelMetaDataProperty>
                                       <org.mule.common.metadata.property.DescriptionMetaDataProperty>
                                         <description>Centro de coste</description>
@@ -601,7 +104,7 @@
                                   </metaDataFieldPropertyManager>
                                 </org.mule.common.metadata.DefaultMetaDataField>
                                 <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>MEDIDA</name>
+                                  <name>MATERIAL</name>
                                   <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
                                     <dataType>STRING</dataType>
                                     <metaDataModelPropertiesManager>
@@ -614,21 +117,21 @@
                                       <org.mule.common.metadata.property.QNameMetaDataProperty>
                                         <name>
                                           <namespaceURI></namespaceURI>
-                                          <localPart>MEDIDA</localPart>
+                                          <localPart>MATERIAL</localPart>
                                           <prefix></prefix>
                                         </name>
                                       </org.mule.common.metadata.property.QNameMetaDataProperty>
                                       <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>MEDIDA [required, char, 10]</label>
+                                        <label>MATERIAL [required, char, 18]</label>
                                       </org.mule.common.metadata.property.LabelMetaDataProperty>
                                       <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Centro de coste</description>
+                                        <description>Número de material</description>
                                       </org.mule.common.metadata.property.DescriptionMetaDataProperty>
                                     </properties>
                                   </metaDataFieldPropertyManager>
                                 </org.mule.common.metadata.DefaultMetaDataField>
                                 <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>CHASSIS_NUM</name>
+                                  <name>ENTRY_QNT</name>
                                   <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
                                     <dataType>STRING</dataType>
                                     <metaDataModelPropertiesManager>
@@ -641,21 +144,21 @@
                                       <org.mule.common.metadata.property.QNameMetaDataProperty>
                                         <name>
                                           <namespaceURI></namespaceURI>
-                                          <localPart>CHASSIS_NUM</localPart>
+                                          <localPart>ENTRY_QNT</localPart>
                                           <prefix></prefix>
                                         </name>
                                       </org.mule.common.metadata.property.QNameMetaDataProperty>
                                       <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>CHASSIS_NUM [required, char, 30]</label>
+                                        <label>ENTRY_QNT [required, bcd, 7]</label>
                                       </org.mule.common.metadata.property.LabelMetaDataProperty>
                                       <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Número de chasis</description>
+                                        <description>Cantidad en unidad de medida de entrada</description>
                                       </org.mule.common.metadata.property.DescriptionMetaDataProperty>
                                     </properties>
                                   </metaDataFieldPropertyManager>
                                 </org.mule.common.metadata.DefaultMetaDataField>
                                 <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>CAPACIDAD</name>
+                                  <name>PLANT</name>
                                   <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
                                     <dataType>STRING</dataType>
                                     <metaDataModelPropertiesManager>
@@ -668,21 +171,21 @@
                                       <org.mule.common.metadata.property.QNameMetaDataProperty>
                                         <name>
                                           <namespaceURI></namespaceURI>
-                                          <localPart>CAPACIDAD</localPart>
+                                          <localPart>PLANT</localPart>
                                           <prefix></prefix>
                                         </name>
                                       </org.mule.common.metadata.property.QNameMetaDataProperty>
                                       <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>CAPACIDAD [required, char, 22]</label>
+                                        <label>PLANT [required, char, 4]</label>
                                       </org.mule.common.metadata.property.LabelMetaDataProperty>
                                       <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Capacidad de tanque - Resumen de Clases (Pestaña general)</description>
+                                        <description>Centro</description>
                                       </org.mule.common.metadata.property.DescriptionMetaDataProperty>
                                     </properties>
                                   </metaDataFieldPropertyManager>
                                 </org.mule.common.metadata.DefaultMetaDataField>
                                 <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>INBDT</name>
+                                  <name>STGE_LOC</name>
                                   <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
                                     <dataType>STRING</dataType>
                                     <metaDataModelPropertiesManager>
@@ -695,21 +198,21 @@
                                       <org.mule.common.metadata.property.QNameMetaDataProperty>
                                         <name>
                                           <namespaceURI></namespaceURI>
-                                          <localPart>INBDT</localPart>
+                                          <localPart>STGE_LOC</localPart>
                                           <prefix></prefix>
                                         </name>
                                       </org.mule.common.metadata.property.QNameMetaDataProperty>
                                       <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>INBDT [required, date, 8]</label>
+                                        <label>STGE_LOC [required, char, 4]</label>
                                       </org.mule.common.metadata.property.LabelMetaDataProperty>
                                       <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>Fecha de puesta en servicio de objeto técnico</description>
+                                        <description>Almacén</description>
                                       </org.mule.common.metadata.property.DescriptionMetaDataProperty>
                                     </properties>
                                   </metaDataFieldPropertyManager>
                                 </org.mule.common.metadata.DefaultMetaDataField>
                                 <org.mule.common.metadata.DefaultMetaDataField>
-                                  <name>GPS</name>
+                                  <name>GR_RCPT</name>
                                   <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
                                     <dataType>STRING</dataType>
                                     <metaDataModelPropertiesManager>
@@ -722,15 +225,15 @@
                                       <org.mule.common.metadata.property.QNameMetaDataProperty>
                                         <name>
                                           <namespaceURI></namespaceURI>
-                                          <localPart>GPS</localPart>
+                                          <localPart>GR_RCPT</localPart>
                                           <prefix></prefix>
                                         </name>
                                       </org.mule.common.metadata.property.QNameMetaDataProperty>
                                       <org.mule.common.metadata.property.LabelMetaDataProperty>
-                                        <label>GPS [required, char, 30]</label>
+                                        <label>GR_RCPT [required, char, 12]</label>
                                       </org.mule.common.metadata.property.LabelMetaDataProperty>
                                       <org.mule.common.metadata.property.DescriptionMetaDataProperty>
-                                        <description>GPS</description>
+                                        <description>Destinatario de mercancías</description>
                                       </org.mule.common.metadata.property.DescriptionMetaDataProperty>
                                     </properties>
                                   </metaDataFieldPropertyManager>
@@ -738,118 +241,72 @@
                               </fields>
                               <rootElement>
                                 <namespaceURI></namespaceURI>
-                                <localPart>ZPAIMF_CONSULTARACTIVOS</localPart>
+                                <localPart>ZPAIMF_RESERVAMATERIAL</localPart>
                                 <prefix></prefix>
                               </rootElement>
                               <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
                                 <schemas>
                                   <string>&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
 &lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;1.0&quot;&gt;
-&lt;xsd:element name=&quot;ZPAIMF_CONSULTARACTIVOS&quot;&gt;
+&lt;xsd:element name=&quot;ZPAIMF_RESERVAMATERIAL&quot;&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:sequence&gt;
 &lt;xsd:element name=&quot;tables&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:all&gt;
+&lt;xsd:element name=&quot;T_INPUT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:sequence&gt;
+&lt;xsd:element name=&quot;row&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:sequence&gt;
+&lt;xsd:element name=&quot;COSTCENTER&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Centro de coste&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:simpleContent&gt;
+&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
+&lt;xsd:element name=&quot;MATERIAL&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Número de material&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:simpleContent&gt;
+&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
+&lt;xsd:element name=&quot;ENTRY_QNT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Cantidad en unidad de medida de entrada&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:simpleContent&gt;
+&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
+&lt;xsd:element name=&quot;PLANT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Centro&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:simpleContent&gt;
+&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
+&lt;xsd:element name=&quot;STGE_LOC&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Almacén&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:simpleContent&gt;
+&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
+&lt;xsd:element name=&quot;GR_RCPT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Destinatario de mercancías&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:complexType&gt;
+&lt;xsd:simpleContent&gt;
+&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;&lt;/xsd:sequence&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;&lt;/xsd:sequence&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
 &lt;xsd:element name=&quot;T_OUTPUT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:sequence&gt;
 &lt;xsd:element name=&quot;row&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:sequence&gt;
-&lt;xsd:element name=&quot;BUKRS&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Sociedad&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:element name=&quot;RSNUM&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Número de la reserva/las necesidades secundarias&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:simpleContent&gt;
 &lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;BUTXT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Denominación de la sociedad o empresa&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:element name=&quot;RSPOS&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Número de posición de reserva/necesidades secundarias&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:simpleContent&gt;
 &lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;SWERK&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Centro de emplazamiento&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:element name=&quot;GR_RCPT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Destinatario de mercancías&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:simpleContent&gt;
 &lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;EQUNR&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Número de equipo&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:element name=&quot;RPTA&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Respuesta de procesamiento en SalesForce&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:simpleContent&gt;
 &lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;EQKTX1&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Denominación de objeto técnico&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;EQKTX2&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Denominación de objeto técnico&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;EQKTX3&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Denominación de objeto técnico&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;LICENSE_NUM&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Matrícula vehículo&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;SERGE&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Número de serie según el fabricante&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;EQART&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Tipo de objeto técnico&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;HERST&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Fabricante del activo fijo&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;TYPBZ&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Denominación de tipo del fabricante&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;BAUJJ&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Año de construcción&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;FUEL_PRI&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Clase de combustible de combustible primario&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;STAT_SIS&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Línea status del sistema&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;STAT_USU&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Línea status del sistema&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;NO_COMPART&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Cantidad de compartimentos&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;LOAD_WGT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Carga máxima (peso)&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;KOSTL&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Centro de coste&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;MEDIDA&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Centro de coste&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;CHASSIS_NUM&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Número de chasis&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;CAPACIDAD&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Capacidad de tanque - Resumen de Clases (Pestaña general)&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;INBDT&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Fecha de puesta en servicio de objeto técnico&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
-&lt;xsd:complexType&gt;
-&lt;xsd:simpleContent&gt;
-&lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
-&lt;xsd:element name=&quot;GPS&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;GPS&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
+&lt;xsd:element name=&quot;MESSAGE&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;&gt;&lt;xsd:annotation&gt;&lt;xsd:documentation&gt;Descripción del mensaje&lt;/xsd:documentation&gt;&lt;/xsd:annotation&gt;
 &lt;xsd:complexType&gt;
 &lt;xsd:simpleContent&gt;
 &lt;xsd:extension base=&quot;xsd:string&quot;/&gt;&lt;/xsd:simpleContent&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;&lt;/xsd:sequence&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;&lt;/xsd:sequence&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;&lt;/xsd:all&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;&lt;/xsd:sequence&gt;&lt;/xsd:complexType&gt;&lt;/xsd:element&gt;
@@ -880,6 +337,208 @@
                       <rootElement reference="../fields/org.mule.common.metadata.DefaultMetaDataField/model/model/rootElement"/>
                       <schemas class="org.mule.common.metadata.StringBasedSchemaProvider" reference="../fields/org.mule.common.metadata.DefaultMetaDataField/model/model/schemas"/>
                       <namespaceManager reference="../fields/org.mule.common.metadata.DefaultMetaDataField/model/model/namespaceManager"/>
+                    </model>
+                    <accessType>READ_WRITE</accessType>
+                    <metaDataFieldPropertyManager>
+                      <properties>
+                        <org.mule.common.metadata.property.QNameMetaDataProperty>
+                          <name>
+                            <namespaceURI></namespaceURI>
+                            <localPart>T_INPUT</localPart>
+                            <prefix></prefix>
+                          </name>
+                        </org.mule.common.metadata.property.QNameMetaDataProperty>
+                        <org.mule.common.metadata.property.LabelMetaDataProperty>
+                          <label>T_INPUT [table]</label>
+                        </org.mule.common.metadata.property.LabelMetaDataProperty>
+                      </properties>
+                    </metaDataFieldPropertyManager>
+                  </org.mule.common.metadata.DefaultMetaDataField>
+                  <org.mule.common.metadata.DefaultMetaDataField>
+                    <name>T_OUTPUT</name>
+                    <model class="org.mule.common.metadata.DefaultXmlMetaDataModel">
+                      <dataType>XML</dataType>
+                      <metaDataModelPropertiesManager>
+                        <properties/>
+                      </metaDataModelPropertiesManager>
+                      <fields>
+                        <org.mule.common.metadata.DefaultMetaDataField>
+                          <name>row</name>
+                          <model class="org.mule.common.metadata.DefaultListMetaDataModel">
+                            <dataType>LIST</dataType>
+                            <metaDataModelPropertiesManager>
+                              <properties>
+                                <org.mule.common.metadata.property.xml.UnboundMetaDataProperty>
+                                  <maxOccurs>2147483647</maxOccurs>
+                                  <minOccurs>0</minOccurs>
+                                </org.mule.common.metadata.property.xml.UnboundMetaDataProperty>
+                              </properties>
+                            </metaDataModelPropertiesManager>
+                            <model class="org.mule.common.metadata.DefaultXmlMetaDataModel">
+                              <dataType>XML</dataType>
+                              <metaDataModelPropertiesManager>
+                                <properties/>
+                              </metaDataModelPropertiesManager>
+                              <fields>
+                                <org.mule.common.metadata.DefaultMetaDataField>
+                                  <name>RSNUM</name>
+                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                    <dataType>STRING</dataType>
+                                    <metaDataModelPropertiesManager>
+                                      <properties/>
+                                    </metaDataModelPropertiesManager>
+                                  </model>
+                                  <accessType>READ_WRITE</accessType>
+                                  <metaDataFieldPropertyManager>
+                                    <properties>
+                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                        <name>
+                                          <namespaceURI></namespaceURI>
+                                          <localPart>RSNUM</localPart>
+                                          <prefix></prefix>
+                                        </name>
+                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
+                                        <label>RSNUM [required, num, 10]</label>
+                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
+                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                        <description>Número de la reserva/las necesidades secundarias</description>
+                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                    </properties>
+                                  </metaDataFieldPropertyManager>
+                                </org.mule.common.metadata.DefaultMetaDataField>
+                                <org.mule.common.metadata.DefaultMetaDataField>
+                                  <name>RSPOS</name>
+                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                    <dataType>STRING</dataType>
+                                    <metaDataModelPropertiesManager>
+                                      <properties/>
+                                    </metaDataModelPropertiesManager>
+                                  </model>
+                                  <accessType>READ_WRITE</accessType>
+                                  <metaDataFieldPropertyManager>
+                                    <properties>
+                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                        <name>
+                                          <namespaceURI></namespaceURI>
+                                          <localPart>RSPOS</localPart>
+                                          <prefix></prefix>
+                                        </name>
+                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
+                                        <label>RSPOS [required, num, 4]</label>
+                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
+                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                        <description>Número de posición de reserva/necesidades secundarias</description>
+                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                    </properties>
+                                  </metaDataFieldPropertyManager>
+                                </org.mule.common.metadata.DefaultMetaDataField>
+                                <org.mule.common.metadata.DefaultMetaDataField>
+                                  <name>GR_RCPT</name>
+                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                    <dataType>STRING</dataType>
+                                    <metaDataModelPropertiesManager>
+                                      <properties/>
+                                    </metaDataModelPropertiesManager>
+                                  </model>
+                                  <accessType>READ_WRITE</accessType>
+                                  <metaDataFieldPropertyManager>
+                                    <properties>
+                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                        <name>
+                                          <namespaceURI></namespaceURI>
+                                          <localPart>GR_RCPT</localPart>
+                                          <prefix></prefix>
+                                        </name>
+                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
+                                        <label>GR_RCPT [required, char, 12]</label>
+                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
+                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                        <description>Destinatario de mercancías</description>
+                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                    </properties>
+                                  </metaDataFieldPropertyManager>
+                                </org.mule.common.metadata.DefaultMetaDataField>
+                                <org.mule.common.metadata.DefaultMetaDataField>
+                                  <name>RPTA</name>
+                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                    <dataType>STRING</dataType>
+                                    <metaDataModelPropertiesManager>
+                                      <properties/>
+                                    </metaDataModelPropertiesManager>
+                                  </model>
+                                  <accessType>READ_WRITE</accessType>
+                                  <metaDataFieldPropertyManager>
+                                    <properties>
+                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                        <name>
+                                          <namespaceURI></namespaceURI>
+                                          <localPart>RPTA</localPart>
+                                          <prefix></prefix>
+                                        </name>
+                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
+                                        <label>RPTA [required, char, 5]</label>
+                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
+                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                        <description>Respuesta de procesamiento en SalesForce</description>
+                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                    </properties>
+                                  </metaDataFieldPropertyManager>
+                                </org.mule.common.metadata.DefaultMetaDataField>
+                                <org.mule.common.metadata.DefaultMetaDataField>
+                                  <name>MESSAGE</name>
+                                  <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+                                    <dataType>STRING</dataType>
+                                    <metaDataModelPropertiesManager>
+                                      <properties/>
+                                    </metaDataModelPropertiesManager>
+                                  </model>
+                                  <accessType>READ_WRITE</accessType>
+                                  <metaDataFieldPropertyManager>
+                                    <properties>
+                                      <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                        <name>
+                                          <namespaceURI></namespaceURI>
+                                          <localPart>MESSAGE</localPart>
+                                          <prefix></prefix>
+                                        </name>
+                                      </org.mule.common.metadata.property.QNameMetaDataProperty>
+                                      <org.mule.common.metadata.property.LabelMetaDataProperty>
+                                        <label>MESSAGE [required, char, 100]</label>
+                                      </org.mule.common.metadata.property.LabelMetaDataProperty>
+                                      <org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                        <description>Descripción del mensaje</description>
+                                      </org.mule.common.metadata.property.DescriptionMetaDataProperty>
+                                    </properties>
+                                  </metaDataFieldPropertyManager>
+                                </org.mule.common.metadata.DefaultMetaDataField>
+                              </fields>
+                              <rootElement reference="../../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/fields/org.mule.common.metadata.DefaultMetaDataField/model/model/rootElement"/>
+                              <schemas class="org.mule.common.metadata.StringBasedSchemaProvider" reference="../../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/fields/org.mule.common.metadata.DefaultMetaDataField/model/model/schemas"/>
+                              <namespaceManager reference="../../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/fields/org.mule.common.metadata.DefaultMetaDataField/model/model/namespaceManager"/>
+                            </model>
+                            <isArray>false</isArray>
+                          </model>
+                          <accessType>READ_WRITE</accessType>
+                          <metaDataFieldPropertyManager>
+                            <properties>
+                              <org.mule.common.metadata.property.QNameMetaDataProperty>
+                                <name>
+                                  <namespaceURI></namespaceURI>
+                                  <localPart>row</localPart>
+                                  <prefix></prefix>
+                                </name>
+                              </org.mule.common.metadata.property.QNameMetaDataProperty>
+                            </properties>
+                          </metaDataFieldPropertyManager>
+                        </org.mule.common.metadata.DefaultMetaDataField>
+                      </fields>
+                      <rootElement reference="../../../org.mule.common.metadata.DefaultMetaDataField/model/fields/org.mule.common.metadata.DefaultMetaDataField/model/model/rootElement"/>
+                      <schemas class="org.mule.common.metadata.StringBasedSchemaProvider" reference="../../../org.mule.common.metadata.DefaultMetaDataField/model/fields/org.mule.common.metadata.DefaultMetaDataField/model/model/schemas"/>
+                      <namespaceManager reference="../../../org.mule.common.metadata.DefaultMetaDataField/model/fields/org.mule.common.metadata.DefaultMetaDataField/model/model/namespaceManager"/>
                     </model>
                     <accessType>READ_WRITE</accessType>
                     <metaDataFieldPropertyManager>
@@ -923,137 +582,78 @@
           <java.io.ByteArrayInputStream>
             <buf>PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPHhzZDpzY2hlbWEgeG1sbnM6
 eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgdmVyc2lvbj0iMS4wIj4KPHhz
-ZDplbGVtZW50IG5hbWU9IlpQQUlNRl9DT05TVUxUQVJBQ1RJVk9TIj4KPHhzZDpjb21wbGV4VHlw
-ZT4KPHhzZDpzZXF1ZW5jZT4KPHhzZDplbGVtZW50IG5hbWU9InRhYmxlcyIgbWluT2NjdXJzPSIw
-IiBtYXhPY2N1cnM9IjEiPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOmFsbD4KPHhzZDplbGVtZW50
-IG5hbWU9IlRfT1VUUFVUIiBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSI+Cjx4c2Q6Y29tcGxl
-eFR5cGU+Cjx4c2Q6c2VxdWVuY2U+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJyb3ciIG1pbk9jY3Vycz0i
-MCIgbWF4T2NjdXJzPSJ1bmJvdW5kZWQiPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNlcXVlbmNl
-Pgo8eHNkOmVsZW1lbnQgbmFtZT0iQlVLUlMiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48
-eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPlNvY2llZGFkPC94c2Q6ZG9jdW1lbnRh
-dGlvbj48L3hzZDphbm5vdGF0aW9uPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRl
-bnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJhc2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50
-PjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJCVVRY
-VCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3Vt
-ZW50YXRpb24+RGVub21pbmFjacOzbiBkZSBsYSBzb2NpZWRhZCBvIGVtcHJlc2E8L3hzZDpkb2N1
-bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxl
-Q29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNv
-bnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9
-IlNXRVJLIiBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSI+PHhzZDphbm5vdGF0aW9uPjx4c2Q6
-ZG9jdW1lbnRhdGlvbj5DZW50cm8gZGUgZW1wbGF6YW1pZW50bzwveHNkOmRvY3VtZW50YXRpb24+
-PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlwZT4KPHhzZDpzaW1wbGVDb250ZW50Pgo8
-eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94c2Q6c2ltcGxlQ29udGVudD48L3hz
-ZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8eHNkOmVsZW1lbnQgbmFtZT0iRVFVTlIiIG1p
-bk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0
-aW9uPk7Dum1lcm8gZGUgZXF1aXBvPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9u
-Pgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJh
-c2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwv
-eHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJFUUtUWDEiIG1pbk9jY3Vycz0iMCIgbWF4
-T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkRlbm9taW5hY2nD
-s24gZGUgb2JqZXRvIHTDqWNuaWNvPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9u
-Pgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJh
-c2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwv
-eHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJFUUtUWDIiIG1pbk9jY3Vycz0iMCIgbWF4
-T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkRlbm9taW5hY2nD
-s24gZGUgb2JqZXRvIHTDqWNuaWNvPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9u
-Pgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJh
-c2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwv
-eHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJFUUtUWDMiIG1pbk9jY3Vycz0iMCIgbWF4
-T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkRlbm9taW5hY2nD
-s24gZGUgb2JqZXRvIHTDqWNuaWNvPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9u
-Pgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJh
-c2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwv
-eHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJMSUNFTlNFX05VTSIgbWluT2NjdXJzPSIw
-IiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRpb24+TWF0csOt
-Y3VsYSB2ZWjDrWN1bG88L3hzZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6
-Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNk
-OnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxl
-bWVudD4KPHhzZDplbGVtZW50IG5hbWU9IlNFUkdFIiBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0i
-MSI+PHhzZDphbm5vdGF0aW9uPjx4c2Q6ZG9jdW1lbnRhdGlvbj5Ow7ptZXJvIGRlIHNlcmllIHNl
-Z8O6biBlbCBmYWJyaWNhbnRlPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9uPgo8
-eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJhc2U9
-InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwveHNk
-OmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJFUUFSVCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1
-cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRpb24+VGlwbyBkZSBvYmpldG8g
-dMOpY25pY288L3hzZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxl
-eFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmlu
-ZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4K
-PHhzZDplbGVtZW50IG5hbWU9IkhFUlNUIiBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSI+PHhz
-ZDphbm5vdGF0aW9uPjx4c2Q6ZG9jdW1lbnRhdGlvbj5GYWJyaWNhbnRlIGRlbCBhY3Rpdm8gZmlq
-bzwveHNkOmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlwZT4K
-PHhzZDpzaW1wbGVDb250ZW50Pgo8eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94
-c2Q6c2ltcGxlQ29udGVudD48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8eHNkOmVs
-ZW1lbnQgbmFtZT0iVFlQQloiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90
-YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkRlbm9taW5hY2nDs24gZGUgdGlwbyBkZWwgZmFicmlj
-YW50ZTwveHNkOmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlw
-ZT4KPHhzZDpzaW1wbGVDb250ZW50Pgo8eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+
-PC94c2Q6c2ltcGxlQ29udGVudD48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8eHNk
-OmVsZW1lbnQgbmFtZT0iQkFVSkoiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFu
-bm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkHDsW8gZGUgY29uc3RydWNjacOzbjwveHNkOmRv
-Y3VtZW50YXRpb24+PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlwZT4KPHhzZDpzaW1w
-bGVDb250ZW50Pgo8eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94c2Q6c2ltcGxl
-Q29udGVudD48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8eHNkOmVsZW1lbnQgbmFt
-ZT0iRlVFTF9QUkkiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+
-PHhzZDpkb2N1bWVudGF0aW9uPkNsYXNlIGRlIGNvbWJ1c3RpYmxlIGRlIGNvbWJ1c3RpYmxlIHBy
-aW1hcmlvPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9uPgo8eHNkOmNvbXBsZXhU
-eXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJhc2U9InhzZDpzdHJpbmci
-Lz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVsZW1lbnQ+Cjx4
-c2Q6ZWxlbWVudCBuYW1lPSJTVEFUX1NJUyIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4
-c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRpb24+TMOtbmVhIHN0YXR1cyBkZWwgc2lzdGVt
-YTwveHNkOmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlwZT4K
-PHhzZDpzaW1wbGVDb250ZW50Pgo8eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94
-c2Q6c2ltcGxlQ29udGVudD48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8eHNkOmVs
-ZW1lbnQgbmFtZT0iU1RBVF9VU1UiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFu
-bm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkzDrW5lYSBzdGF0dXMgZGVsIHNpc3RlbWE8L3hz
-ZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6
-c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNp
-bXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50
-IG5hbWU9Ik5PX0NPTVBBUlQiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90
-YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkNhbnRpZGFkIGRlIGNvbXBhcnRpbWVudG9zPC94c2Q6
+ZDplbGVtZW50IG5hbWU9IlpQQUlNRl9SRVNFUlZBTUFURVJJQUwiPgo8eHNkOmNvbXBsZXhUeXBl
+Pgo8eHNkOnNlcXVlbmNlPgo8eHNkOmVsZW1lbnQgbmFtZT0idGFibGVzIiBtaW5PY2N1cnM9IjAi
+IG1heE9jY3Vycz0iMSI+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6YWxsPgo8eHNkOmVsZW1lbnQg
+bmFtZT0iVF9JTlBVVCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPgo8eHNkOmNvbXBsZXhU
+eXBlPgo8eHNkOnNlcXVlbmNlPgo8eHNkOmVsZW1lbnQgbmFtZT0icm93IiBtaW5PY2N1cnM9IjAi
+IG1heE9jY3Vycz0idW5ib3VuZGVkIj4KPHhzZDpjb21wbGV4VHlwZT4KPHhzZDpzZXF1ZW5jZT4K
+PHhzZDplbGVtZW50IG5hbWU9IkNPU1RDRU5URVIiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIx
+Ij48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkNlbnRybyBkZSBjb3N0ZTwveHNk
+OmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlwZT4KPHhzZDpz
+aW1wbGVDb250ZW50Pgo8eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94c2Q6c2lt
+cGxlQ29udGVudD48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8eHNkOmVsZW1lbnQg
+bmFtZT0iTUFURVJJQUwiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRp
+b24+PHhzZDpkb2N1bWVudGF0aW9uPk7Dum1lcm8gZGUgbWF0ZXJpYWw8L3hzZDpkb2N1bWVudGF0
+aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVu
+dD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+
+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9IkVOVFJZ
+X1FOVCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRv
+Y3VtZW50YXRpb24+Q2FudGlkYWQgZW4gdW5pZGFkIGRlIG1lZGlkYSBkZSBlbnRyYWRhPC94c2Q6
 ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9uPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNp
 bXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJhc2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1w
 bGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBu
-YW1lPSJMT0FEX1dHVCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlv
-bj48eHNkOmRvY3VtZW50YXRpb24+Q2FyZ2EgbcOheGltYSAocGVzbyk8L3hzZDpkb2N1bWVudGF0
-aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVu
-dD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+
-PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9IktPU1RM
-IiBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSI+PHhzZDphbm5vdGF0aW9uPjx4c2Q6ZG9jdW1l
-bnRhdGlvbj5DZW50cm8gZGUgY29zdGU8L3hzZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRp
-b24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24g
-YmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+
-PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9Ik1FRElEQSIgbWluT2NjdXJzPSIwIiBt
-YXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRpb24+Q2VudHJvIGRl
-IGNvc3RlPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9uPgo8eHNkOmNvbXBsZXhU
-eXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJhc2U9InhzZDpzdHJpbmci
-Lz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVsZW1lbnQ+Cjx4
-c2Q6ZWxlbWVudCBuYW1lPSJDSEFTU0lTX05VTSIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEi
-Pjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRpb24+TsO6bWVybyBkZSBjaGFzaXM8L3hz
-ZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6
-c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNp
-bXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50
-IG5hbWU9IkNBUEFDSURBRCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3Rh
-dGlvbj48eHNkOmRvY3VtZW50YXRpb24+Q2FwYWNpZGFkIGRlIHRhbnF1ZSAtIFJlc3VtZW4gZGUg
-Q2xhc2VzIChQZXN0YcOxYSBnZW5lcmFsKTwveHNkOmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3Rh
+YW1lPSJQTEFOVCIgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48
+eHNkOmRvY3VtZW50YXRpb24+Q2VudHJvPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0
+aW9uPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9u
+IGJhc2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBl
+PjwveHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJTVEdFX0xPQyIgbWluT2NjdXJzPSIw
+IiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRpb24+QWxtYWPD
+qW48L3hzZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+
+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwv
+eHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDpl
+bGVtZW50IG5hbWU9IkdSX1JDUFQiIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFu
+bm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkRlc3RpbmF0YXJpbyBkZSBtZXJjYW5jw61hczwv
+eHNkOmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3RhdGlvbj4KPHhzZDpjb21wbGV4VHlwZT4KPHhz
+ZDpzaW1wbGVDb250ZW50Pgo8eHNkOmV4dGVuc2lvbiBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94c2Q6
+c2ltcGxlQ29udGVudD48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50PjwveHNkOnNlcXVl
+bmNlPjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVsZW1lbnQ+PC94c2Q6c2VxdWVuY2U+PC94c2Q6
+Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9IlRfT1VUUFVUIiBt
+aW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSI+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2VxdWVu
+Y2U+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJyb3ciIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSJ1bmJv
+dW5kZWQiPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNlcXVlbmNlPgo8eHNkOmVsZW1lbnQgbmFt
+ZT0iUlNOVU0iIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhz
+ZDpkb2N1bWVudGF0aW9uPk7Dum1lcm8gZGUgbGEgcmVzZXJ2YS9sYXMgbmVjZXNpZGFkZXMgc2Vj
+dW5kYXJpYXM8L3hzZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxl
+eFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmlu
+ZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4K
+PHhzZDplbGVtZW50IG5hbWU9IlJTUE9TIiBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0iMSI+PHhz
+ZDphbm5vdGF0aW9uPjx4c2Q6ZG9jdW1lbnRhdGlvbj5Ow7ptZXJvIGRlIHBvc2ljacOzbiBkZSBy
+ZXNlcnZhL25lY2VzaWRhZGVzIHNlY3VuZGFyaWFzPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDph
+bm5vdGF0aW9uPgo8eHNkOmNvbXBsZXhUeXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0
+ZW5zaW9uIGJhc2U9InhzZDpzdHJpbmciLz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBs
+ZXhUeXBlPjwveHNkOmVsZW1lbnQ+Cjx4c2Q6ZWxlbWVudCBuYW1lPSJHUl9SQ1BUIiBtaW5PY2N1
+cnM9IjAiIG1heE9jY3Vycz0iMSI+PHhzZDphbm5vdGF0aW9uPjx4c2Q6ZG9jdW1lbnRhdGlvbj5E
+ZXN0aW5hdGFyaW8gZGUgbWVyY2FuY8OtYXM8L3hzZDpkb2N1bWVudGF0aW9uPjwveHNkOmFubm90
+YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpleHRlbnNp
+b24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29tcGxleFR5
+cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9IlJQVEEiIG1pbk9jY3Vycz0iMCIg
+bWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPlJlc3B1ZXN0
+YSBkZSBwcm9jZXNhbWllbnRvIGVuIFNhbGVzRm9yY2U8L3hzZDpkb2N1bWVudGF0aW9uPjwveHNk
+OmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4KPHhzZDpl
+eHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94c2Q6Y29t
+cGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9Ik1FU1NBR0UiIG1pbk9j
+Y3Vycz0iMCIgbWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9u
+PkRlc2NyaXBjacOzbiBkZWwgbWVuc2FqZTwveHNkOmRvY3VtZW50YXRpb24+PC94c2Q6YW5ub3Rh
 dGlvbj4KPHhzZDpjb21wbGV4VHlwZT4KPHhzZDpzaW1wbGVDb250ZW50Pgo8eHNkOmV4dGVuc2lv
 biBiYXNlPSJ4c2Q6c3RyaW5nIi8+PC94c2Q6c2ltcGxlQ29udGVudD48L3hzZDpjb21wbGV4VHlw
-ZT48L3hzZDplbGVtZW50Pgo8eHNkOmVsZW1lbnQgbmFtZT0iSU5CRFQiIG1pbk9jY3Vycz0iMCIg
-bWF4T2NjdXJzPSIxIj48eHNkOmFubm90YXRpb24+PHhzZDpkb2N1bWVudGF0aW9uPkZlY2hhIGRl
-IHB1ZXN0YSBlbiBzZXJ2aWNpbyBkZSBvYmpldG8gdMOpY25pY288L3hzZDpkb2N1bWVudGF0aW9u
-PjwveHNkOmFubm90YXRpb24+Cjx4c2Q6Y29tcGxleFR5cGU+Cjx4c2Q6c2ltcGxlQ29udGVudD4K
-PHhzZDpleHRlbnNpb24gYmFzZT0ieHNkOnN0cmluZyIvPjwveHNkOnNpbXBsZUNvbnRlbnQ+PC94
-c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD4KPHhzZDplbGVtZW50IG5hbWU9IkdQUyIgbWlu
-T2NjdXJzPSIwIiBtYXhPY2N1cnM9IjEiPjx4c2Q6YW5ub3RhdGlvbj48eHNkOmRvY3VtZW50YXRp
-b24+R1BTPC94c2Q6ZG9jdW1lbnRhdGlvbj48L3hzZDphbm5vdGF0aW9uPgo8eHNkOmNvbXBsZXhU
-eXBlPgo8eHNkOnNpbXBsZUNvbnRlbnQ+Cjx4c2Q6ZXh0ZW5zaW9uIGJhc2U9InhzZDpzdHJpbmci
-Lz48L3hzZDpzaW1wbGVDb250ZW50PjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVsZW1lbnQ+PC94
-c2Q6c2VxdWVuY2U+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD48L3hzZDpzZXF1ZW5j
-ZT48L3hzZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50PjwveHNkOmFsbD48L3hzZDpjb21wbGV4
-VHlwZT48L3hzZDplbGVtZW50PjwveHNkOnNlcXVlbmNlPjwveHNkOmNvbXBsZXhUeXBlPjwveHNk
-OmVsZW1lbnQ+CjwveHNkOnNjaGVtYT4=</buf>
+ZT48L3hzZDplbGVtZW50PjwveHNkOnNlcXVlbmNlPjwveHNkOmNvbXBsZXhUeXBlPjwveHNkOmVs
+ZW1lbnQ+PC94c2Q6c2VxdWVuY2U+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD48L3hz
+ZDphbGw+PC94c2Q6Y29tcGxleFR5cGU+PC94c2Q6ZWxlbWVudD48L3hzZDpzZXF1ZW5jZT48L3hz
+ZDpjb21wbGV4VHlwZT48L3hzZDplbGVtZW50Pgo8L3hzZDpzY2hlbWE+</buf>
             <pos>0</pos>
             <mark>0</mark>
-            <count>7376</count>
+            <count>4032</count>
           </java.io.ByteArrayInputStream>
         </schemas>
       </com.mulesoft.mule.transport.sap.util.MetaDataUtils_-SapCustomMetaDataModel>

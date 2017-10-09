@@ -18,6 +18,7 @@ http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfd
         <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <flow-ref name="send-requestToSAP" doc:name="send-requestToSAP"/>
         <flow-ref name="send-requestToSFDC" doc:name="send-requestToSFDC"/>
+        <exception-strategy ref="errorhandlingChoice_Exception_Strategy" doc:name="Reference Exception Strategy"/>
 
 
 

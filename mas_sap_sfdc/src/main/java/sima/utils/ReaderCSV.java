@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +17,10 @@ import org.supercsv.prefs.CsvPreference;
 import org.mule.api.MuleMessage;
 import org.mule.api.transformer.TransformerException;
 import org.mule.transformer.AbstractMessageTransformer;
+import org.mule.util.FileUtils;
+
+import java.net.URL;
+import java.net.URLClassLoader;
 
 
 public  class ReaderCSV extends AbstractMessageTransformer{
@@ -34,9 +39,18 @@ public  class ReaderCSV extends AbstractMessageTransformer{
 	      String splitBy = ",";  
 	      List<Fuel> fuelList = new ArrayList<Fuel>();  
 	      
+	   
+	      
 	      try {  
-	    	  String csvFileToRead = "C:\\Users\\jflormun\\Documents\\Anypoint Studio\\WorkPlaces\\workplace\\WP\\mas_sap_sfdc"+message.getPayloadAsString(); 
-	       br = new BufferedReader(new FileReader(csvFileToRead));  
+	 
+	    	  String filepath = "\\EDENRED\\"+message.getPayloadAsString();
+	    	  
+	    	  InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);
+	    	  InputStreamReader read = new InputStreamReader(is);
+	    	  
+	    	  System.out.println();
+	    	
+	       br = new BufferedReader(read);  
 	       int contador = 0;
 	       while ((line = br.readLine()) != null) {  
 	    	   
@@ -83,6 +97,11 @@ public  class ReaderCSV extends AbstractMessageTransformer{
 		      
 		        // adding car objects to a list  
 		        fuelList.add(fuelObject);  
+	       }
+	       else
+	       {
+	    	   System.out.println(line);
+
 	       }
 	       contador ++;
 	       }  

@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__Asset__c"
+        }
+    },
+    "id": "7e16499a-eabd-4562-8baa-a1329802b3bb",
+    "version": "5.2.0.0"
+}

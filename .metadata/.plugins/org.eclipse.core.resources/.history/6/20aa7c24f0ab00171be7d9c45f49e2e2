@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns:schedulers="http://www.mulesoft.org/schema/mule/schedulers" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/schedulers http://www.mulesoft.org/schema/mule/schedulers/current/mule-schedulers.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd">
+    <flow name="mas-jobs-getStock">
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Inventario']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <expression-component doc:name="lock processing to avoid two syncs occurring at the same time"><![CDATA[app.registry['PollSynchronizer'].lock();]]></expression-component>
+        <flow-ref name="mas-stockFlow" doc:name="mas-stockFlow"/>
+        <expression-component doc:name="unlock processing"><![CDATA[#[app.registry['PollSynchronizer'].unlock()]]]></expression-component>
+        <logger message="#['Finaliza Inventario']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getPurchaseOrder" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Ordenes de Compra']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <expression-component doc:name="lock processing to avoid two syncs occurring at the same time"><![CDATA[app.registry['PollSynchronizer'].lock();]]></expression-component>
+        <flow-ref name="mas-purchase-orderFlow" doc:name="mas-purchase-orderFlow"/>
+        <expression-component doc:name="unlock processing"><![CDATA[#[app.registry['PollSynchronizer'].unlock()]]]></expression-component>
+        <logger level="INFO" doc:name="Logger" message="#['Finaliza Ordenes de Compra']"/>
+    </flow>
+    <flow name="mas-jobs-getAssets" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Activos']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <expression-component doc:name="lock processing to avoid two syncs occurring at the same time"><![CDATA[app.registry['PollSynchronizer'].lock();]]></expression-component>
+        <flow-ref name="mas-assetsFlow" doc:name="mas-assetsFlow"/>
+        <expression-component doc:name="unlock processing"><![CDATA[#[app.registry['PollSynchronizer'].unlock()]]]></expression-component>
+        <logger message="#['Finaliza Activos']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getOutboundMerch" >
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Salida de Mercancia']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <expression-component doc:name="lock processing to avoid two syncs occurring at the same time"><![CDATA[app.registry['PollSynchronizer'].lock();]]></expression-component>
+        <flow-ref name="mas-outbound-merchandiseFlow" doc:name="mas-outbound-merchandiseFlow"/>
+        <expression-component doc:name="unlock processing"><![CDATA[#[app.registry['PollSynchronizer'].unlock()]]]></expression-component>
+        <logger message="#['Finaliza Salida de Mercancia']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobs-getFuelEDENRED">
+        <poll doc:name="Poll">
+            <schedulers:cron-scheduler expression="0 0 0/3 * * ? *"/>
+            <logger message="#['Inicia Fuel EDENRED']" level="INFO" doc:name="Logger"/>
+        </poll>
+        <expression-component doc:name="lock processing to avoid two syncs occurring at the same time"><![CDATA[app.registry['PollSynchronizer'].lock();]]></expression-component>
+        <flow-ref name="mas-edenredFlow1" doc:name="mas-edenredFlow1"/>
+        <expression-component doc:name="unlock processing"><![CDATA[#[app.registry['PollSynchronizer'].unlock()]]]></expression-component>
+        <logger message="#['Finaliza Fuel EDENRED']" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mas-jobsFlow">
+             <quartz:inbound-endpoint jobName="testJob" cronExpression="00 46 11 * * ?"
+                connector-ref="Quartz" doc:name="Quartz" repeatInterval="0" responseTimeout="10000">
+            <quartz:endpoint-polling-job>
+                <quartz:job-endpoint ref="SFTP"/>
+            </quartz:endpoint-polling-job>
+        </quartz:inbound-endpoint>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>

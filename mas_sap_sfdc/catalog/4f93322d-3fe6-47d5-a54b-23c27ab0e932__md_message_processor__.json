@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_CONSULTARACTIVOS"
+        }
+    },
+    "outputMessageMetadata": {},
+    "id": "4f93322d-3fe6-47d5-a54b-23c27ab0e932",
+    "version": "5.2.0.0"
+}

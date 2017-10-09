@@ -1,0 +1,11 @@
+{
+    "inputMessageMetadata": {},
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "SAP",
+            "typeId": "ZPAIMF_RESERVAMATERIAL"
+        }
+    },
+    "id": "ee72e2a3-a7d5-49fd-8d7c-16c227bc9820",
+    "version": "5.2.0.0"
+}

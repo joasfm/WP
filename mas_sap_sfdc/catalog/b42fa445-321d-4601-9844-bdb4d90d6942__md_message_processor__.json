@@ -6,7 +6,10 @@
         }
     },
     "outputMessageMetadata": {
-        "messagePayload": {}
+        "messagePayload": {
+            "connectorName": "Salesforce_Authentication",
+            "typeId": "aib__SAP_Material_Reservation__c"
+        }
     },
     "id": "b42fa445-321d-4601-9844-bdb4d90d6942",
     "version": "5.2.0.0"

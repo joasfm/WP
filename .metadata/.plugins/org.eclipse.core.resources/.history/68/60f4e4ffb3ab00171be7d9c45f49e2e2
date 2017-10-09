@@ -1,0 +1,254 @@
+package sima.utils;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Vector;
+
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.transformer.AbstractMessageTransformer;
+
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
+
+/**
+ * @author kodehelp
+ *
+ */
+public class SFTPinJava extends AbstractMessageTransformer {
+
+	 Properties prop = new Properties(); //Creating property file object read File attachment path from property file
+     InputStream input = null; // To read property file path
+     static ChannelSftp channelSftp = null;
+     static Session session = null;
+     static Channel channel = null;
+     static String PATHSEPARATOR = "/";
+     ArrayList listFiles = new ArrayList(); 
+
+	@Override
+	public Object transformMessage(MuleMessage message, String outputEncoding) throws TransformerException {
+		// TODO Auto-generated method stub
+		
+        String SFTPHOST = "10.20.30.40";
+        int SFTPPORT = 22;
+        String SFTPUSER = "username";
+        String SFTPPASS = "password";
+        String SFTPWORKINGDIR = "/export/home/kodehelp/";
+        String SFTPLOCALDIR = "";
+		
+		
+        try {
+            input = getClass().getClassLoader().getResourceAsStream("mule-app.properties"); // Property file path in classpath
+             prop.load(input); // get and load the property file
+             //String type = prop.getProperty("mule.env");
+             
+             //input = getClass().getClassLoader().getResourceAsStream("mule."+ type + ".properties"); // here you get the file 
+
+             
+             SFTPHOST=prop.getProperty("sftp.host");
+             SFTPUSER=prop.getProperty("sftp.user");
+             SFTPPASS=prop.getProperty("sftp.password"); 
+             SFTPWORKINGDIR= prop.getProperty("sftp.path");
+             SFTPLOCALDIR= prop.getProperty("sftp.locpath");
+             
+        } catch (IOException e)
+        {
+
+            e.printStackTrace();
+        }
+		
+		
+
+
+        //Session session = null;
+        //Channel channel = null;
+        //ChannelSftp channelSftp = null;
+
+        try {
+            JSch jsch = new JSch();
+            session = jsch.getSession(SFTPUSER, SFTPHOST, SFTPPORT);
+            session.setPassword(SFTPPASS);
+            java.util.Properties config = new java.util.Properties();
+            config.put("StrictHostKeyChecking", "no");
+            session.setConfig(config);
+            session.connect();
+            channel = session.openChannel("sftp");
+            channel.connect();
+            channelSftp = (ChannelSftp) channel;
+            channelSftp.cd(SFTPWORKINGDIR);
+            
+           
+            listFiles = recursiveFolderDownload(SFTPWORKINGDIR, SFTPLOCALDIR); // Recursive folder content download from SFTP server
+            
+            readFiles(listFiles);
+
+      
+            
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+		return listFiles;
+	}
+	
+	 @SuppressWarnings("unchecked")
+	    private static ArrayList<String> recursiveFolderDownload(String sourcePath, String destinationPath) throws SftpException {
+	        Vector<ChannelSftp.LsEntry> fileAndFolderList = channelSftp.ls(sourcePath); // Let list of folder content
+	        ArrayList FilesNames = new ArrayList();
+	        //Iterate through list of folder content
+	        for (ChannelSftp.LsEntry item : fileAndFolderList) {
+	            
+	            if (!item.getAttrs().isDir()) { // Check if it is a file (not a directory).
+	                if (!(new File(destinationPath + PATHSEPARATOR + item.getFilename())).exists()
+	                        || (item.getAttrs().getMTime() > Long
+	                                .valueOf(new File(destinationPath + PATHSEPARATOR + item.getFilename()).lastModified()
+	                                        / (long) 1000)
+	                                .intValue())) { // Download only if changed later.
+
+	                    new File(destinationPath + PATHSEPARATOR + item.getFilename());
+	                    
+	                    channelSftp.get(sourcePath + PATHSEPARATOR + item.getFilename(),
+	                            destinationPath + PATHSEPARATOR + item.getFilename()); 
+	                    // Download file from source (source filename, destination filename).
+	                    if (item.getFilename().endsWith(".csv"))
+	                    {
+	                    	FilesNames.add(item.getFilename());
+	                    }
+	                    
+	                    
+	                }
+	            } else if (!(".".equals(item.getFilename()) || "..".equals(item.getFilename()))) {
+	                new File(destinationPath + PATHSEPARATOR + item.getFilename()).mkdirs(); // Empty folder copy.
+	                recursiveFolderDownload(sourcePath + PATHSEPARATOR + item.getFilename(),
+	                        destinationPath + PATHSEPARATOR + item.getFilename()); // Enter found folder on server to read its contents and create locally.
+	            }
+	        }
+	        
+	        return FilesNames;
+	    }
+	 
+	 public void readFiles(ArrayList files)
+	 {
+		 List<Map<String, String>> rows = new ArrayList<Map<String, String>>();
+	      Map<String, String> row = null;
+		
+	       
+	      BufferedReader br = null;  
+	      String line = "";  
+	      String splitBy = ",";  
+	      List<Fuel> fuelList = new ArrayList<Fuel>();  
+	      
+	      for (int i = 0; i<files.size(); i++)
+	      {
+	    	  
+	     
+	      
+	      try {  
+	 
+		    	  String filepath = (String) files.get(i);
+		    	  
+		    	  InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);;
+		    	  InputStreamReader read = new InputStreamReader(is);
+		    	  
+		    	  System.out.println();
+		    	
+		    	  br = new BufferedReader(read);  
+		    	  int contador = 0;
+		    	  while ((line = br.readLine()) != null) {  
+		    	   
+		    		  if (contador != 0)
+		    		  {
+		      
+				        // split on comma(',')  
+				        String[] fuels = line.split(splitBy);  
+				      
+				        // create car object to store values  
+				        Fuel fuelObject = new Fuel();  
+				      
+				        // add values from csv to car object  
+				       
+				        fuelObject.setIdTransaccion(fuels[0]);
+				        fuelObject.setCodigoPemex(fuels[1]);
+				        fuelObject.setEstacion(fuels[2]);
+				        fuelObject.setComprobante(fuels[3]);
+				        fuelObject.setTarjeta(fuels[4]);
+				        fuelObject.setPlaca(fuels[5]);
+				        fuelObject.setMarca(fuels[6]);
+				        fuelObject.setTipoCombustible(fuels[7]);
+				        fuelObject.setVolumen(fuels[8]);
+				        fuelObject.setPrecioUnidad(fuels[9]);
+				        fuelObject.setImporteTotal(fuels[10]);
+				        fuelObject.setImporte(fuels[11]);
+				        fuelObject.setIVA(fuels[12]);
+				        fuelObject.setFecha(fuels[13]);
+				        fuelObject.setCodigoChofer(fuels[14]);
+				        fuelObject.setNombreChofer(fuels[15]);
+				        fuelObject.setCentroCostos(fuels[16]);
+				        fuelObject.setRegion(fuels[17]);
+				        fuelObject.setGrupodeRegion(fuels[18]);
+				        fuelObject.setOdometro(fuels[19]);
+				        fuelObject.setKilometrajeAnterior(fuels[20]);
+				        fuelObject.setRecorrido(fuels[21]);
+				        fuelObject.setRendimiento(fuels[22]);
+				        fuelObject.setRendimientoStandar(fuels[23]);
+				        fuelObject.setCapacidadTanque(fuels[24]);
+				        fuelObject.setTipodeTransaccion(fuels[25]);
+				        fuelObject.setSaldoAnterior(fuels[26]);
+				        fuelObject.setNumeroEconomico(fuels[27]);
+			  
+				      
+				        // adding car objects to a list  
+				        fuelList.add(fuelObject);  
+		    		  }
+		    		  else
+		    		  {
+		    			  System.out.println(line);
+	
+		    		  }
+		    		  contador ++;
+		       }  
+  
+	      
+	      } catch (FileNotFoundException e) {  
+	       e.printStackTrace();  
+	      } catch (IOException e) {  
+	       e.printStackTrace();  
+	      }
+	      catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+	      finally {  
+	       if (br != null) {  
+	        try {  
+	         br.close();  
+	        } catch (IOException e) {  
+	         e.printStackTrace();  
+	        }  
+	       }  
+	      }  
+	      
+	      }
+		
+		
+		
+		
+	 }
+
+}

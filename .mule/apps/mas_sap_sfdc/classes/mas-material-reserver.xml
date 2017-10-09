@@ -18,6 +18,7 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
         <flow-ref name="send-materialReserveToSFDC" doc:name="send-materialReserveToSFDC"/>
 
         <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+        <exception-strategy ref="errorhandlingChoice_Exception_Strategy" doc:name="Reference Exception Strategy"/>
     </flow>
     <flow name="send-materialReserveToSAP">
         <dw:transform-message doc:name="Transform Message" metadata:id="ea6d9f49-a99d-49f4-bfef-dde55a961f1e">
@@ -52,12 +53,24 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
 %output application/java
 ---
 payload.ZPAIMF_RESERVAMATERIAL.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
-	Name: row.RSNUM,
+	Name:(row.RSNUM as :number) as :string ,
 	aib__Message__c: row.MESSAGE,
 	aib__Response__c: row.RPTA,
-	aib__WO_Name__c: row.GR_RCPT
+	aib__WO_Name__c: row.GR_RCPT,
+	aib__WO__r:
+	{
+		type: "aib__WO__c",
+		Name: row.GR_RCPT
+	}
 })]]></dw:set-payload>
         </dw:transform-message>
+        <set-variable variableName="listReserves" value="#[[]]" doc:name="listReserves"/>
+        <foreach doc:name="For Each">
+            <idempotent-message-filter idExpression="#[message.payload.Name]" doc:name="Idempotent Message"/>
+            <expression-component doc:name="Expression"><![CDATA[flowVars.listReserves.add(payload)]]></expression-component>
+        </foreach>
+        <set-payload value="#[flowVars.listReserves]" doc:name="Set Payload"/>
+
     </flow>
     <flow name="send-materialReserveToSFDC">
         <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Material_Reservation__c" doc:name="Salesforce">
@@ -65,7 +78,7 @@ payload.ZPAIMF_RESERVAMATERIAL.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
         </sfdc:upsert>
         <dw:transform-message doc:name="Transform Message">
             <dw:set-payload><![CDATA[%dw 1.0
-%output application/json
+%output application/java
 ---
 payload map
 {
@@ -79,6 +92,7 @@ payload map
 	success: $.success
 } ]]></dw:set-payload>
         </dw:transform-message>
+
         <object-to-string-transformer doc:name="Object to String"/>
     </flow>
 

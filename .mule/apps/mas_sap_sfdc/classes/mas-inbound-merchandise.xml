@@ -19,6 +19,7 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
         <flow-ref name="send-InboundToSFDC" doc:name="send-InboundToSFDC"/>
 
         <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+        <exception-strategy ref="errorhandlingChoice_Exception_Strategy" doc:name="Reference Exception Strategy"/>
 
     </flow>
     <flow name="send-InboundToSAP">

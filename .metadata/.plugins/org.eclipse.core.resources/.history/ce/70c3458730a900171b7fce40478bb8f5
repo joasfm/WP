@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="mas-assetsFlow" processingStrategy="synchronous">
+        <enricher target="#[flowVars.idSyncAsse]" doc:name="Message Enricher">
+            <flow-ref name="mas-assets-StartSync" doc:name="mas-assets-StartSync"/>
+        </enricher>
+
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZPAIMF_CONSULTARACTIVOS: {
+		tables: {
+			T_OUTPUT: {
+				row: null
+			}
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:xml-to-function doc:name="XML to SAP Function (BAPI)"/>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZPAIMF_CONSULTARACTIVOS" outputXml="true" responseTimeout="10000" doc:name="ZPAIMF_CONSULTARACTIVOS"/>
+
+
+        <sap:object-to-xml doc:name="SAP Object to XML"/>
+
+        <foreach doc:name="For Each">
+            <expression-component doc:name="Expression"><![CDATA[java.lang.String Denominacion = "";
+java.lang.String ecoNum = "";
+Denominacion = payload.denominacion;
+
+if(Denominacion.startsWith("U."))
+{
+   java.util.ArrayList [] Cadena = Denominacion.split("\\s");
+ //  System.out.println (Cadena[1]);
+	ecoNum = payload.aib__Model_Year__c + "-" + Cadena[1];
+//	System.out.println (ecoNum);
+  	payload.put("aib__External_ID__c", ecoNum);
+   payload.remove("denominacion");
+	 
+}
+else
+{
+	 payload.remove("denominacion");
+  	payload.put("aib__External_ID__c", payload.aib__Model_Year__c + "-" + Denominacion);
+}
+
+]]></expression-component>
+        </foreach>
+        <logger message="#['Cantidad: ' + payload.size()]" level="INFO" doc:name="Logger"/>
+        <foreach batchSize="200" doc:name="For Each">
+            <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__Asset__c" doc:name="Salesforce">
+                <sfdc:objects ref="#[payload]"/>
+            </sfdc:upsert>
+
+
+            <logger level="INFO" doc:name="Logger" message="#[flowVars.counter]"/>
+        </foreach>
+        <flow-ref name="mas-assets-EndSync" doc:name="mas-assets-EndSync"/>
+        <set-payload value="#[{}]" doc:name="Set Payload"/>
+
+        <logger level="INFO" doc:name="Logger"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <dw:transform-message doc:name="Transform Message">
+                <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Id: flowVars.idSyncAsset,
+	aib__Status__c: "ERROR",
+	aib__synced_at__c: now
+}]]></dw:set-payload>
+            </dw:transform-message>
+            <sfdc:update-single config-ref="Salesforce_Authentication" type="aib__Asset_Sync__c" doc:name="Salesforce"/>
+            <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        </catch-exception-strategy>
+    </flow>
+    <flow name="mas-assets-StartSync">
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	aib__started_at__c: now
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sfdc:create-single config-ref="Salesforce_Authentication" type="aib__Asset_Sync__c" doc:name="Salesforce"/>
+        <set-payload value="#[payload.id]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mas-assets-EndSync">
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	Id: flowVars.idSyncAsset,
+	aib__Status__c: "OK",
+	aib__synced_at__c: now
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sfdc:update-single config-ref="Salesforce_Authentication" type="aib__Asset_Sync__c" doc:name="Salesforce"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>

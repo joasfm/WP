@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;sima.utils.Fuel.SaldoActual&apos; in &apos;sima.utils.Fuel&apos;&#x0D;&#x0A;- Original project: &apos;mas_sap_sfdc&apos;&#x0D;&#x0A;- Original element: &apos;sima.utils.Fuel.SaldoActual&apos;&#x0D;&#x0A;- Getter method name: &apos;getSaldoActual&apos;&#x0D;&#x0A;- Setter method name: &apos;setSaldoActual&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;SaldoActual&apos;" flags="589830" getter="getSaldoActual" id="org.eclipse.jdt.ui.self.encapsulate" input="/src\/main\/java&lt;sima.utils{Fuel.java[Fuel^SaldoActual" insertion="55" setter="setSaldoActual" stamp="1507415934887" version="1.0" visibility="1"/>
+</session>

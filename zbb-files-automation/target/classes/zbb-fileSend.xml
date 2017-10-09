@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <smtp:gmail-connector name="GmailConnector" contentType="text/plain" validateConnections="true" doc:name="Gmail"/>
+    <smtp:connector name="SMTP" contentType="application/xml" validateConnections="true" doc:name="SMTP"/>
+<flow name="put:/files-impl">
+        <logger message="Sending file: #[message.inboundProperties.originalFilename]" level="INFO" doc:name="Logger"/>
+        <set-variable variableName="fileName" value="#[message.inboundProperties.originalFilename]" doc:name="Original File Name"/>
+        <object-to-byte-array-transformer doc:name="Object to Byte Array"/>
+        <choice doc:name="Choice">
+            <when expression="#[payload.size() &gt; 2048]">
+                <http:request config-ref="HTTP_Request_Configuration" path="/{filename}?{path}" method="PUT" doc:name="HTTPS File Delivery to Azure">
+                    <http:request-builder>
+                        <http:uri-param paramName="filename" value="#[message.inboundProperties.originalFilename]"/>
+                        <http:uri-param paramName="path" value="${azure.path}"/>
+                        <http:header headerName="x-ms-blob-type" value="Blockblob"/>
+                    </http:request-builder>
+                </http:request>
+                <logger message="File #[flowVars.fileName] sent" level="INFO" doc:name="Logger"/>
+            </when>
+            <otherwise>
+                <logger message="File #[flowVars.fileName] is too small. File not sent." level="INFO" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+      <!-- <set-payload value="&lt;html&gt;&lt;body&gt;&lt;h1&gt;hola&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;" mimeType="application/xml" doc:name="Set Payload"/>
+        <smtp:outbound-endpoint host="chaac.hosting-mexico.net" port="465" user="mula%40danielavilahernandez.com" password="${smtp.password}" connector-ref="SMTP" to="${smtp.to}" subject="#[sessionVars.errorMessage]" responseTimeout="10000" doc:name="SMTP"/>
+        -->
+    </flow>
+
+</mule>

@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/q
     <context:property-placeholder location="classpath:common.properties, mule.${mule.env:test}.properties"/>
     <sfdc:config name="Salesforce_Authentication" username="${sfdc.username}" password="${sfdc.password}" securityToken="${sfdc.securityToken}" url="${sfdc.url}" doc:name="Salesforce: Basic Authentication"/>
     <sap:connector name="SAP" jcoAsHost="${sap.host}" jcoUser="${sap.user}" jcoPasswd="${sap.password}" jcoSysnr="${sap.systemnumber}" jcoClient="${sap.client}" jcoLang="${sap.language}" validateConnections="true" doc:name="SAP"/>
-    <sftp:connector name="SFTP" validateConnections="true" doc:name="SFTP"  autoDelete="false"/>
+    <sftp:connector name="SFTP" validateConnections="true" doc:name="SFTP"  autoDelete="false" archiveTempReceivingDir="/src/main/resources/EDENRED"/>
     <quartz:connector name="Quartz" validateConnections="true" doc:name="Quartz"/>
     <spring:beans>
         <spring:bean id="PollSynchronizer" name="PollSynchronizer" class="sima.utils.PollSynchronizer" scope="singleton"/>

@@ -71,17 +71,18 @@ payload.ZPAIMF_CONSULSTOCKINVENT.export.ET_STOCK_SF.*row map ((row , indexOfRow)
                 <dw:set-payload><![CDATA[%dw 1.0
 %output application/java
 ---
-[{
+{
 	Id: flowVars.idSync,
 	aib__status__c: "ERROR",
 	aib__synced_at__c: now
-}]]]></dw:set-payload>
+}]]></dw:set-payload>
             </dw:transform-message>
             <sfdc:update config-ref="Salesforce_Authentication" type="aib__Part_Sync__c" doc:name="Salesforce">
                 <sfdc:objects ref="#[payload]"/>
             </sfdc:update>
             <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         </catch-exception-strategy>
+
 
     </flow>
     <flow name="mas-stock-StartSync">

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <flow name="mas-outbound-merchandiseFlow" processingStrategy="synchronous">
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZPAIMF_SALIDASALESFORCE: {
+		import: {
+			IS_SALIDA_SF: {
+				STATT: "X",
+				AEDAT: ""
+			}
+		},
+		export: {
+			ET_SALIDA_SF: null
+
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZPAIMF_SALIDASALESFORCE" outputXml="true" responseTimeout="10000" doc:name="ZPAIMF_SALIDASALESFORCE"/>
+
+
+        <sap:object-to-xml doc:name="SAP Object to XML"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="61935933-aa40-40d5-b532-9da40c9b0204">
+            <dw:input-payload mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+
+{
+	message: "Sin informacion en SAP"
+} when payload.ZPAIMF_SALIDASALESFORCE.export.ET_SALIDA_SF.row  == null 
+otherwise
+payload.ZPAIMF_SALIDASALESFORCE.export.ET_SALIDA_SF.*row map ((row , indexOfRow) -> {
+	Name: row.MBLNR,
+	aib__Material__c: row.MATNR,
+	aib__Quantity__c: row.MENGE as :number,
+	aib__Agency_Code__c: row.WERKS,
+	aib__Warehouse__c: row.LGORT,
+	aib__WO_Name__c: row.WEMPF,
+	aib__Reserve__c: row.RSNUM as :number,
+	aib__Position__c: row.RSPOS as :number,
+	aib__UME__c: row.MEINS,
+	aib__Year__c: row.MJAHR as :number
+})]]></dw:set-payload>
+        </dw:transform-message>
+        <choice doc:name="Choice">
+            <when expression="#[payload.message == null]">
+                <sfdc:create config-ref="Salesforce_Authentication" type="aib__SAP_Outbound_Merch__c" doc:name="Salesforce">
+                    <sfdc:objects ref="#[payload]"/>
+                </sfdc:create>
+                <dw:transform-message doc:name="Transform Message" metadata:id="87e9f928-dc94-45c1-82b4-56c5eb458549">
+                    <dw:input-payload mimeType="application/java"/>
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload map
+{
+	created: $.created,
+	errors: [{
+		fields: $.errors.fields,
+		message: $.errors.message,
+		statusCode: $.errors.statusCode
+	}],
+	id: $.id,
+	success: $.success
+} ]]></dw:set-payload>
+                </dw:transform-message>
+                <object-to-string-transformer doc:name="Object to String"/>
+            </when>
+            <otherwise>
+                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+    </flow>
+</mule>

@@ -99,8 +99,8 @@ baseUri: http://api.samplehost.com
 /purchaseOrder:
   post:
    queryParameters:
-      language:
-        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+      date:
+        description: fecha a consultar.
         type: string
    responses:
       200:
@@ -178,8 +178,8 @@ baseUri: http://api.samplehost.com
 /outboundMerch:
   post:
    queryParameters:
-      language:
-        description: The user's language code (ISO-639). If the server can provide a url for a matching localized string resource, it will. By default, a url linked to an English resource is returned.
+      date:
+        description: Fecha a consultar.
         type: string
    responses:
       200:

@@ -10,7 +10,8 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
 http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <flow name="mas-purchase-orderFlow" processingStrategy="synchronous">
-        <dw:transform-message doc:name="Transform Message">
+        <set-payload value="#[message.inboundProperties['http.query.params']['date']]" doc:name="Set Payload"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="ee72e2a3-a7d5-49fd-8d7c-16c227bc9820">
             <dw:set-payload><![CDATA[%dw 1.0
 %output application/xml
 ---
@@ -19,7 +20,8 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 		import: {
 			IS_PEDIDO_SF: {
 				STATT: "X",
-				AEDAT: ""
+				AEDAT: "" when payload == null otherwise payload as :string 
+
 			}
 		},
 		export: {
@@ -29,7 +31,8 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 	
 }]]></dw:set-payload>
         </dw:transform-message>
-        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZAAPMF_PEDIDOSALESFORCE" outputXml="true" responseTimeout="10000" doc:name="ZAAPMF_PEDIDOSALESFORCE"/>
+        <flow-ref name="mas-purchase-order-toSAP" doc:name="mas-purchase-order-toSAP"/>
+
         <sap:object-to-xml doc:name="SAP Object to XML"/>
         <dw:transform-message doc:name="Transform Message" metadata:id="6127a11e-5b1e-45fb-962f-a5fab16a3a9a">
             <dw:input-payload doc:sample="sample_data\ZPAIMF_PEDIDOSALESFORCE.xml" mimeType="application/xml"/>
@@ -37,7 +40,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 %output application/java
 ---
 {
-	message: "Sin informacion en SAP"
+	validation: "Sin informacion en SAP"
 } when payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.row  == null 
 otherwise
 payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.*row map ((row , indexOfRow) -> {
@@ -54,10 +57,9 @@ payload.ZAAPMF_PEDIDOSALESFORCE.export.ET_PEDIDO_SF.*row map ((row , indexOfRow)
 })]]></dw:set-payload>
         </dw:transform-message>
         <choice doc:name="Choice">
-            <when expression="#[payload.message == null]">
-                <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Purchase_Order__c" doc:name="Salesforce">
-                    <sfdc:objects ref="#[payload]"/>
-                </sfdc:upsert>
+            <when expression="#[payload.validation == null]">
+                <flow-ref name="mas-purchase-order-toSFDC" doc:name="mas-purchase-order-toSFDC"/>
+
                 <dw:transform-message doc:name="Transform Message">
                     <dw:set-payload><![CDATA[%dw 1.0
 %output application/json
@@ -80,10 +82,17 @@ payload map
                 <logger message="#[payload]" level="INFO" doc:name="Logger"/>
             </otherwise>
         </choice>
+        <exception-strategy ref="errorhandlingChoice_Exception_Strategy" doc:name="Reference Exception Strategy"/>
 
 
-
-        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+    </flow>
+    <flow name="mas-purchase-order-toSFDC">
+        <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Purchase_Order__c" doc:name="Salesforce">
+            <sfdc:objects ref="#[payload]"/>
+        </sfdc:upsert>
+    </flow>
+    <flow name="mas-purchase-order-toSAP">
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZAAPMF_PEDIDOSALESFORCE" outputXml="true" responseTimeout="10000" doc:name="ZAAPMF_PEDIDOSALESFORCE"/>
     </flow>
 
 
