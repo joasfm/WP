@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+    <choice-exception-strategy name="errorhandlingChoice_Exception_Strategy">
+                   <catch-exception-strategy when="#[exception.causedBy(org.mule.api.transport.DispatchException)]" doc:name="SAP Conncetion Error">
+                <logger level="INFO" doc:name="Logger"/>
+            </catch-exception-strategy>
+            <catch-exception-strategy when="#[exception.causedBy(java.net.ConnectException)]" doc:name="Salesforce Connection Error">
+                <logger level="INFO" doc:name="Logger"/>
+            </catch-exception-strategy>
+            	<catch-exception-strategy
+			when="#[exception.causedBy(java.io.IOException)]" doc:name="IO Exception Strategy">
+			<logger level="ERROR" message="IO Exception: #[exception.message]."
+				doc:name="Logger" />
+                <expression-component doc:name="Expression"><![CDATA[flowVars.Status = "ERROR";
+flowVars.errorMsg = exception.message;]]></expression-component>
+                <flow-ref name="mas-edenred-UpdateSync" doc:name="mas-edenred-UpdateSync"/>
+		</catch-exception-strategy>
+    </choice-exception-strategy>
+</mule>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_hV-28KLxEeexpLcpsPNJVg" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_hV-28aLxEeexpLcpsPNJVg" bindingContexts="_hWAFg6LxEeexpLcpsPNJVg">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-jobs.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-jobs.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-jobs.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;config.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/config.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/config.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-edenred.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-edenred.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-edenred.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule-app.properties&quot; tooltip=&quot;zbb-files-automation/src/main/app/mule-app.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/mule-app.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;zbb-fileSend.xml&quot; tooltip=&quot;zbb-files-automation/src/main/app/zbb-fileSend.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/zbb-fileSend.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;zbb-fileFetch.xml&quot; tooltip=&quot;zbb-files-automation/src/main/app/zbb-fileFetch.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/zbb-fileFetch.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;api.xml&quot; tooltip=&quot;zbb-files-automation/src/main/app/api.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/api.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule-app.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mule-app.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mule-app.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;common.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/common.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/resources/common.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule.dev.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/mule.dev.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/resources/mule.dev.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-material-reserver.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-material-reserver.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-material-reserver.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Snippet.java&quot; tooltip=&quot;zbb-files-automation/src/main/app/snippet/Snippet.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/snippet/Snippet.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SFTPinJava.java&quot; tooltip=&quot;mas_sap_sfdc/src/main/java/sima/utils/SFTPinJava.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/java/sima/utils/SFTPinJava.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;StringToJSON.java&quot; tooltip=&quot;mas_sap_sfdc/src/main/java/sima/utils/StringToJSON.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/java/sima/utils/StringToJSON.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;api.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/api.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/api.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-purchase-order.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-purchase-order.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-purchase-order.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-material-reserver.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-material-reserver.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-material-reserver.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-edenred.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-edenred.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-edenred.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;errorhandling.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/errorhandling.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/errorhandling.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;StringToJSON.java&quot; tooltip=&quot;mas_sap_sfdc/src/main/java/sima/utils/StringToJSON.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/java/sima/utils/StringToJSON.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;common.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/common.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/resources/common.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.properties.editors.MultiPagePropertiesEditor&quot; name=&quot;mule.dev.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/mule.dev.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/resources/mule.dev.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule.qa.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/mule.qa.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/resources/mule.qa.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule-app.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mule-app.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mule-app.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-jobs.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-jobs.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/mas-jobs.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Fuel.java&quot; tooltip=&quot;mas_sap_sfdc/src/main/java/sima/utils/Fuel.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/java/sima/utils/Fuel.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;config.xml&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/config.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/mas_sap_sfdc/src/main/app/config.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule-app.properties&quot; tooltip=&quot;zbb-files-automation/src/main/app/mule-app.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/mule-app.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;zbb-fileSend.xml&quot; tooltip=&quot;zbb-files-automation/src/main/app/zbb-fileSend.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/zbb-fileSend.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;zbb-fileFetch.xml&quot; tooltip=&quot;zbb-files-automation/src/main/app/zbb-fileFetch.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/zbb-files-automation/src/main/app/zbb-fileFetch.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_hV-28aLxEeexpLcpsPNJVg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_hV-28qLxEeexpLcpsPNJVg" x="-8" y="0" width="976" height="1038">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_hV-28aLxEeexpLcpsPNJVg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_hV-28qLxEeexpLcpsPNJVg" x="775" y="0" width="976" height="1038">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -81,11 +81,12 @@
               <children xsi:type="basic:PartSashContainer" xmi:id="_hV-2_6LxEeexpLcpsPNJVg" containerData="6225" selectedElement="_hV-3AKLxEeexpLcpsPNJVg" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_hV-3AKLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.editorss" containerData="8466" ref="_hV_eCaLxEeexpLcpsPNJVg"/>
                 <children xsi:type="basic:PartStack" xmi:id="_hV-3AaLxEeexpLcpsPNJVg" elementId="right" containerData="1534" selectedElement="_hV-3AqLxEeexpLcpsPNJVg">
+                  <tags>active</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3AqLxEeexpLcpsPNJVg" elementId="org.mule.tooling.ui.palette.PaletteView" ref="_hV_edKLxEeexpLcpsPNJVg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3A6LxEeexpLcpsPNJVg" elementId="org.mule.tooling.apikit.common.views.ApiSyncView" toBeRendered="false" ref="_hV_ed6LxEeexpLcpsPNJVg"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_hV-3BKLxEeexpLcpsPNJVg" elementId="bottom" containerData="3775" selectedElement="_hV-3CKLxEeexpLcpsPNJVg">
+              <children xsi:type="basic:PartStack" xmi:id="_hV-3BKLxEeexpLcpsPNJVg" elementId="bottom" containerData="3775" selectedElement="_hV-3BaLxEeexpLcpsPNJVg">
                 <tags>MuleSoft</tags>
                 <tags>APIkit Views</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_hV-3BaLxEeexpLcpsPNJVg" elementId="org.mule.tooling.properties.views.MulePropertiesView" ref="_hV_eUKLxEeexpLcpsPNJVg"/>
@@ -156,30 +157,24 @@
           <tags>persp.newWizSC:org.raml.apikitWizard</tags>
           <tags>persp.newWizSC:org.raml.yamlPolicyWizard</tags>
           <tags>persp.newWizSC:org.raml.xmlPolicyWizard</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_hV-3DqLxEeexpLcpsPNJVg" selectedElement="_hV-3D6LxEeexpLcpsPNJVg">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_hV-3DqLxEeexpLcpsPNJVg" selectedElement="_hV-3FaLxEeexpLcpsPNJVg">
             <children xsi:type="basic:PartSashContainer" xmi:id="_hV-3D6LxEeexpLcpsPNJVg" containerData="3589" selectedElement="_hV-3EKLxEeexpLcpsPNJVg" horizontal="true">
-              <children xsi:type="advanced:Placeholder" xmi:id="_hV-3EKLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.editorss" containerData="8559" ref="_hV_eCaLxEeexpLcpsPNJVg">
-                <tags>Maximized</tags>
-              </children>
-              <children xsi:type="basic:PartStack" xmi:id="_hV-3EaLxEeexpLcpsPNJVg" elementId="debug-top-right" visible="false" containerData="1441" selectedElement="_hV-3FKLxEeexpLcpsPNJVg">
-                <tags>Minimized</tags>
-                <tags>MinimizedByZoom</tags>
+              <children xsi:type="advanced:Placeholder" xmi:id="_hV-3EKLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.editorss" containerData="8559" ref="_hV_eCaLxEeexpLcpsPNJVg"/>
+              <children xsi:type="basic:PartStack" xmi:id="_hV-3EaLxEeexpLcpsPNJVg" elementId="debug-top-right" containerData="1441" selectedElement="_hV-3FKLxEeexpLcpsPNJVg">
                 <children xsi:type="advanced:Placeholder" xmi:id="_hV-3EqLxEeexpLcpsPNJVg" elementId="org.mule.tooling.ui.contribution.debugger.watches" ref="_hV_eiaLxEeexpLcpsPNJVg"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_hV-3E6LxEeexpLcpsPNJVg" elementId="org.mule.tooling.ui.contribution.debugger.breakpoints" ref="_hV_ejKLxEeexpLcpsPNJVg"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_hV-3FKLxEeexpLcpsPNJVg" elementId="org.mule.tooling.ui.palette.PaletteView" ref="_hV_edKLxEeexpLcpsPNJVg"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_hV-3FaLxEeexpLcpsPNJVg" visible="false" containerData="6411" selectedElement="_YEBd4KRmEeegOLMb4IHEXw" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_hV-3FaLxEeexpLcpsPNJVg" containerData="6411" selectedElement="_YEBd4KRmEeegOLMb4IHEXw" horizontal="true">
               <children xsi:type="basic:PartStack" xmi:id="_hV-3FqLxEeexpLcpsPNJVg" elementId="org.eclipse.jdt.munit.ResultViewMStack" visible="false" containerData="5000" selectedElement="_hV-3F6LxEeexpLcpsPNJVg">
                 <tags>Minimized</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_hV-3F6LxEeexpLcpsPNJVg" elementId="org.eclipse.jdt.munit.ResultView" ref="_hV_eeKLxEeexpLcpsPNJVg"/>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_YEBd4KRmEeegOLMb4IHEXw" visible="false" containerData="5000" selectedElement="_XEnPUaRmEeegOLMb4IHEXw" horizontal="true">
-                <children xsi:type="basic:PartStack" xmi:id="_hV-3GKLxEeexpLcpsPNJVg" elementId="bottom" visible="false" containerData="4854" selectedElement="_hV-3IKLxEeexpLcpsPNJVg">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_YEBd4KRmEeegOLMb4IHEXw" containerData="5000" selectedElement="_XEnPUaRmEeegOLMb4IHEXw" horizontal="true">
+                <children xsi:type="basic:PartStack" xmi:id="_hV-3GKLxEeexpLcpsPNJVg" elementId="bottom" containerData="4854" selectedElement="_hV-3H6LxEeexpLcpsPNJVg">
                   <tags>APIkit Views</tags>
                   <tags>MuleSoft</tags>
-                  <tags>Minimized</tags>
-                  <tags>MinimizedByZoom</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3GaLxEeexpLcpsPNJVg" elementId="org.eclipse.search.ui.views.SearchView" toBeRendered="false" ref="_hV_eWqLxEeexpLcpsPNJVg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3GqLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_hV_ecqLxEeexpLcpsPNJVg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3G6LxEeexpLcpsPNJVg" elementId="org.eclipse.ui.views.ProgressView" toBeRendered="false" ref="_hV_ec6LxEeexpLcpsPNJVg"/>
@@ -187,9 +182,7 @@
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3H6LxEeexpLcpsPNJVg" elementId="org.mule.tooling.apikit.common.views.APIkitConsolesView:mas_sap_sfdc" ref="_hV_ehqLxEeexpLcpsPNJVg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3IKLxEeexpLcpsPNJVg" elementId="org.mule.tooling.properties.views.MulePropertiesView" ref="_hV_eUKLxEeexpLcpsPNJVg"/>
                 </children>
-                <children xsi:type="basic:PartStack" xmi:id="_XEnPUaRmEeegOLMb4IHEXw" elementId="PartStack@7d89ad31" visible="false" containerData="5146" selectedElement="_hV-3HqLxEeexpLcpsPNJVg">
-                  <tags>Minimized</tags>
-                  <tags>MinimizedByZoom</tags>
+                <children xsi:type="basic:PartStack" xmi:id="_XEnPUaRmEeegOLMb4IHEXw" elementId="PartStack@7d89ad31" containerData="5146" selectedElement="_hV-3HqLxEeexpLcpsPNJVg">
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3HaLxEeexpLcpsPNJVg" elementId="org.mule.tooling.ui.contribution.debugger.view" ref="_hV_ee6LxEeexpLcpsPNJVg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_hV-3HqLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.console.ConsoleView" ref="_hV_eXqLxEeexpLcpsPNJVg"/>
                 </children>
@@ -303,82 +296,20 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_hV_eCaLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.editorss" selectedElement="_hV_eCqLxEeexpLcpsPNJVg">
-      <children xsi:type="basic:PartStack" xmi:id="_hV_eCqLxEeexpLcpsPNJVg" elementId="PartStack@3d3b4e09" selectedElement="_HRynQKvvEeeLVYOwdv7tOg">
+      <children xsi:type="basic:PartStack" xmi:id="_hV_eCqLxEeexpLcpsPNJVg" elementId="PartStack@3d3b4e09" selectedElement="_T8vr0K3wEeeZ5popb-f-9w">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_PJQRYKuwEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Fuel.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Fuel.java&quot; partName=&quot;Fuel.java&quot; title=&quot;Fuel.java&quot; tooltip=&quot;mas_sap_sfdc/src/main/java/sima/utils/Fuel.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/java/sima/utils/Fuel.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2770&quot; selectionTopPixel=&quot;3078&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_TQMKMKuzEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mas-edenred" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-edenred.xml&quot; partName=&quot;mas-edenred&quot; title=&quot;mas-edenred&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-edenred.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/mas-edenred.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.mule.tooling.messageflow.messageFlowEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_clLtMKu_EeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="api" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;api.xml&quot; partName=&quot;api&quot; title=&quot;api&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/api.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/api.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.mule.tooling.messageflow.messageFlowEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_UIBzUKvCEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mas-material-reserver" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
+        <children xsi:type="basic:Part" xmi:id="_I0VCYK3vEeeZ5popb-f-9w" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mas-material-reserver" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-material-reserver.xml&quot; partName=&quot;mas-material-reserver&quot; title=&quot;mas-material-reserver&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-material-reserver.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/mas-material-reserver.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.mule.tooling.messageflow.messageFlowEditor</tags>
           <tags>removeOnHide</tags>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_nvZ7MKvFEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="SFTPinJava.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SFTPinJava.java&quot; partName=&quot;SFTPinJava.java&quot; title=&quot;SFTPinJava.java&quot; tooltip=&quot;mas_sap_sfdc/src/main/java/sima/utils/SFTPinJava.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/java/sima/utils/SFTPinJava.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3578&quot; selectionTopPixel=&quot;1380&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_tFIwIKvNEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mule.dev.properties" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/file_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule.dev.properties&quot; partName=&quot;mule.dev.properties&quot; title=&quot;mule.dev.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/mule.dev.properties&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/resources/mule.dev.properties&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;8&quot; selectionOffset=&quot;1&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.PropertiesFileEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_uSf7IKvNEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="common.properties" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/file_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;common.properties&quot; partName=&quot;common.properties&quot; title=&quot;common.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/resources/common.properties&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/resources/common.properties&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.PropertiesFileEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_0dKtoKvNEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mule-app.properties" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/file_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule-app.properties&quot; partName=&quot;mule-app.properties&quot; title=&quot;mule-app.properties&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mule-app.properties&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/mule-app.properties&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;296&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.PropertiesFileEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_ie-0UKvOEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="api" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;api.xml&quot; partName=&quot;api&quot; title=&quot;api&quot; tooltip=&quot;zbb-files-automation/src/main/app/api.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/zbb-files-automation/src/main/app/api.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_T8vr0K3wEeeZ5popb-f-9w" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mas-purchase-order" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-purchase-order.xml&quot; partName=&quot;mas-purchase-order&quot; title=&quot;mas-purchase-order&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-purchase-order.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/mas-purchase-order.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.mule.tooling.messageflow.messageFlowEditor</tags>
           <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_xX0Q0KvOEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mule-app.properties" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/file_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;mule-app.properties&quot; partName=&quot;mule-app.properties&quot; title=&quot;mule-app.properties&quot; tooltip=&quot;zbb-files-automation/src/main/app/mule-app.properties&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/zbb-files-automation/src/main/app/mule-app.properties&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;414&quot; selectionTopPixel=&quot;65&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.PropertiesFileEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_xZsIAKvtEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="mas-jobs" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;mas-jobs.xml&quot; partName=&quot;mas-jobs&quot; title=&quot;mas-jobs&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/mas-jobs.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/mas-jobs.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.mule.tooling.messageflow.messageFlowEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_HRynQKvvEeeLVYOwdv7tOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="config" iconURI="platform:/plugin/org.mule.tooling.messageflow/icons/Mule-16x16.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.mule.tooling.messageflow.messageFlowEditor&quot; name=&quot;config.xml&quot; partName=&quot;config&quot; title=&quot;config&quot; tooltip=&quot;mas_sap_sfdc/src/main/app/config.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mas_sap_sfdc/src/main/app/config.xml&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.mule.tooling.messageflow.messageFlowEditor</tags>
-          <tags>removeOnHide</tags>
-          <tags>active</tags>
         </children>
       </children>
     </sharedElements>
@@ -463,6 +394,7 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:MuleSoft</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_hV_eUaLxEeexpLcpsPNJVg" elementId="org.mule.tooling.properties.views.MulePropertiesView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -470,7 +402,7 @@
       <toolbar xmi:id="_hV_eUqLxEeexpLcpsPNJVg" elementId="org.mule.tooling.properties.views.MulePropertiesView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_hV_eU6LxEeexpLcpsPNJVg" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/problems_view.png" tooltip="" closeable="true">
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (27 items)&quot;/>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Errors&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;120&quot; org.eclipse.ui.ide.markerType=&quot;120&quot; org.eclipse.ui.ide.pathField=&quot;160&quot; org.eclipse.ui.ide.resourceField=&quot;120&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;400&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (31 items)&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;120&quot; org.eclipse.ui.ide.markerType=&quot;120&quot; org.eclipse.ui.ide.pathField=&quot;160&quot; org.eclipse.ui.ide.resourceField=&quot;120&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;400&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_hV_eVKLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.views.ProblemView">
@@ -533,7 +465,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:org.eclipse.debug.ui.ProcessConsoleType.#ContextMenu</tags>
       </menus>
-      <toolbar xmi:id="_hV_eY6LxEeexpLcpsPNJVg" elementId="org.eclipse.ui.console.ConsoleView"/>
+      <toolbar xmi:id="_hV_eY6LxEeexpLcpsPNJVg" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_hV_ecqLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <tags>View</tags>
@@ -547,6 +479,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:MuleSoft</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_hV_edaLxEeexpLcpsPNJVg" elementId="org.mule.tooling.ui.palette.PaletteView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -715,7 +649,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_hV_eraLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4FPkYKlYEeeLVYOwdv7tOg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_hWAvB6LxEeexpLcpsPNJVg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MGucgK3JEeeZ5popb-f-9w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_hWAvB6LxEeexpLcpsPNJVg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_hV_eu6LxEeexpLcpsPNJVg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -727,10 +661,10 @@
       <children xsi:type="menu:ToolBar" xmi:id="_hV_e7KLxEeexpLcpsPNJVg" elementId="org.eclipse.jdt.ui.JavaElementCreationActionSet" visible="false">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_hV_e8aLxEeexpLcpsPNJVg" elementId="org.eclipse.search.searchActionSet">
+      <children xsi:type="menu:ToolBar" xmi:id="_hV_e8aLxEeexpLcpsPNJVg" elementId="org.eclipse.search.searchActionSet" visible="false">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_hV_e9aLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_hV_e9aLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_hV_e9qLxEeexpLcpsPNJVg" elementId="group.nav" toBeRendered="false">
@@ -739,7 +673,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_hV_e-KLxEeexpLcpsPNJVg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_4FSAoalYEeeLVYOwdv7tOg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_hWAuZaLxEeexpLcpsPNJVg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_MGxf0K3JEeeZ5popb-f-9w" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_hWAuZaLxEeexpLcpsPNJVg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_hV_fB6LxEeexpLcpsPNJVg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

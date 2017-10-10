@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd
+http://www.mulesoft.org/schema/mule/sfdc http://www.mulesoft.org/schema/mule/sfdc/current/mule-sfdc.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd">
+    <flow name="mas-material-reserverFlow">
+        <set-variable variableName="counterRetrive" value="0" doc:name="counterRetrive"/>
+        <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
+        <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <flow-ref name="send-materialReserveToSAP" doc:name="send-materialReserveToSAP"/>
+        <flow-ref name="send-materialReserveToSFDC" doc:name="send-materialReserveToSFDC"/>
+
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+    <choice-exception-strategy name="errorhandlingChoice_Exception_Strategy" doc:name="errorhandlingChoice_Exception_Strategy">
+                   <catch-exception-strategy when="#[exception.causedBy(org.mule.api.transport.DispatchException)]" doc:name="SAP Conncetion Error">
+                <logger level="INFO" doc:name="Logger"/>
+                <flow-ref name="mas-material-reserverErrorHandling" doc:name="mas-material-reserverErrorHandling"/>
+            </catch-exception-strategy>
+            <catch-exception-strategy when="#[exception.causedBy(java.net.ConnectException)]" doc:name="Salesforce Connection Error">
+                <logger level="INFO" doc:name="Logger" message="Error de conexion a SFDC. "/>
+            </catch-exception-strategy>
+
+    </choice-exception-strategy>
+    </flow>
+    <flow name="send-materialReserveToSAP">
+        <dw:transform-message doc:name="Transform Message" metadata:id="ea6d9f49-a99d-49f4-bfef-dde55a961f1e">
+            <dw:input-payload mimeType="application/java"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+{
+	ZPAIMF_RESERVAMATERIAL: {
+		tables: {
+			T_INPUT: {
+				( payload map {
+				row: {
+					COSTCENTER:  $.costCenter as :string,
+					MATERIAL: $.material as :string,
+					ENTRY_QNT: $.quantity as :string,
+					PLANT: $.center as :string,
+					STGE_LOC: $.warehouse as :string,
+					GR_RCPT: $.workOrder as :string
+				}
+				}
+				)
+			}
+		}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <sap:outbound-endpoint exchange-pattern="request-response" connector-ref="SAP" type="function" functionName="ZPAIMF_RESERVAMATERIAL" outputXml="true" responseTimeout="10000" doc:name="SAP"/>
+        <dw:transform-message doc:name="Transform Message" metadata:id="b42fa445-321d-4601-9844-bdb4d90d6942">
+            <dw:input-payload mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload.ZPAIMF_RESERVAMATERIAL.tables.T_OUTPUT.*row map ((row , indexOfRow) -> {
+	Name:(row.RSNUM as :number) as :string ,
+	aib__Message__c: row.MESSAGE,
+	aib__Response__c: row.RPTA,
+	aib__WO_Name__c: row.GR_RCPT,
+	aib__WO__r:
+	{
+		type: "aib__WO__c",
+		Name: row.GR_RCPT
+	}
+})]]></dw:set-payload>
+        </dw:transform-message>
+        <set-variable variableName="listReserves" value="#[[]]" doc:name="listReserves"/>
+        <foreach doc:name="For Each">
+            <idempotent-message-filter idExpression="#[message.payload.Name]" doc:name="Idempotent Message"/>
+            <expression-component doc:name="Expression"><![CDATA[flowVars.listReserves.add(payload)]]></expression-component>
+        </foreach>
+        <set-payload value="#[flowVars.listReserves]" doc:name="Set Payload"/>
+
+    </flow>
+    <flow name="send-materialReserveToSFDC">
+        <sfdc:upsert config-ref="Salesforce_Authentication" externalIdFieldName="Name" type="aib__SAP_Material_Reservation__c" doc:name="Salesforce">
+            <sfdc:objects ref="#[payload]"/>
+        </sfdc:upsert>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload map
+{
+	created: $.created,
+	errors: [{
+		fields: $.errors.fields,
+		message: $.errors.message,
+		statusCode: $.errors.statusCode
+	}],
+	id: $.id,
+	success: $.success
+} ]]></dw:set-payload>
+        </dw:transform-message>
+
+        <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+    <flow name="mas-material-reserverErrorHandling">
+        <choice doc:name="Choice">
+            <when expression="#[flowVars['counterRetrive'] &lt; 5]">
+                <expression-component doc:name="Expression"><![CDATA[flowVars['counterRetrive'] ++;]]></expression-component>
+                <flow-ref name="send-materialReserveToSAP" doc:name="send-materialReserveToSAP"/>
+            </when>
+            <otherwise>
+                <flow-ref name="send-materialReserveToSFDC" doc:name="send-materialReserveToSFDC"/>
+            </otherwise>
+        </choice>
+    </flow>
+
+</mule>

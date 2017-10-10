@@ -16,13 +16,8 @@ http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/q
 http://www.mulesoft.org/schema/mule/mulerequester http://www.mulesoft.org/schema/mule/mulerequester/current/mule-mulerequester.xsd
 http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
     <file:connector name="File" autoDelete="false" streaming="true" validateConnections="true" doc:name="File"/>
-    <flow name="mas-edenredFlow1" processingStrategy="synchronous">
-        <poll doc:name="Poll">
-            <fixed-frequency-scheduler frequency="10" timeUnit="HOURS"/>
-            <processor-chain doc:name="Processor Chain">
-                <sftp:inbound-endpoint  connector-ref="SFTP" host="${sftp.host}" port="${sftp.port}" path="${sftp.path}" user="${sftp.user}" password="${sftp.password}" responseTimeout="10000" doc:name="SFTP"/>
-            </processor-chain>
-        </poll>
+    <flow name="mas-edenredFlow1" processingStrategy="synchronous" initialState="stopped">
+        <sftp:inbound-endpoint connector-ref="SFTP" host="${sftp.host}" port="${sftp.port}" path="${sftp.path}" user="${sftp.user}" password="${sftp.password}" responseTimeout="10000" pollingFrequency="3600000" doc:name="SFTP"/>
         <byte-array-to-string-transformer doc:name="Byte Array to String"/>
         <dw:transform-message doc:name="Transform Message" metadata:id="101e9c1e-b118-4aea-8eac-7ad8cd8f32fc">
             <dw:input-payload mimeType="application/csv"/>

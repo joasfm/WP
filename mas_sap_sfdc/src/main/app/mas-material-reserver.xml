@@ -11,6 +11,7 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
 http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd">
     <flow name="mas-material-reserverFlow">
+        <set-variable variableName="counterRetrive" value="0" doc:name="counterRetrive"/>
         <byte-array-to-object-transformer doc:name="Byte Array to Object"/>
         <custom-transformer class="sima.utils.StringToJSON" doc:name="Java"/>
         <logger message="#[payload]" level="INFO" doc:name="Logger"/>
@@ -18,7 +19,16 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
         <flow-ref name="send-materialReserveToSFDC" doc:name="send-materialReserveToSFDC"/>
 
         <logger level="INFO" doc:name="Logger" message="#[payload]"/>
-        <exception-strategy ref="errorhandlingChoice_Exception_Strategy" doc:name="Reference Exception Strategy"/>
+    <choice-exception-strategy name="errorhandlingChoice_Exception_Strategy" doc:name="errorhandlingChoice_Exception_Strategy">
+                   <catch-exception-strategy when="#[exception.causedBy(org.mule.api.transport.DispatchException)]" doc:name="SAP Conncetion Error">
+                <logger level="INFO" doc:name="Logger"/>
+                <flow-ref name="mas-material-reserverErrorHandling" doc:name="mas-material-reserverErrorHandling"/>
+            </catch-exception-strategy>
+            <catch-exception-strategy when="#[exception.causedBy(java.net.ConnectException)]" doc:name="Salesforce Connection Error">
+                <logger level="INFO" doc:name="Logger" message="Error de conexion a SFDC. "/>
+            </catch-exception-strategy>
+
+    </choice-exception-strategy>
     </flow>
     <flow name="send-materialReserveToSAP">
         <dw:transform-message doc:name="Transform Message" metadata:id="ea6d9f49-a99d-49f4-bfef-dde55a961f1e">
@@ -94,6 +104,32 @@ payload map
         </dw:transform-message>
 
         <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+    <flow name="mas-material-reserverErrorHandling">
+        <choice doc:name="Choice">
+            <when expression="#[flowVars['counterRetrive'] &lt;= 5]">
+                <expression-component doc:name="Expression"><![CDATA[flowVars['counterRetrive'] ++;]]></expression-component>
+                <flow-ref name="send-materialReserveToSAP" doc:name="send-materialReserveToSAP"/>
+            </when>
+            <otherwise>
+                <dw:transform-message doc:name="Transform Message" metadata:id="2ec53c6a-0568-489e-8beb-31b6ffa170a7">
+                    <dw:input-payload mimeType="application/json"/>
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload map ((payload01 , indexOfPayload01) -> {
+	Name: payload01.workOrder ++ payload01.material,
+	aib__Message__c: "Error de conexion en SAP",
+	aib__Response__c: "Error",
+	aib__WO__c: payload01.workOrder
+})
+				
+	
+			]]></dw:set-payload>
+                </dw:transform-message>
+                <flow-ref name="send-materialReserveToSFDC" doc:name="send-materialReserveToSFDC"/>
+            </otherwise>
+        </choice>
     </flow>
 
 </mule>

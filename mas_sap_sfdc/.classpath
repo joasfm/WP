@@ -18,5 +18,6 @@
 	<classpathentry kind="src" output="target/test-classes" path="src/test/munit"/>
 	<classpathentry kind="con" path="MULE_LIB/Mule Requester/org.mule.tooling.ui.contribution.mulerequester.3.5.0"/>
 	<classpathentry kind="lib" path="lib/super-csv-2.4.0.jar"/>
+	<classpathentry kind="con" path="MULE_LIB/Secure Property Placeholder/org.mule.tooling.ui.contribution.secure-property-placeholder.3.6.0"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

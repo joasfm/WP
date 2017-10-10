@@ -1,0 +1,10 @@
+#** GENERATED CONTENT ** Mule Custom Properties file.
+#Wed Oct 04 17:44:53 CDT 2017
+#sftp.path=/modelo/Interfaz
+#sftp.password=M0d3l0*
+#sftp.user=modelo
+#sftp.port=22
+secure.properties=sftp.host,sftp.user,sftp.password,sftp.path,sftp.locpath,sfdc.password,sfdc.securityToken,sap.password
+#sftp.locpath=/src/main/resources/EDENRED
+mule.env=dev
+#sftp.host=sftp01.edenred.com.mx
